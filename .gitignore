@@ -1,0 +1,21 @@
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage
+coverage
+.nyc_output
+
+# OS files
+.DS_Store
+
+# Generated files
+public
+
+# Dependency directories
+node_modules

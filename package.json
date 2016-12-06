@@ -1,0 +1,92 @@
+{
+  "name": "justinlivi.com",
+  "version": "0.1.0",
+  "description": "Personal website",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "pm2 start src/app.js --no-daemon",
+    "startDev": "pm2 start process.json --no-daemon",
+    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha test/index.js",
+    "build": "./node_modules/.bin/webpack",
+    "watch": "./node_modules/.bin/webpack --progress --colors --watch",
+    "eslint-pre-commit": "./scripts/eslint-pre-commit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustinLivi/justinlivi.com.git"
+  },
+  "keywords": [
+    "justin",
+    "livi",
+    "website",
+    "personal"
+  ],
+  "author": "Justin Livi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JustinLivi/justinlivi.com/issues"
+  },
+  "homepage": "https://github.com/JustinLivi/justinlivi.com#readme",
+  "dependencies": {
+    "babel-core": "^6.18.2",
+    "backbone": "^1.3.3",
+    "backbone.marionette": "^3.1.0",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "brinkbit-logger": "^0.3.0",
+    "browser-request": "^0.3.3",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "github-embed": "^0.1.15",
+    "helmet": "^3.1.0",
+    "highlight.js": "^9.8.0",
+    "hpp": "^0.2.1",
+    "jquery": "^3.1.1",
+    "justinlivi-community": "^1.0.0",
+    "justinlivi-dancing-sine": "^1.0.0",
+    "lodash": "^4.17.2",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.6.6",
+    "pug": "^2.0.0-beta6",
+    "qs": "^6.3.0",
+    "request": "^2.78.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.8",
+    "babel-plugin-__coverage__": "^11.0.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-babili": "0.0.9",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "babili-webpack-plugin": "0.0.7",
+    "brinkbit-style-es6": "^1.0.3",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^3.1.3",
+    "css-loader": "^0.14.0",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "json-loader": "^0.5.4",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "mocha": "^3.1.2",
+    "nyc": "^9.0.1",
+    "pre-commit": "^1.1.3",
+    "resolve-url-loader": "^1.6.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3"
+  },
+  "pre-commit": [
+    "eslint-pre-commit"
+  ]
+}
