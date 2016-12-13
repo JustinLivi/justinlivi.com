@@ -1,6 +1,7 @@
 FROM node:6.9.1
 
 RUN npm install -g pm2
+RUN npm install -g node-gyp
 
 COPY package.json package.json
 RUN npm install
