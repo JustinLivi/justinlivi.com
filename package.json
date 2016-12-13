@@ -33,12 +33,9 @@
     "backbone.marionette": "^3.1.0",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
-    "bootstrap": "^3.3.7",
     "brinkbit-logger": "^0.3.0",
-    "browser-request": "^0.3.3",
     "compression": "^1.6.2",
     "express": "^4.14.0",
-    "github-embed": "^0.1.15",
     "helmet": "^3.1.0",
     "highlight.js": "^9.8.0",
     "hpp": "^0.2.1",
@@ -47,10 +44,7 @@
     "justinlivi-dancing-sine": "^1.0.0",
     "lodash": "^4.17.2",
     "method-override": "^2.3.7",
-    "mongoose": "^4.6.6",
-    "pug": "^2.0.0-beta6",
-    "qs": "^6.3.0",
-    "request": "^2.78.0"
+    "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
