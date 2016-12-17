@@ -32,6 +32,10 @@ const config = {
             from: 'justinlivi-community/src/statement/',
             to: 'statements',
             context: nodeModulesPath,
+        }, {
+            from: 'justinlivi-watercolor-sediment/src/statement/',
+            to: 'statements',
+            context: nodeModulesPath,
         }]),
         new webpack.ProvidePlugin({
             $: 'jquery',
@@ -48,7 +52,7 @@ const config = {
     },
 };
 
-if ( process.env.NODE_ENV === 'production') {
+if ( process.env.NODE_ENV === 'production' ) {
     config.plugins = config.plugins.concat([
         new BabiliPlugin({
             comments: false,
