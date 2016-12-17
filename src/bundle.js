@@ -32,7 +32,6 @@ const App = Mn.Application.extend({
     showApp: function showApp( appName, method ) {
         let previous;
         let next;
-        console.log( appName, apps );
         const selected = _.find( apps, ( app, index ) => {
             if ( app.data.uri === appName ) {
                 previous = index === 0 ? apps[apps.length - 1] : apps[index - 1];
