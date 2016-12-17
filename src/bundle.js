@@ -8,6 +8,7 @@ const Mn = require( 'backbone.marionette' );
 const $ = require( 'jquery' );
 const dancingsine = require( 'justinlivi-dancing-sine' );
 const community = require( 'justinlivi-community' );
+const watercolorsediment = require( 'justinlivi-watercolor-sediment' );
 const _ = require( 'lodash' );
 
 const AppView = require( './views/app/index' );
@@ -16,6 +17,7 @@ const AboutView = require( './views/about' );
 const apps = [
     dancingsine,
     community,
+    watercolorsediment,
 ];
 
 const Router = Mn.AppRouter.extend({
