@@ -1,0 +1,27 @@
+.swipeHandler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#253b48+0,20203e+50,312051+100 */
+    background: #253b48; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #253b48 0%, #20203e 50%, #312051 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #253b48 0%,#20203e 50%,#312051 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #253b48 0%,#20203e 50%,#312051 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#253b48', endColorstr='#312051',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.duck {
+  display: block;
+  width: 120px;
+  margin: 1.5rem auto;
+}
