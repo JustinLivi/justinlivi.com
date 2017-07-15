@@ -10,13 +10,9 @@
 }
 
 main {
-    margin: auto;
     width: 100%;
+    position: relative;
     flex-grow: 2;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 1em;
 }
 
 nav {
@@ -26,30 +22,4 @@ nav {
     justify-content: space-between;
     flex-shrink: 0;
     padding: 1em;
-}
-
-.col {
-    flex: 0 0 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 95vh * ( 9vh / 16vh );
-}
-
-.row {
-    max-height: calc( 100vh - ( 5em ));
-    position: relative;
-}
-
-.fix {
-    width: 100%;
-    pointer-events: none;
-}
-
-.content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
 }

@@ -13,18 +13,8 @@ export const PageLayout = ({ children }) => (
             <Link to='/contact' className={cx( 'navItem', 'right' )}>CONTACT</Link>
         </nav>
         <main>
-            <div className={cx( 'col' )}>
-                <div className={cx( 'row' )}>
-                    <canvas height='1890' width='1080' className={cx( 'fix' )} />
-                    <div className={cx( 'content' )}>
-                        {children}
-                    </div>
-                </div>
-            </div>
+            {children}
         </main>
-        <footer className={cx( 'pips' )}>
-            * * * * * *
-        </footer>
     </div>
 );
 

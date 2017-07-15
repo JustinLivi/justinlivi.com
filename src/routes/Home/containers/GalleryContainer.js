@@ -1,5 +1,10 @@
 import { connect } from 'react-redux';
-import { drag, startDrag, endDrag } from '../modules/gallery';
+import {
+    drag,
+    startDrag,
+    endDrag,
+    resize,
+} from '../modules/gallery';
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -16,10 +21,10 @@ const mapDispatchToProps = {
     drag,
     startDrag,
     endDrag,
+    resize,
 };
 
 const mapStateToProps = state => ({
-    index: state.gallery.index,
     percent: state.gallery.percent,
 });
 
