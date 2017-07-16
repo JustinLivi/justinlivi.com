@@ -7,7 +7,8 @@ const omit = require( 'lodash.omit' );
 export const MOVE_DRAG = 'MOVE_DRAG';
 export const START_DRAG = 'START_DRAG';
 export const END_DRAG = 'END_DRAG';
-export const RESIZE = 'RESIZE';
+export const SET_HANDLER_WIDTH = 'SET_HANDLER_WIDTH';
+export const SET_CARD_WIDTH = 'SET_CARD_WIDTH';
 
 // ------------------------------------
 // Actions
@@ -34,10 +35,17 @@ export function endDrag() {
     };
 }
 
-export function resize( bounds ) {
+export function setHandlerWidth( handlerWidth ) {
     return {
-        type: RESIZE,
-        bounds,
+        type: SET_HANDLER_WIDTH,
+        handlerWidth,
+    };
+}
+
+export function setCardWidth( cardWidth ) {
+    return {
+        type: SET_CARD_WIDTH,
+        cardWidth,
     };
 }
 
@@ -52,9 +60,9 @@ export const actions = {
 const ACTION_HANDLERS = {
     [MOVE_DRAG]: ( state, { clientX }) => {
         if ( !state.dragging ) return state;
-        const { startPercent, startX, bounds: { width } } = state;
+        const { startPercent, startX, handlerWidth } = state;
         return merge({}, state, {
-            percent: startPercent + (( startX - clientX ) / width ),
+            percent: startPercent + (( startX - clientX ) / handlerWidth ),
         });
     },
     [START_DRAG]: ( state, action ) => merge(
@@ -64,7 +72,8 @@ const ACTION_HANDLERS = {
         { startPercent: state.percent }
     ),
     [END_DRAG]: ( state, action ) => merge({}, state, omit( action, 'type' )),
-    [RESIZE]: ( state, action ) => merge({}, state, omit( action, 'type' )),
+    [SET_HANDLER_WIDTH]: ( state, action ) => merge({}, state, omit( action, 'type' )),
+    [SET_CARD_WIDTH]: ( state, action ) => merge({}, state, omit( action, 'type' )),
 };
 
 // ------------------------------------
@@ -72,6 +81,8 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 const initialState = {
     index: 0,
+    cardWidth: 0,
+    handlerWidth: 0,
     dragging: false,
     percent: 0,
     startPercent: 0,
