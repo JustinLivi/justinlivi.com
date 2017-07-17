@@ -10,7 +10,7 @@ const createStore = ( initialState = {}) => {
     // Middleware Configuration
     // ======================================================
     const middleware = [
-        logger,
+        // logger,
         thunk,
     ];
 

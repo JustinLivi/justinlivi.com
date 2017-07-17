@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Measure from 'react-measure';
 import DuckImage from '../assets/Duck.jpg';
-import styles from './Gallery.scss';
+import styles from './Card.scss';
 
 const cx = classNames.bind( styles );
 
@@ -24,6 +24,11 @@ export const Card = ({
             const halfWidth = Math.floor( cardWidth / 2 ) - 1;
             const edgeWidth = Math.ceil( cardWidth / 50 );
             const halfEdge = Math.floor( edgeWidth / 2 );
+            const iterator = Math.sin(( 0.2 + percent ) * Math.PI );
+            const grow = Math.tan(( 0.2 + percent ) * Math.PI );
+            const growBounce = grow < 0 ? grow * -1 : grow;
+            const bounce = iterator < 0 ? iterator * -1 : iterator;
+            const height = Math.min( growBounce * edgeWidth * 2, 100 );
             return (
                 <div
                     className={cx( 'content' )}
@@ -62,7 +67,32 @@ export const Card = ({
                     </div>
                     <div
                         className={cx( 'shadow' )}
-                        style={({ transform: `rotateY(${percent * 180}deg) rotateX(90deg)` })}
+                        style={({
+                            height: `${edgeWidth}px`,
+                            boxShadow: `0 0 ${halfEdge}px ${halfEdge * 0.8}px #000`,
+                            transform: `rotateY(${percent * 180}deg) rotateX(90deg)`,
+                            bottom: 100 - halfEdge,
+                        })}
+                    />
+                    <div
+                        className={cx( 'shadow' )}
+                        style={({
+                            height: `${height / 3}px`,
+                            boxShadow: `0 ${-iterator * edgeWidth * 1.4}px ${bounce * edgeWidth * 2}px ${bounce * edgeWidth * 2}px #000`,
+                            bottom: 100 - ( height / 6 ),
+                            transform: `rotateY(${percent * 180}deg) rotateX(90deg)`,
+                            opacity: ( 1.2 - bounce ) * 0.4,
+                        })}
+                    />
+                    <div
+                        className={cx( 'shadow' )}
+                        style={({
+                            height: `${height}px`,
+                            boxShadow: `0 ${-iterator * edgeWidth}px ${height * 2}px ${height}px #000`,
+                            bottom: 100 - ( height / 2 ),
+                            transform: `rotateY(${percent * 180}deg) rotateX(90deg) translate(${-( height * 0.4 * iterator )}px, ${-( height * 0.7 * iterator )}px)`,
+                            opacity: 1.1 - bounce,
+                        })}
                     />
                 </div>
             );
