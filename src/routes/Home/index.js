@@ -9,10 +9,12 @@ export default store => ({
             /*  Webpack - use require callback to define
                 dependencies for bundling   */
             const Gallery = require( './containers/GalleryContainer' ).default;
-            const reducer = require( './modules/gallery' ).default;
+            const galleryReducer = require( './modules/gallery' ).default;
+            const cardReducer = require( './modules/gallery' ).default;
 
             /*  Add the reducer to the store on key 'counter'  */
-            injectReducer( store, { key: 'gallery', reducer });
+            injectReducer( store, { key: 'gallery', reducer: galleryReducer });
+            injectReducer( store, { key: 'card', reducer: cardReducer });
 
             /*  Return getComponent   */
             cb( null, Gallery );

@@ -2,12 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Measure from 'react-measure';
+import { Motion, spring } from 'react-motion';
 import styles from './Gallery.scss';
 import Card from '../containers/CardContainer';
 
 const cx = classNames.bind( styles );
 
-export const HomeView = ({
+const Gallery = ({
+    // state
+    index,
+    percent,
+    dragging,
     // action creators
     drag,
     startDrag,
@@ -49,7 +54,17 @@ export const HomeView = ({
                 <div className={cx( 'col' )}>
                     <div className={cx( 'row' )}>
                         <canvas height='1890' width='1080' className={cx( 'fix' )} />
-                        <Card />
+                        <Motion
+                            style={{
+                                i: dragging ?
+                                    spring( index + percent, { stiffness: 1000, damping: 50 }) :
+                                    spring( index, { stiffness: 50, damping: 9 }),
+                            }}
+                        >
+                            {({ i }) =>
+                                <Card percent={i} />
+                            }
+                        </Motion>
                     </div>
                 </div>
             </div>
@@ -57,16 +72,23 @@ export const HomeView = ({
     </Measure>
 );
 
-HomeView.propTypes = {
+Gallery.propTypes = {
+    // state
+    percent: PropTypes.number,
+    index: PropTypes.number,
+    dragging: PropTypes.bool,
+    // action creators
     drag: PropTypes.func.isRequired,
     startDrag: PropTypes.func.isRequired,
     endDrag: PropTypes.func.isRequired,
     setHandlerWidth: PropTypes.func.isRequired,
 };
 
-HomeView.defaultProps = {
+Gallery.defaultProps = {
+    dragging: false,
     percent: 0,
-    cardWidth: 0,
+    index: 0,
+    nextIndex: 0,
 };
 
-export default HomeView;
+export default Gallery;

@@ -1,11 +1,7 @@
 import { connect } from 'react-redux';
 import {
-    drag,
-    startDrag,
-    endDrag,
-    setHandlerWidth,
     setCardWidth,
-} from '../modules/gallery';
+} from '../modules/card';
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -19,17 +15,12 @@ import Card from '../components/Card';
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-    drag,
-    startDrag,
-    endDrag,
-    setHandlerWidth,
     setCardWidth,
 };
 
-const mapStateToProps = state => ({
-    dragging: state.gallery.dragging,
-    percent: state.gallery.percent,
-    cardWidth: state.gallery.cardWidth,
+const mapStateToProps = ( state, ownProps ) => ({
+    percent: ownProps.percent,
+    cardWidth: state.card.cardWidth,
 });
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

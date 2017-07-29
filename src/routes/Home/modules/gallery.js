@@ -4,6 +4,7 @@ const omit = require( 'lodash.omit' );
 // ------------------------------------
 // Constants
 // ------------------------------------
+const threshold = 0.2;
 export const MOVE_DRAG = 'MOVE_DRAG';
 export const START_DRAG = 'START_DRAG';
 export const END_DRAG = 'END_DRAG';
@@ -49,29 +50,26 @@ export function setCardWidth( cardWidth ) {
     };
 }
 
-export const actions = {
-    drag,
-    startDrag,
-};
-
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
     [MOVE_DRAG]: ( state, { clientX }) => {
         if ( !state.dragging ) return state;
-        const { startPercent, startX, handlerWidth } = state;
+        const { startX, handlerWidth, percent, index } = state;
         return merge({}, state, {
-            percent: startPercent + (( startX - clientX ) / handlerWidth ),
+            percent: ( startX - clientX ) / handlerWidth,
+            nextIndex: index + ( Math.sign( percent ) * Math.ceil( Math.abs( percent ))),
         });
     },
-    [START_DRAG]: ( state, action ) => merge(
-        {},
-        state,
-        omit( action, 'type' ),
-        { startPercent: state.percent }
-    ),
-    [END_DRAG]: ( state, action ) => merge({}, state, omit( action, 'type' )),
+    [START_DRAG]: ( state, action ) => merge({}, state, omit( action, 'type' )),
+    [END_DRAG]: ( state, action ) => {
+        const { percent, index, nextIndex } = state;
+        return merge({}, state, omit( action, 'type' ), {
+            index: Math.abs( percent ) > threshold ? nextIndex : index,
+            percent: 0,
+        });
+    },
     [SET_HANDLER_WIDTH]: ( state, action ) => merge({}, state, omit( action, 'type' )),
     [SET_CARD_WIDTH]: ( state, action ) => merge({}, state, omit( action, 'type' )),
 };
@@ -85,7 +83,6 @@ const initialState = {
     handlerWidth: 0,
     dragging: false,
     percent: 0,
-    startPercent: 0,
 };
 export default function galleryReducer( state = initialState, action ) {
     const handler = ACTION_HANDLERS[action.type];

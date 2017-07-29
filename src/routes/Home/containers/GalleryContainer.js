@@ -4,7 +4,6 @@ import {
     startDrag,
     endDrag,
     setHandlerWidth,
-    setCardWidth,
 } from '../modules/gallery';
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -23,8 +22,13 @@ const mapDispatchToProps = {
     startDrag,
     endDrag,
     setHandlerWidth,
-    setCardWidth,
 };
+
+const mapStateToProps = state => ({
+    dragging: state.gallery.dragging,
+    index: state.gallery.index,
+    percent: state.gallery.percent,
+});
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
@@ -40,4 +44,4 @@ const mapDispatchToProps = {
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect( undefined, mapDispatchToProps )( Gallery );
+export default connect( mapStateToProps, mapDispatchToProps )( Gallery );
