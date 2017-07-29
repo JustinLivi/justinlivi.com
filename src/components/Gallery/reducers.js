@@ -56,17 +56,18 @@ export function setCardWidth( cardWidth ) {
 const ACTION_HANDLERS = {
     [MOVE_DRAG]: ( state, { clientX }) => {
         if ( !state.dragging ) return state;
-        const { startX, handlerWidth, percent, index } = state;
+        const { startX, handlerWidth } = state;
         return merge({}, state, {
             percent: ( startX - clientX ) / handlerWidth,
-            nextIndex: index + ( Math.sign( percent ) * Math.ceil( Math.abs( percent ))),
         });
     },
     [START_DRAG]: ( state, action ) => merge({}, state, omit( action, 'type' )),
     [END_DRAG]: ( state, action ) => {
-        const { percent, index, nextIndex } = state;
+        const { percent, index } = state;
         return merge({}, state, omit( action, 'type' ), {
-            index: Math.abs( percent ) > threshold ? nextIndex : index,
+            index: Math.abs( percent ) > threshold ?
+                index + ( Math.sign( percent ) * Math.ceil( Math.abs( percent ))) :
+                index,
             percent: 0,
         });
     },
@@ -79,7 +80,6 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 const initialState = {
     index: 0,
-    cardWidth: 0,
     handlerWidth: 0,
     dragging: false,
     percent: 0,

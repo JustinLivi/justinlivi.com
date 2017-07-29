@@ -1,14 +1,16 @@
 /* eslint-disable react/forbid-prop-types */
 
 import React from 'react';
-import { browserHistory, Router } from 'react-router';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
+import PageLayout from '../layouts/PageLayout';
+import { Gallery, CardDisplay } from '../components/Gallery';
+
+const { Card } = CardDisplay;
 
 class App extends React.Component {
     static propTypes = {
         store: PropTypes.object.isRequired,
-        routes: PropTypes.object.isRequired,
     }
 
     shouldComponentUpdate() {
@@ -18,10 +20,11 @@ class App extends React.Component {
     render() {
         return (
             <Provider store={this.props.store}>
-                <div style={{ height: '100%' }}>{
-                    // eslint-disable-next-line react/no-children-prop
-                    }<Router history={browserHistory} children={this.props.routes} />
-                </div>
+                <PageLayout>
+                    <Gallery>
+                        <Card />
+                    </Gallery>
+                </PageLayout>
             </Provider>
         );
     }

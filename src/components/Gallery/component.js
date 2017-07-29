@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Measure from 'react-measure';
 import { Motion, spring } from 'react-motion';
-import styles from './Gallery.scss';
-import Card from '../containers/CardContainer';
+import styles from './style.scss';
 
 const cx = classNames.bind( styles );
 
@@ -13,6 +12,7 @@ const Gallery = ({
     index,
     percent,
     dragging,
+    children,
     // action creators
     drag,
     startDrag,
@@ -62,7 +62,7 @@ const Gallery = ({
                             }}
                         >
                             {({ i }) =>
-                                <Card percent={i} />
+                                React.cloneElement( children, { percent: i })
                             }
                         </Motion>
                     </div>
@@ -73,6 +73,7 @@ const Gallery = ({
 );
 
 Gallery.propTypes = {
+    children: PropTypes.node.isRequired,
     // state
     percent: PropTypes.number,
     index: PropTypes.number,

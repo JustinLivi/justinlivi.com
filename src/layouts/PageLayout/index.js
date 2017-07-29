@@ -6,7 +6,7 @@ import styles from './PageLayout.scss';
 
 const cx = classNames.bind( styles );
 
-export const PageLayout = ({ children }) => (
+const PageLayout = ({ children }) => (
     <div className={cx( 'container' )}>
         <nav>
             <IndexLink to='/' className={cx( 'navItem', 'left' )}>JUSTIN LIVI</IndexLink>
