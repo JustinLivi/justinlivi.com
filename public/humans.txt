@@ -2,8 +2,4 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
-
-# THANKS
-
-    <name>
+    Justin Livi -- Designer/Developer -- @justinlivi

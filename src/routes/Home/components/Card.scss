@@ -3,8 +3,9 @@
 .cardface {
     @include fullyabsolute();
     @include edgeGradient();
+    overflow: hidden;
     backface-visibility: hidden;
-    bottom: 100px;
+    bottom: 70px;
 }
 
 .cardContent {
@@ -20,12 +21,30 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#253b48', endColorstr='#312051',GradientType=1 );
 }
 
+.darken {
+    @include fullyabsolute(0px);
+    opacity: 0.4;
+    background-color: black;
+}
+
+.highlight {
+    @include fullyabsolute(0px);
+    backface-visibility: hidden;
+    width: 35%;
+    opacity: 0.4;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#badae0+0,eafdff+23,eafdff+83,badae0+100&0+0,0.5+23,1+51,0.57+76,0+100 */
+    background: -moz-linear-gradient(left, rgba(186,218,224,0) 0%, rgba(234,253,255,0.5) 23%, rgba(234,253,255,1) 51%, rgba(234,253,255,0.57) 76%, rgba(234,253,255,0.4) 83%, rgba(186,218,224,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(186,218,224,0) 0%,rgba(234,253,255,0.5) 23%,rgba(234,253,255,1) 51%,rgba(234,253,255,0.57) 76%,rgba(234,253,255,0.4) 83%,rgba(186,218,224,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(186,218,224,0) 0%,rgba(234,253,255,0.5) 23%,rgba(234,253,255,0.6) 51%,rgba(234,253,255,0.57) 76%,rgba(234,253,255,0.4) 83%,rgba(186,218,224,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00badae0', endColorstr='#00badae0',GradientType=1 ); /* IE6-9 */
+}
+
 .cardside {
     @include fullyabsolute();
     @include edgeGradient();
     margin: auto;
     width: 8px;
-    bottom: 100px;
+    bottom: 70px;
     overflow: auto;
 }
 

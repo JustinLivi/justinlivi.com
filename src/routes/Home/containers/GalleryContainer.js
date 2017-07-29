@@ -26,8 +26,6 @@ const mapDispatchToProps = {
     setCardWidth,
 };
 
-const mapStateToProps = () => ({});
-
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
     import { createSelector } from 'reselect'
@@ -42,4 +40,4 @@ const mapStateToProps = () => ({});
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect( mapStateToProps, mapDispatchToProps )( Gallery );
+export default connect( undefined, mapDispatchToProps )( Gallery );

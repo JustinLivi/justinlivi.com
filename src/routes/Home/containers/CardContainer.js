@@ -27,6 +27,7 @@ const mapDispatchToProps = {
 };
 
 const mapStateToProps = state => ({
+    dragging: state.gallery.dragging,
     percent: state.gallery.percent,
     cardWidth: state.gallery.cardWidth,
 });

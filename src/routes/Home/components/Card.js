@@ -7,7 +7,7 @@ import styles from './Card.scss';
 
 const cx = classNames.bind( styles );
 
-export const Card = ({
+const Card = ({
     // state
     percent,
     cardWidth,
@@ -42,6 +42,19 @@ export const Card = ({
                             <h4>Welcome!</h4>
                             <img alt='This is a duck, because Redux!' className='duck' src={DuckImage} />
                         </div>
+                        <div
+                            className={cx( 'darken' )}
+                            style={({
+                                opacity: Math.sin(( 1.1 + percent ) * Math.PI ) * 0.6,
+                            })}
+                        />
+                        <div
+                            className={cx( 'highlight' )}
+                            style={({
+                                transform: `translateX(${(( halfWidth - ( Math.sin(( percent - 0.2 ) * Math.PI ) * cardWidth )))}px)`,
+                                opacity: Math.sin( percent * Math.PI ) * 0.07,
+                            })}
+                        />
                     </div>
                     <div
                         className={cx( 'cardside' )}
@@ -64,6 +77,19 @@ export const Card = ({
                         <div className={cx( 'cardContent' )}>
                             This is the back!
                         </div>
+                        <div
+                            className={cx( 'darken' )}
+                            style={({
+                                opacity: Math.sin(( 0.1 + percent ) * Math.PI ) * 0.6,
+                            })}
+                        />
+                        <div
+                            className={cx( 'highlight' )}
+                            style={({
+                                transform: `translateX(${(( Math.sin(( percent - 0.2 ) * Math.PI ) * cardWidth ) + halfWidth )}px)`,
+                                opacity: -Math.sin( percent * Math.PI ) * 0.07,
+                            })}
+                        />
                     </div>
                     <div
                         className={cx( 'shadow' )}
@@ -71,7 +97,7 @@ export const Card = ({
                             height: `${edgeWidth}px`,
                             boxShadow: `0 0 ${halfEdge}px ${halfEdge * 0.8}px #000`,
                             transform: `rotateY(${percent * 180}deg) rotateX(90deg)`,
-                            bottom: 100 - halfEdge,
+                            bottom: 70 - halfEdge,
                         })}
                     />
                     <div
@@ -79,7 +105,7 @@ export const Card = ({
                         style={({
                             height: `${height / 3}px`,
                             boxShadow: `0 ${-iterator * edgeWidth * 1.4}px ${bounce * edgeWidth * 2}px ${bounce * edgeWidth * 2}px #000`,
-                            bottom: 100 - ( height / 6 ),
+                            bottom: 70 - ( height / 6 ),
                             transform: `rotateY(${percent * 180}deg) rotateX(90deg)`,
                             opacity: ( 1.2 - bounce ) * 0.4,
                         })}
@@ -89,7 +115,7 @@ export const Card = ({
                         style={({
                             height: `${height}px`,
                             boxShadow: `0 ${-iterator * edgeWidth}px ${height * 2}px ${height}px #000`,
-                            bottom: 100 - ( height / 2 ),
+                            bottom: 70 - ( height / 2 ),
                             transform: `rotateY(${percent * 180}deg) rotateX(90deg) translate(${-( height * 0.4 * iterator )}px, ${-( height * 0.7 * iterator )}px)`,
                             opacity: 1.1 - bounce,
                         })}
