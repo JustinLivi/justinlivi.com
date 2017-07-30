@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Measure from 'react-measure';
 import { Motion, spring } from 'react-motion';
+import { Redirect } from 'react-router';
 import styles from './style.scss';
 
 const cx = classNames.bind( styles );
 
 const Gallery = ({
+    children,
+    routes,
     // state
     index,
     percent,
     dragging,
-    children,
     // action creators
     drag,
     startDrag,
@@ -54,6 +56,16 @@ const Gallery = ({
                 <div className={cx( 'col' )}>
                     <div className={cx( 'row' )}>
                         <canvas height='1890' width='1080' className={cx( 'fix' )} />
+                        { percent ? '' : (
+                            <Redirect
+                                to={
+                                    `/${routes[
+                                        index % routes.length < 0 ?
+                                        ( index % routes.length ) + routes.length :
+                                        index % routes.length
+                                    ]}/`
+                                }
+                            /> )}
                         <Motion
                             style={{
                                 i: dragging ?
@@ -61,9 +73,14 @@ const Gallery = ({
                                     spring( index, { stiffness: 50, damping: 9 }),
                             }}
                         >
-                            {({ i }) =>
-                                React.cloneElement( children, { percent: i })
-                            }
+                            {({ i }) => (
+                                React.Children.count( children ) > 1 ?
+                                    ( <div>{
+                                        React.Children.map( children, child =>
+                                            React.cloneElement( child, { percent: i }))
+                                        }</div> ) :
+                                    React.cloneElement( children, { percent: i })
+                            )}
                         </Motion>
                     </div>
                 </div>
@@ -74,6 +91,7 @@ const Gallery = ({
 
 Gallery.propTypes = {
     children: PropTypes.node.isRequired,
+    routes: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
     // state
     percent: PropTypes.number,
     index: PropTypes.number,

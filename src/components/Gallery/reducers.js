@@ -80,6 +80,7 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 const initialState = {
     index: 0,
+    frameCount: 5,
     handlerWidth: 0,
     dragging: false,
     percent: 0,

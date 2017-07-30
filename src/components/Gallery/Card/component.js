@@ -2,14 +2,70 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Measure from 'react-measure';
+import injectSheet from 'react-jss';
+import merge from 'lodash.merge';
 import styles from './style.scss';
 
-const cx = classNames.bind( styles );
+const dynamicStyles = {
+    cardfront: {
+        transform: ({ percent, halfEdge }) => `rotateY(${percent * 180}deg) translateZ(${halfEdge}px)`,
+    },
+    cardback: {
+        transform: ({ percent, halfEdge }) => `rotateY(${180 + ( percent * 180 )}deg) translateZ(${halfEdge}px)`,
+    },
+    fadeDarkFront: {
+        opacity: ({ percent }) => Math.sin(( 1.1 + percent ) * Math.PI ) * 0.6,
+    },
+    fadeDarkBack: {
+        opacity: ({ percent }) => Math.sin(( 0.1 + percent ) * Math.PI ) * 0.6,
+    },
+    fadeLightFront: {
+        transform: ({ percent, cardWidth, halfWidth }) =>
+            `translateX(${(( halfWidth - 1 - ( Math.sin(( percent - 0.2 ) * Math.PI ) * cardWidth )))}px)`,
+        opacity: ({ percent }) => Math.sin( percent * Math.PI ) * 0.07,
+    },
+    fadeLightBack: {
+        transform: ({ percent, cardWidth, halfWidth }) =>
+            `translateX(${(( Math.sin(( percent - 0.2 ) * Math.PI ) * cardWidth ) + ( halfWidth - 1 ))}px)`,
+        opacity: ({ percent }) => -Math.sin( percent * Math.PI ) * 0.07,
+    },
+    edge: {
+        width: ({ edgeWidth }) => `${edgeWidth}px`,
+    },
+    leftSide: {
+        transform: ({ percent, halfWidth }) => `rotateY(${90 + ( percent * 180 )}deg) translateZ(${halfWidth}px)`,
+    },
+    rightSide: {
+        transform: ({ percent, halfWidth }) => `rotateY(${-90 + ( percent * 180 )}deg) translateZ(${halfWidth}px)`,
+    },
+    edgeShadow: {
+        height: ({ edgeWidth }) => `${edgeWidth}px`,
+        boxShadow: ({ halfEdge }) => `0 0 ${halfEdge}px ${halfEdge * 0.8}px #000`,
+        transform: ({ percent }) => `rotateY(${percent * 180}deg) rotateX(90deg)`,
+        bottom: ({ halfEdge }) => 70 - halfEdge,
+    },
+    bigShadow: {
+        height: ({ height }) => `${height / 3}px`,
+        boxShadow: ({ iterator, edgeWidth, bounce }) =>
+            `0 ${-iterator * edgeWidth * 1.4}px ${bounce * edgeWidth * 2}px ${bounce * edgeWidth * 2}px #000`,
+        bottom: ({ height }) => 70 - ( height / 6 ),
+        transform: ({ percent }) => `rotateY(${percent * 180}deg) rotateX(90deg)`,
+        opacity: ({ bounce }) => ( 1.2 - bounce ) * 0.4,
+    },
+    mediumShadow: {
+        height: ({ height }) => `${height}px`,
+        boxShadow: ({ iterator, edgeWidth, height }) =>
+            `0 ${-iterator * edgeWidth}px ${height * 2}px ${height}px #000`,
+        bottom: ({ height }) => 70 - ( height / 2 ),
+        transform: ({ percent, height, iterator }) =>
+            `rotateY(${percent * 180}deg) rotateX(90deg) translate(${-( height * 0.4 * iterator )}px, ${-( height * 0.7 * iterator )}px)`,
+        opacity: ({ bounce }) => 1.1 - bounce,
+    },
+};
 
 const Card = ({
-    // state
-    percent,
-    cardWidth,
+    classes,
+    children,
     // action creators
     setCardWidth,
 }) => (
@@ -20,104 +76,31 @@ const Card = ({
         }}
     >
         {({ measureRef }) => {
-            const halfWidth = Math.floor( cardWidth / 2 ) - 1;
-            const edgeWidth = Math.ceil( cardWidth / 50 );
-            const halfEdge = Math.floor( edgeWidth / 2 );
-            const iterator = Math.sin(( 0.2 + percent ) * Math.PI );
-            const grow = Math.tan(( 0.2 + percent ) * Math.PI );
-            const growBounce = grow < 0 ? grow * -1 : grow;
-            const bounce = iterator < 0 ? iterator * -1 : iterator;
-            const height = Math.min( growBounce * edgeWidth * 2, 100 );
+            const cx = classNames.bind( merge( classes, styles ));
             return (
                 <div
                     className={cx( 'content' )}
                     ref={measureRef}
                 >
-                    <div
-                        className={cx( 'cardface' )}
-                        style={({ transform: `rotateY(${percent * 180}deg) translateZ(${halfEdge}px)` })}
-                    >
+                    <div className={cx( 'cardface', 'cardfront' )}>
                         <div className={cx( 'cardContent' )}>
-                            <h4>Welcome!</h4>
+                            {children}
                         </div>
-                        <div
-                            className={cx( 'darken' )}
-                            style={({
-                                opacity: Math.sin(( 1.1 + percent ) * Math.PI ) * 0.6,
-                            })}
-                        />
-                        <div
-                            className={cx( 'highlight' )}
-                            style={({
-                                transform: `translateX(${(( halfWidth - ( Math.sin(( percent - 0.2 ) * Math.PI ) * cardWidth )))}px)`,
-                                opacity: Math.sin( percent * Math.PI ) * 0.07,
-                            })}
-                        />
+                        <div className={cx( 'darken', 'fadeDarkFront' )} />
+                        <div className={cx( 'highlight', 'fadeLightFront' )} />
                     </div>
-                    <div
-                        className={cx( 'cardside' )}
-                        style={({
-                            transform: `rotateY(${90 + ( percent * 180 )}deg) translateZ(${halfWidth}px)`,
-                            width: `${edgeWidth}px`,
-                        })}
-                    />
-                    <div
-                        className={cx( 'cardside' )}
-                        style={({
-                            transform: `rotateY(${-90 + ( percent * 180 )}deg) translateZ(${halfWidth}px)`,
-                            width: `${edgeWidth}px`,
-                        })}
-                    />
-                    <div
-                        className={cx( 'cardface' )}
-                        style={({ transform: `rotateY(${180 + ( percent * 180 )}deg) translateZ(${halfEdge}px)` })}
-                    >
+                    <div className={cx( 'cardside', 'leftSide', 'edge' )} />
+                    <div className={cx( 'cardside', 'rightSide', 'edge' )} />
+                    <div className={cx( 'cardface', 'cardback' )}>
                         <div className={cx( 'cardContent' )}>
-                            This is the back!
+                            {children}
                         </div>
-                        <div
-                            className={cx( 'darken' )}
-                            style={({
-                                opacity: Math.sin(( 0.1 + percent ) * Math.PI ) * 0.6,
-                            })}
-                        />
-                        <div
-                            className={cx( 'highlight' )}
-                            style={({
-                                transform: `translateX(${(( Math.sin(( percent - 0.2 ) * Math.PI ) * cardWidth ) + halfWidth )}px)`,
-                                opacity: -Math.sin( percent * Math.PI ) * 0.07,
-                            })}
-                        />
+                        <div className={cx( 'darken', 'fadeDarkBack' )} />
+                        <div className={cx( 'highlight', 'fadeLightBack' )} />
                     </div>
-                    <div
-                        className={cx( 'shadow' )}
-                        style={({
-                            height: `${edgeWidth}px`,
-                            boxShadow: `0 0 ${halfEdge}px ${halfEdge * 0.8}px #000`,
-                            transform: `rotateY(${percent * 180}deg) rotateX(90deg)`,
-                            bottom: 70 - halfEdge,
-                        })}
-                    />
-                    <div
-                        className={cx( 'shadow' )}
-                        style={({
-                            height: `${height / 3}px`,
-                            boxShadow: `0 ${-iterator * edgeWidth * 1.4}px ${bounce * edgeWidth * 2}px ${bounce * edgeWidth * 2}px #000`,
-                            bottom: 70 - ( height / 6 ),
-                            transform: `rotateY(${percent * 180}deg) rotateX(90deg)`,
-                            opacity: ( 1.2 - bounce ) * 0.4,
-                        })}
-                    />
-                    <div
-                        className={cx( 'shadow' )}
-                        style={({
-                            height: `${height}px`,
-                            boxShadow: `0 ${-iterator * edgeWidth}px ${height * 2}px ${height}px #000`,
-                            bottom: 70 - ( height / 2 ),
-                            transform: `rotateY(${percent * 180}deg) rotateX(90deg) translate(${-( height * 0.4 * iterator )}px, ${-( height * 0.7 * iterator )}px)`,
-                            opacity: 1.1 - bounce,
-                        })}
-                    />
+                    <div className={cx( 'shadow', 'edgeShadow' )} />
+                    <div className={cx( 'shadow', 'bigShadow' )} />
+                    <div className={cx( 'shadow', 'mediumShadow' )} />
                 </div>
             );
         }}
@@ -125,9 +108,8 @@ const Card = ({
 );
 
 Card.propTypes = {
-    // state
-    percent: PropTypes.number,
-    cardWidth: PropTypes.number,
+    classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    children: PropTypes.node.isRequired,
     // action creators
     setCardWidth: PropTypes.func.isRequired,
 };
@@ -137,4 +119,4 @@ Card.defaultProps = {
     cardWidth: 0,
 };
 
-export default Card;
+export default injectSheet( dynamicStyles )( Card );

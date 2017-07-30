@@ -1,16 +1,33 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {
     setCardWidth,
 } from './reducers';
 
 import Card from './component';
 
-export default ( mapStateToProps = ( state, ownProps ) => ({
-    percent: ownProps.percent,
-    cardWidth: state.card.cardWidth,
-})) => {
+export default ( mapStateToProps = ({ card: { cardWidth } }, { percent }) => {
+    const halfWidth = Math.floor( cardWidth / 2 );
+    const edgeWidth = Math.ceil( cardWidth / 50 );
+    const halfEdge = Math.floor( edgeWidth / 2 );
+    const iterator = Math.sin(( 0.2 + percent ) * Math.PI );
+    const grow = Math.tan(( 0.2 + percent ) * Math.PI );
+    const growBounce = grow < 0 ? grow * -1 : grow;
+    const bounce = iterator < 0 ? iterator * -1 : iterator;
+    const height = Math.min( growBounce * edgeWidth * 2, 100 );
+    return {
+        percent,
+        cardWidth,
+        halfWidth,
+        halfEdge,
+        edgeWidth,
+        iterator,
+        bounce,
+        height,
+    };
+}) => {
     const mapDispatchToProps = {
         setCardWidth,
     };
-    return connect( mapStateToProps, mapDispatchToProps )( Card );
+    return withRouter( connect( mapStateToProps, mapDispatchToProps )( Card ));
 };

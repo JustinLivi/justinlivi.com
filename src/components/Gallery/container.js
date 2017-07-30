@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {
     drag,
     startDrag,
@@ -7,10 +8,12 @@ import {
 } from './reducers';
 import Gallery from './component';
 
-export default ( mapStateToProps = state => ({
+export default ( mapStateToProps = ( state, ownProps ) => ({
+    routes: ownProps.routes,
     dragging: state.gallery.dragging,
     index: state.gallery.index,
     percent: state.gallery.percent,
+    frameCount: state.gallery.frameCount,
 })) => {
     const mapDispatchToProps = {
         drag,
@@ -18,5 +21,5 @@ export default ( mapStateToProps = state => ({
         endDrag,
         setHandlerWidth,
     };
-    return connect( mapStateToProps, mapDispatchToProps )( Gallery );
+    return withRouter( connect( mapStateToProps, mapDispatchToProps )( Gallery ));
 };

@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
-import locationReducer from './location';
 import { GalleryReducers, CardDisplay } from '../components/Gallery';
 
 const { CardReducers } = CardDisplay;
 
 export const makeRootReducer = asyncReducers => combineReducers({
-    location: locationReducer,
     gallery: GalleryReducers,
     card: CardReducers,
     ...asyncReducers,
