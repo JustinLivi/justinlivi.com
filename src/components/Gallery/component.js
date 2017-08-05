@@ -11,6 +11,7 @@ const cx = classNames.bind( styles );
 const Gallery = ({
     children,
     routes,
+    location,
     // state
     index,
     percent,
@@ -56,16 +57,16 @@ const Gallery = ({
                 <div className={cx( 'col' )}>
                     <div className={cx( 'row' )}>
                         <canvas height='1890' width='1080' className={cx( 'fix' )} />
-                        { percent ? '' : (
-                            <Redirect
-                                to={
-                                    `/${routes[
-                                        index % routes.length < 0 ?
-                                        ( index % routes.length ) + routes.length :
-                                        index % routes.length
-                                    ]}/`
-                                }
-                            /> )}
+                        {(() => {
+                            const adjusted = index + Math.round( percent );
+                            const route = routes[
+                                adjusted % routes.length < 0 ?
+                                ( adjusted % routes.length ) + routes.length :
+                                adjusted % routes.length
+                            ];
+                            return location.pathname.match( new RegExp( `^/${route}/` )) ?
+                                '' : ( <Redirect to={`/${route}/`} /> );
+                        })()}
                         <Motion
                             style={{
                                 i: dragging ?
@@ -92,6 +93,7 @@ const Gallery = ({
 Gallery.propTypes = {
     children: PropTypes.node.isRequired,
     routes: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+    location: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     // state
     percent: PropTypes.number,
     index: PropTypes.number,

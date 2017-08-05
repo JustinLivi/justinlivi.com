@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { reducers } from './reducers';
-import Gallery from './component';
+import { reducers } from '../Gallery/reducers';
+import Nav from './component';
 
 export default ( mapStateToProps = ( state, ownProps ) => ({
     routes: ownProps.routes,
@@ -12,5 +12,5 @@ export default ( mapStateToProps = ( state, ownProps ) => ({
     frameCount: state.gallery.frameCount,
 })) => {
     const mapDispatchToProps = reducers;
-    return withRouter( connect( mapStateToProps, mapDispatchToProps )( Gallery ));
+    return withRouter( connect( mapStateToProps, mapDispatchToProps )( Nav ));
 };

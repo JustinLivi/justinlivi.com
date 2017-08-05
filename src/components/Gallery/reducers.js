@@ -1,5 +1,7 @@
-const merge = require( 'lodash.merge' );
-const omit = require( 'lodash.omit' );
+import merge from 'lodash.merge';
+import omit from 'lodash.omit';
+import findIndex from 'lodash.findindex';
+import routes from '../routes';
 
 // ------------------------------------
 // Constants
@@ -9,7 +11,7 @@ export const MOVE_DRAG = 'MOVE_DRAG';
 export const START_DRAG = 'START_DRAG';
 export const END_DRAG = 'END_DRAG';
 export const SET_HANDLER_WIDTH = 'SET_HANDLER_WIDTH';
-export const SET_CARD_WIDTH = 'SET_CARD_WIDTH';
+export const SET_INDEX = 'SET_INDEX';
 
 // ------------------------------------
 // Actions
@@ -43,12 +45,20 @@ export function setHandlerWidth( handlerWidth ) {
     };
 }
 
-export function setCardWidth( cardWidth ) {
+export function setIndex( index ) {
     return {
-        type: SET_CARD_WIDTH,
-        cardWidth,
+        type: SET_INDEX,
+        index,
     };
 }
+
+export const reducers = {
+    drag,
+    startDrag,
+    endDrag,
+    setHandlerWidth,
+    setIndex,
+};
 
 // ------------------------------------
 // Action Handlers
@@ -71,15 +81,16 @@ const ACTION_HANDLERS = {
             percent: 0,
         });
     },
+    [SET_INDEX]: ( state, action ) => merge({}, state, omit( action, 'type' )),
     [SET_HANDLER_WIDTH]: ( state, action ) => merge({}, state, omit( action, 'type' )),
-    [SET_CARD_WIDTH]: ( state, action ) => merge({}, state, omit( action, 'type' )),
 };
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
+const index = findIndex( routes, route => location.pathname.match( new RegExp( `^/${route}/` )));
 const initialState = {
-    index: 0,
+    index: index === -1 ? 0 : index,
     frameCount: 5,
     handlerWidth: 0,
     dragging: false,

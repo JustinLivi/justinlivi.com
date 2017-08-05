@@ -1,0 +1,15 @@
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding: 1em;
+
+    .navItem {
+        font-size: 1.5em;
+        letter-spacing: 0.2em;
+        color: white;
+        cursor: pointer;
+    }
+}
