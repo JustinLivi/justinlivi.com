@@ -57,16 +57,6 @@ const Gallery = ({
                 <div className={cx( 'col' )}>
                     <div className={cx( 'row' )}>
                         <canvas height='1890' width='1080' className={cx( 'fix' )} />
-                        {(() => {
-                            const adjusted = index + Math.round( percent );
-                            const route = routes[
-                                adjusted % routes.length < 0 ?
-                                ( adjusted % routes.length ) + routes.length :
-                                adjusted % routes.length
-                            ];
-                            return location.pathname.match( new RegExp( `^/${route}/` )) ?
-                                '' : ( <Redirect to={`/${route}/`} /> );
-                        })()}
                         <Motion
                             style={{
                                 i: dragging ?
@@ -75,12 +65,26 @@ const Gallery = ({
                             }}
                         >
                             {({ i }) => (
-                                React.Children.count( children ) > 1 ?
+                                <div>
+                                    {(() => {
+                                        const adjusted = Math.round( i );
+                                        const route = routes[
+                                            adjusted % routes.length < 0 ?
+                                            ( adjusted % routes.length ) + routes.length :
+                                            adjusted % routes.length
+                                        ];
+                                        return location.pathname.match( new RegExp( `^/${route}/` )) ?
+                                            '' : ( <Redirect to={`/${route}/`} /> );
+                                    })()}
+                                    {
+                                    React.Children.count( children ) > 1 ?
                                     ( <div>{
                                         React.Children.map( children, child =>
                                             React.cloneElement( child, { percent: i }))
                                         }</div> ) :
                                     React.cloneElement( children, { percent: i })
+                                    }
+                                </div>
                             )}
                         </Motion>
                     </div>

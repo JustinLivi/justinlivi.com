@@ -81,7 +81,12 @@ const ACTION_HANDLERS = {
             percent: 0,
         });
     },
-    [SET_INDEX]: ( state, action ) => merge({}, state, omit( action, 'type' )),
+    [SET_INDEX]: ( state, { index: newIndex }) => {
+        const { index: oldIndex, frameCount } = state;
+        return merge({}, state, {
+            index: newIndex + ( frameCount * Math.round( oldIndex / frameCount )),
+        });
+    },
     [SET_HANDLER_WIDTH]: ( state, action ) => merge({}, state, omit( action, 'type' )),
 };
 
@@ -91,7 +96,7 @@ const ACTION_HANDLERS = {
 const index = findIndex( routes, route => location.pathname.match( new RegExp( `^/${route}/` )));
 const initialState = {
     index: index === -1 ? 0 : index,
-    frameCount: 5,
+    frameCount: routes.length,
     handlerWidth: 0,
     dragging: false,
     percent: 0,

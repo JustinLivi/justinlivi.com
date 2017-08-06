@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { NavLink } from 'react-router-dom';
 import styles from './style.scss';
 
 const cx = classNames.bind( styles );
 
 const Nav = ({ setIndex }) => (
     <nav>
-        <NavLink
+        <button
+            tabIndex={0}
+            role='link'
             to='/home/'
-            onClick={() => {
+            onClick={( e ) => {
+                e.currentTarget.blur();
                 setIndex( 0 );
             }}
             className={cx( 'navItem', 'left' )}
         >
             JUSTIN LIVI
-        </NavLink>
-        <NavLink to='/contact/' className={cx( 'navItem', 'right' )}>CONTACT</NavLink>
+        </button>
+        <button to='/contact/' className={cx( 'navItem', 'right' )}>CONTACT</button>
     </nav>
 );
 
