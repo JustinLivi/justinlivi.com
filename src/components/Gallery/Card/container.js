@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {
-    setCardWidth,
-} from './reducers';
+import { actions } from './reducers';
 
 import Card from './component';
 
@@ -25,9 +23,4 @@ export default ( mapStateToProps = ({ card: { cardWidth } }, { percent }) => {
         bounce,
         height,
     };
-}) => {
-    const mapDispatchToProps = {
-        setCardWidth,
-    };
-    return withRouter( connect( mapStateToProps, mapDispatchToProps )( Card ));
-};
+}) => withRouter( connect( mapStateToProps, actions )( Card ));

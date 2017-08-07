@@ -16,6 +16,8 @@ export function setCardWidth( cardWidth ) {
     };
 }
 
+export const actions = { setCardWidth };
+
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
@@ -29,7 +31,8 @@ const ACTION_HANDLERS = {
 const initialState = {
     cardWidth: 0,
 };
-export default function galleryReducer( state = initialState, action ) {
+
+export default function cardReducer( state = initialState, action ) {
     const handler = ACTION_HANDLERS[action.type];
 
     return handler ? handler( state, action ) : state;

@@ -68,44 +68,49 @@ const Card = ({
     children,
     // action creators
     setCardWidth,
-}) => (
-    <Measure
-        bounds
-        onResize={( contentRect ) => {
-            setCardWidth( contentRect.bounds.width );
-        }}
-    >
-        {({ measureRef }) => {
-            const cx = classNames.bind( merge( classes, styles ));
-            return (
-                <div
-                    className={cx( 'content' )}
-                    ref={measureRef}
+}) => {
+    const cx = classNames.bind( merge( classes, styles ));
+    return (
+        <div className={cx( 'col' )}>
+            <div className={cx( 'row' )}>
+                <canvas height='1890' width='1080' className={cx( 'fix' )} />
+                <Measure
+                    bounds
+                    onResize={( contentRect ) => {
+                        setCardWidth( contentRect.bounds.width );
+                    }}
                 >
-                    <div className={cx( 'cardface', 'cardfront' )}>
-                        <div className={cx( 'cardContent' )}>
-                            {children}
+                    {({ measureRef }) => (
+                        <div
+                            className={cx( 'content' )}
+                            ref={measureRef}
+                        >
+                            <div className={cx( 'cardface', 'cardfront' )}>
+                                <div className={cx( 'cardContent' )}>
+                                    {children}
+                                </div>
+                                <div className={cx( 'darken', 'fadeDarkFront' )} />
+                                <div className={cx( 'highlight', 'fadeLightFront' )} />
+                            </div>
+                            <div className={cx( 'cardside', 'leftSide', 'edge' )} />
+                            <div className={cx( 'cardside', 'rightSide', 'edge' )} />
+                            <div className={cx( 'cardface', 'cardback' )}>
+                                <div className={cx( 'cardContent' )}>
+                                    {children}
+                                </div>
+                                <div className={cx( 'darken', 'fadeDarkBack' )} />
+                                <div className={cx( 'highlight', 'fadeLightBack' )} />
+                            </div>
+                            <div className={cx( 'shadow', 'edgeShadow' )} />
+                            <div className={cx( 'shadow', 'bigShadow' )} />
+                            <div className={cx( 'shadow', 'mediumShadow' )} />
                         </div>
-                        <div className={cx( 'darken', 'fadeDarkFront' )} />
-                        <div className={cx( 'highlight', 'fadeLightFront' )} />
-                    </div>
-                    <div className={cx( 'cardside', 'leftSide', 'edge' )} />
-                    <div className={cx( 'cardside', 'rightSide', 'edge' )} />
-                    <div className={cx( 'cardface', 'cardback' )}>
-                        <div className={cx( 'cardContent' )}>
-                            {children}
-                        </div>
-                        <div className={cx( 'darken', 'fadeDarkBack' )} />
-                        <div className={cx( 'highlight', 'fadeLightBack' )} />
-                    </div>
-                    <div className={cx( 'shadow', 'edgeShadow' )} />
-                    <div className={cx( 'shadow', 'bigShadow' )} />
-                    <div className={cx( 'shadow', 'mediumShadow' )} />
-                </div>
-            );
-        }}
-    </Measure>
-);
+                    )}
+                </Measure>
+            </div>
+        </div>
+    );
+};
 
 Card.propTypes = {
     classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types

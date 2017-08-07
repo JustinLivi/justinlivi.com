@@ -11,7 +11,7 @@ export const MOVE_DRAG = 'MOVE_DRAG';
 export const START_DRAG = 'START_DRAG';
 export const END_DRAG = 'END_DRAG';
 export const SET_HANDLER_WIDTH = 'SET_HANDLER_WIDTH';
-export const SET_INDEX = 'SET_INDEX';
+export const GO_TO_ROUTE = 'GO_TO_ROUTE';
 
 // ------------------------------------
 // Actions
@@ -45,19 +45,19 @@ export function setHandlerWidth( handlerWidth ) {
     };
 }
 
-export function setIndex( index ) {
+export function goToRoute( index ) {
     return {
-        type: SET_INDEX,
+        type: GO_TO_ROUTE,
         index,
     };
 }
 
-export const reducers = {
+export const actions = {
     drag,
     startDrag,
     endDrag,
     setHandlerWidth,
-    setIndex,
+    goToRoute,
 };
 
 // ------------------------------------
@@ -81,10 +81,12 @@ const ACTION_HANDLERS = {
             percent: 0,
         });
     },
-    [SET_INDEX]: ( state, { index: newIndex }) => {
+    [GO_TO_ROUTE]: ( state, { route }) => {
+        const newIndex = routes.indexOf( route );
         const { index: oldIndex, frameCount } = state;
         return merge({}, state, {
-            index: newIndex + ( frameCount * Math.round( oldIndex / frameCount )),
+            index: ( newIndex === -1 ? 0 : newIndex ) +
+                ( frameCount * Math.round( oldIndex / frameCount )),
         });
     },
     [SET_HANDLER_WIDTH]: ( state, action ) => merge({}, state, omit( action, 'type' )),

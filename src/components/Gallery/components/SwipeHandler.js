@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import Measure from 'react-measure';
 import { Motion, spring } from 'react-motion';
 import { Redirect } from 'react-router';
-import styles from './style.scss';
+import styles from './SwipeHandlerStyle.scss';
 
 const cx = classNames.bind( styles );
 
@@ -54,41 +54,36 @@ const Gallery = ({
                 }}
                 role='presentation'
             >
-                <div className={cx( 'col' )}>
-                    <div className={cx( 'row' )}>
-                        <canvas height='1890' width='1080' className={cx( 'fix' )} />
-                        <Motion
-                            style={{
-                                i: dragging ?
-                                    spring( index + percent, { stiffness: 1000, damping: 50 }) :
-                                    spring( index, { stiffness: 50, damping: 9 }),
-                            }}
-                        >
-                            {({ i }) => (
-                                <div>
-                                    {(() => {
-                                        const adjusted = Math.round( i );
-                                        const route = routes[
-                                            adjusted % routes.length < 0 ?
-                                            ( adjusted % routes.length ) + routes.length :
-                                            adjusted % routes.length
-                                        ];
-                                        return location.pathname.match( new RegExp( `^/${route}/` )) ?
-                                            '' : ( <Redirect to={`/${route}/`} /> );
-                                    })()}
-                                    {
-                                    React.Children.count( children ) > 1 ?
-                                    ( <div>{
-                                        React.Children.map( children, child =>
-                                            React.cloneElement( child, { percent: i }))
-                                        }</div> ) :
-                                    React.cloneElement( children, { percent: i })
-                                    }
-                                </div>
-                            )}
-                        </Motion>
-                    </div>
-                </div>
+                <Motion
+                    style={{
+                        i: dragging ?
+                            spring( index + percent, { stiffness: 1000, damping: 50 }) :
+                            spring( index, { stiffness: 50, damping: 9 }),
+                    }}
+                >
+                    {({ i }) => (
+                        <div>
+                            {(() => {
+                                const adjusted = Math.round( i );
+                                const route = routes[
+                                    adjusted % routes.length < 0 ?
+                                    ( adjusted % routes.length ) + routes.length :
+                                    adjusted % routes.length
+                                ];
+                                return location.pathname.match( new RegExp( `^/${route}/` )) ?
+                                    '' : ( <Redirect to={`/${route}/`} /> );
+                            })()}
+                            {
+                            React.Children.count( children ) > 1 ?
+                            ( <div>{
+                                React.Children.map( children, child =>
+                                    React.cloneElement( child, { percent: i }))
+                                }</div> ) :
+                            React.cloneElement( children, { percent: i })
+                            }
+                        </div>
+                    )}
+                </Motion>
             </div>
         )}
     </Measure>

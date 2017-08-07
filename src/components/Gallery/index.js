@@ -1,22 +1,24 @@
-import CreateGalleryContainer from './container';
-import GalleryComponent from './component';
+import { CreateSwipeHandler, CreateLink } from './containers';
 import GalleryReducers from './reducers';
 import CardDisplay from './Card';
 
-const Gallery = CreateGalleryContainer();
+const SwipeHandler = CreateSwipeHandler();
+const Link = CreateLink();
 
 export {
-    Gallery,
-    GalleryComponent,
-    CreateGalleryContainer,
+    SwipeHandler,
+    CreateSwipeHandler,
+    Link,
+    CreateLink,
     GalleryReducers,
     CardDisplay,
 };
 
 export default {
-    Gallery,
-    GalleryComponent,
-    CreateGalleryContainer,
+    SwipeHandler,
+    CreateSwipeHandler,
+    Link,
+    CreateLink,
     GalleryReducers,
     CardDisplay,
 };
