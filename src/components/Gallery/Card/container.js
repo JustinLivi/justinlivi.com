@@ -5,6 +5,7 @@ import { actions } from './reducers';
 import Card from './component';
 
 export default ( mapStateToProps = ({ card: { cardWidth } }, { percent }) => {
+    percent *= -1;
     const halfWidth = Math.floor( cardWidth / 2 );
     const edgeWidth = Math.ceil( cardWidth / 50 );
     const halfEdge = Math.floor( edgeWidth / 2 );

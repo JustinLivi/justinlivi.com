@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PageLayout from '../layouts/PageLayout';
-import { SwipeHandler, CardDisplay } from '../components/Gallery';
+import { SwipeHandler, CardDisplay, Pip, PipGroup } from '../components/Gallery';
 import Nav from './Nav';
 import Home from './Pages/Home';
 import routes from './routes';
@@ -40,6 +40,12 @@ class App extends React.Component {
                                         <Route path='/route4/' render={() => <div>Item 4</div>} />
                                     </Switch>
                                 </Card>
+                                <PipGroup>
+                                    <Pip />
+                                    <Pip />
+                                    <Pip />
+                                    <Pip />
+                                </PipGroup>
                             </SwipeHandler>
                         )}
                     />
