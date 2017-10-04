@@ -1,7 +1,6 @@
 import merge from 'lodash.merge';
 import omit from 'lodash.omit';
-import findIndex from 'lodash.findindex';
-import routes from '../routes';
+import { routes, getIndex } from '../routes';
 
 // ------------------------------------
 // Constants
@@ -45,10 +44,10 @@ export function setHandlerWidth( handlerWidth ) {
     };
 }
 
-export function goToRoute( index ) {
+export function goToRoute( route ) {
     return {
         type: GO_TO_ROUTE,
-        index,
+        route,
     };
 }
 
@@ -82,12 +81,14 @@ const ACTION_HANDLERS = {
         });
     },
     [GO_TO_ROUTE]: ( state, { route }) => {
-        const newIndex = routes.indexOf( route );
         const { index: oldIndex, frameCount } = state;
-        return merge({}, state, {
-            index: ( newIndex === -1 ? 0 : newIndex ) +
-                ( frameCount * Math.round( oldIndex / frameCount )),
-        });
+        const newIndex = getIndex( route ) + ( frameCount * Math.floor( oldIndex / frameCount ));
+        const distance = Math.abs( oldIndex - newIndex );
+        return merge({}, state, { index: (
+            distance === frameCount - 1 ?
+            oldIndex + Math.sign( oldIndex - newIndex ) :
+            newIndex
+        ) });
     },
     [SET_HANDLER_WIDTH]: ( state, action ) => merge({}, state, omit( action, 'type' )),
 };
@@ -95,7 +96,7 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const index = findIndex( routes, route => location.pathname.match( new RegExp( `^/${route}/` )));
+const index = getIndex( location.pathname );
 const initialState = {
     index: index === -1 ? 0 : index,
     frameCount: routes.length,

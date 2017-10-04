@@ -8,7 +8,7 @@ import PageLayout from '../layouts/PageLayout';
 import { SwipeHandler, CardDisplay, Pip, PipGroup } from '../components/Gallery';
 import Nav from './Nav';
 import Home from './Pages/Home';
-import routes from './routes';
+import { routes } from './routes';
 
 const { Card } = CardDisplay;
 
@@ -37,14 +37,14 @@ class App extends React.Component {
                                         <Route path='/home/' render={() => <Home />} />
                                         <Route path='/route2/' render={() => <div>Item 2</div>} />
                                         <Route path='/route3/' render={() => <div>Item 3</div>} />
-                                        <Route path='/route4/' render={() => <div>Item 4</div>} />
+                                        <Route path='/contact/' render={() => <div>Item 4</div>} />
                                     </Switch>
                                 </Card>
                                 <PipGroup>
-                                    <Pip />
-                                    <Pip />
-                                    <Pip />
-                                    <Pip />
+                                    <Pip link='/home/' />
+                                    <Pip link='/route2/' />
+                                    <Pip link='/route3/' />
+                                    <Pip link='/contact/' />
                                 </PipGroup>
                             </SwipeHandler>
                         )}
