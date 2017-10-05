@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PageLayout from '../layouts/PageLayout';
 import { SwipeHandler, CardDisplay, Pip, PipGroup } from '../components/Gallery';
 import Nav from './Nav';
-import Home from './Pages/Home';
+import pages from './Pages/';
 import { routes } from './routes';
 
 const { Card } = CardDisplay;
@@ -33,19 +33,17 @@ class App extends React.Component {
                                 routes={routes}
                             >
                                 <Card>
-                                    <Switch>
-                                        <Route path='/home/' render={() => <Home />} />
-                                        <Route path='/route2/' render={() => <div>Item 2</div>} />
-                                        <Route path='/route3/' render={() => <div>Item 3</div>} />
-                                        <Route path='/contact/' render={() => <div>Item 4</div>} />
-                                    </Switch>
+                                    <Switch>{
+                                        routes.map( route => (
+                                            <Route key={route} path={`/${route}/`} render={pages( route )} />
+                                        ))
+                                    }</Switch>
                                 </Card>
-                                <PipGroup>
-                                    <Pip link='/home/' />
-                                    <Pip link='/route2/' />
-                                    <Pip link='/route3/' />
-                                    <Pip link='/contact/' />
-                                </PipGroup>
+                                <PipGroup>{
+                                    routes.map( route => (
+                                        <Pip key={route} link={`/${route}/`} />
+                                    ))
+                                }</PipGroup>
                             </SwipeHandler>
                         )}
                     />

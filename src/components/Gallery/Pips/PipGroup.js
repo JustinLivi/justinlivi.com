@@ -25,8 +25,12 @@ const PipGroup = ({ percent, children }) => {
 };
 
 PipGroup.propTypes = {
-    percent: PropTypes.number.isRequired,
+    percent: PropTypes.number,
     children: PropTypes.node.isRequired,
+};
+
+PipGroup.defaultProps = {
+    percent: 0,
 };
 
 export default PipGroup;
