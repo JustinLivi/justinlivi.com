@@ -17,9 +17,12 @@
 
 .swipeHandler {
     margin: auto;
+    user-select: none;
     @include fullyabsolute();
+    cursor: ew-resize;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 0.5em;
+    margin: auto;
+    max-width: 700px;
 }

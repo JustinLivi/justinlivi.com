@@ -5,6 +5,7 @@ import injectSheet from 'react-jss';
 import merge from 'lodash.merge';
 import styles from './PipStyle.scss';
 import { Link } from '../index';
+import Hexagon from '../../Shapes/Hexagon';
 
 const dynamicStyles = {
     scale: {
@@ -18,16 +19,9 @@ const Pip = ({ classes, link }) => {
     return (
         <Link
             to={link}
-            className={cx( 'pipContainer' )}
+            className={cx( 'pipContainer', 'scale' )}
         >
-            <svg
-                xmlns='http://www.w3.org/2000/svg'
-                version='1.1'
-                viewBox='0 0 50 40'
-                className={cx( 'pip', 'scale' )}
-            >
-                <polygon points='45,20 35,37.33 15,37.33 5,20 15,2.66 35,2.66' />
-            </svg>
+            <Hexagon className={cx( 'pip' )} />
         </Link>
     );
 };

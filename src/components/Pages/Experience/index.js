@@ -22,7 +22,7 @@ const Home = () => (
         <h4>October 2015—December 2016</h4>
         <p>
             Following AOL’s acquisition of Millennial Media,
-            I took the title of Software Engineer on the mobile creative development side of
+            I worked as a Software Engineer on the mobile creative development side of
             the One Advertising Platform.
             As a software engineer I worked closely with designers, engineers, and key stake
             holders to develop premium advertising products and custom ad solutions.

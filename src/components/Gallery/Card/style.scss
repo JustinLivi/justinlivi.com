@@ -45,7 +45,7 @@
 
 .cardContent {
     @include fullyabsolute(3px);
-    padding: 1em;
+    padding: 2vh;
     backface-visibility: hidden;
     overflow: auto;
     // Old browsers
@@ -58,12 +58,14 @@
 
 .darken {
     @include fullyabsolute(0px);
+    pointer-events: none;
     opacity: 0.4;
     background-color: black;
 }
 
 .highlight {
     @include fullyabsolute(0px);
+    pointer-events: none;
     backface-visibility: hidden;
     width: 35%;
     opacity: 0.4;
