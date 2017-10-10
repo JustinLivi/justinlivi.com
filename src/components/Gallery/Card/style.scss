@@ -36,6 +36,7 @@
 }
 
 .cardface {
+    pointer-events: none;
     @include fullyabsolute();
     @include edgeGradient();
     overflow: hidden;
@@ -54,6 +55,10 @@
     background: linear-gradient(45deg, #253b48 0%,#20203e 50%,#312051 100%);
     // IE6-9 fallback on horizontal gradient
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#253b48', endColorstr='#312051',GradientType=1 );
+}
+
+.touchable {
+    pointer-events: initial;
 }
 
 .darken {

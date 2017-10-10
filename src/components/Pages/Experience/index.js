@@ -13,8 +13,9 @@ const Home = () => (
         <p>
             I founded Brinkbit with the goal of streamlining the game development workflow.
             As a co-founder and Chief Technology Officer I raised the inital seed round,
-            developed the core backend as a service platform,
-            and closed initial sales.
+            developed the core backend as a service platform, and closed initial sales.
+            I&lsquo;m currently focused on growing our early customer traction and expanding the
+            feature set of our beta offering.
         </p>
         <hr />
         <h2>Software Engineer</h2>
@@ -26,7 +27,7 @@ const Home = () => (
             the One Advertising Platform.
             As a software engineer I worked closely with designers, engineers, and key stake
             holders to develop premium advertising products and custom ad solutions.
-            Additionally, I developed a javascript framework based on the
+            Additionally, I developed a front end javascript framework based on the
             flux pattern which was relied upon daily by a team of 25 designers and developers.
         </p>
         <hr />

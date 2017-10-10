@@ -3,7 +3,7 @@ import findIndex from 'lodash.findindex';
 export const routes = [
     'home',
     'experience',
-    'route3',
+    'open-source',
     'contact',
 ];
 

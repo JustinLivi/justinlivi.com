@@ -66,6 +66,7 @@ const dynamicStyles = {
 const Card = ({
     classes,
     children,
+    percent,
     // action creators
     setCardWidth,
 }) => {
@@ -86,7 +87,7 @@ const Card = ({
                             ref={measureRef}
                         >
                             <div className={cx( 'cardface', 'cardfront' )}>
-                                <div className={cx( 'cardContent' )}>
+                                <div className={cx( 'cardContent', { touchable: !( Math.floor( percent ) % 2 ) })}>
                                     {children}
                                 </div>
                                 <div className={cx( 'darken', 'fadeDarkFront' )} />
@@ -95,7 +96,7 @@ const Card = ({
                             <div className={cx( 'cardside', 'leftSide', 'edge' )} />
                             <div className={cx( 'cardside', 'rightSide', 'edge' )} />
                             <div className={cx( 'cardface', 'cardback' )}>
-                                <div className={cx( 'cardContent' )}>
+                                <div className={cx( 'cardContent', { touchable: Math.floor( percent ) % 2 })}>
                                     {children}
                                 </div>
                                 <div className={cx( 'darken', 'fadeDarkBack' )} />
@@ -115,6 +116,7 @@ const Card = ({
 Card.propTypes = {
     classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     children: PropTypes.node.isRequired,
+    percent: PropTypes.number.isRequired,
     // action creators
     setCardWidth: PropTypes.func.isRequired,
 };

@@ -1,6 +1,5 @@
 import { applyMiddleware, compose, createStore as createReduxStore } from 'redux';
 import thunk from 'redux-thunk';
-// import logger from 'redux-logger';
 import reducers from './reducers';
 
 const createStore = ( initialState = {}) => {
@@ -8,7 +7,6 @@ const createStore = ( initialState = {}) => {
     // Middleware Configuration
     // ======================================================
     const middleware = [
-        // logger,
         thunk,
     ];
 

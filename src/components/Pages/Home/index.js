@@ -11,7 +11,7 @@ const Home = () => (
         <h1>JUSTIN LIVI</h1>
         <ul className={cx( 'subheader' )}>
             <li><Link to='/experience/' >entrepreneur</Link></li>
-            <li><Link to='/experience/' >engineer</Link></li>
+            <li><Link to='/open-source/' >engineer</Link></li>
             <li><Link to='/experience/' >designer</Link></li>
             <li><Link to='/experience/' >artist</Link></li>
         </ul>
