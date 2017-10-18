@@ -4,6 +4,7 @@ export const routes = [
     'home',
     'experience',
     'open-source',
+    'branding',
     'contact',
 ];
 

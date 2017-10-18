@@ -21,7 +21,7 @@
     flex-direction: column;
     justify-content: center;
     max-width: 95vh * ( 9vh / 16vh );
-    --height: calc( 95vh - 70px );
+    --height: calc( 95vh - 120px );
     max-width: calc( var( --height ) * ( 9 / 16 ));
 }
 
@@ -58,7 +58,7 @@
 }
 
 .touchable {
-    pointer-events: initial;
+    pointer-events: unquote("initial");
 }
 
 .darken {
