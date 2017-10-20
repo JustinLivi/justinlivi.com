@@ -1,15 +1,21 @@
-FROM node:6.9.1
+FROM mhart/alpine-node:8.7.0
 
-RUN npm install -g pm2
-RUN npm install -g node-gyp
+RUN apk --no-cache add python g++ make yarn
 
+ARG ENV_FILE
+
+RUN yarn global add pm2
+RUN yarn global add node-gyp
+
+COPY yarn.lock yarn.lock
 COPY package.json package.json
-RUN npm install
+RUN yarn install --verbose
+RUN npm rebuild bcrypt --build-from-source
 
-COPY webpack.config.js webpack.config.js
+COPY server server
+COPY public public
+COPY build build
 COPY src/ src/
+COPY project.config.js project.config.js
 
-RUN npm run build
-RUN npm prune --production
-
-CMD npm start
+CMD yarn start
