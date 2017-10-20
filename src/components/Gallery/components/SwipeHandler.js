@@ -62,7 +62,7 @@ const Gallery = ({
                     }}
                 >
                     {({ i }) => (
-                        <div>
+                        <div className={cx( 'fullHeight' )}>
                             {(() => {
                                 const adjusted = Math.round( i );
                                 const route = routes[

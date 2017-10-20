@@ -4,7 +4,8 @@
 }
 
 .pipContainer {
-    width: 12%;
+    padding-top: 1.6%;
+    width: 11%;
     background: none;
     border: none;
     cursor: pointer;
@@ -15,7 +16,9 @@
 }
 
 .pipGroup {
-    margin-top: -10px;
+    position: absolute;
+    bottom: 2.5vh;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding-left: 10%;

@@ -4,7 +4,7 @@
         font-size: 5vh;
         font-weight: 500;
         margin-top: 20%;
-        margin-left: 0.1vh;
+        margin-left: 0.2vh;
         margin-bottom: 2rem;
         letter-spacing: 1.3vh;
     }
@@ -25,10 +25,10 @@
     }
 
     ul.subheader {
-        margin-left: -0.1vh;
+        margin-left: -0.35vh;
         li + li:before {
             content: '/';
-            margin: 0.5vh;
+            margin: -0.25vh;
         }
         button {
             font-family: 'Poppins', sans-serif;
@@ -39,7 +39,7 @@
             color: white;
             background: none;
             border: none;
-            padding: 0;
+            padding: 0.5vh;
         }
         button:hover {
             text-decoration: underline;

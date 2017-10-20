@@ -16,7 +16,7 @@ const PipGroup = ({ percent, children }) => {
                 React.Children.map( children, ( child, i ) =>
                     React.cloneElement(
                         child,
-                        { percent: i === index ? 1.5 - Math.abs( percent - adjusted ) : 1 }
+                        { percent: i === index ? 1.2 * ( 1.4 - Math.abs( percent - adjusted )) : 1 }
                     )
                 ) :
                 React.cloneElement( children, { percent: Math.max( 0.7, percent ) })

@@ -21,7 +21,7 @@
     flex-direction: column;
     justify-content: center;
     max-width: 95vh * ( 9vh / 16vh );
-    --height: calc( 95vh - 120px );
+    --height: calc( 95vh - 80px );
     max-width: calc( var( --height ) * ( 9 / 16 ));
 }
 
@@ -41,7 +41,7 @@
     @include edgeGradient();
     overflow: hidden;
     backface-visibility: hidden;
-    bottom: 70px;
+    bottom: 0px;
 }
 
 .cardContent {
@@ -86,7 +86,7 @@
     @include edgeGradient();
     margin: auto;
     width: 8px;
-    bottom: 70px;
+    bottom: 0px;
     overflow: auto;
 }
 

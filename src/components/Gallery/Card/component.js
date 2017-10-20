@@ -42,13 +42,13 @@ const dynamicStyles = {
         height: ({ edgeWidth }) => `${edgeWidth}px`,
         boxShadow: ({ halfEdge }) => `0 0 ${halfEdge}px ${halfEdge * 0.8}px #000`,
         transform: ({ percent }) => `rotateY(${percent * 180}deg) rotateX(90deg)`,
-        bottom: ({ halfEdge }) => 70 - halfEdge,
+        bottom: ({ halfEdge }) => -halfEdge,
     },
     bigShadow: {
         height: ({ height }) => `${height / 3}px`,
         boxShadow: ({ iterator, edgeWidth, bounce }) =>
             `0 ${-iterator * edgeWidth * 1.4}px ${bounce * edgeWidth * 2}px ${bounce * edgeWidth * 2}px #000`,
-        bottom: ({ height }) => 70 - ( height / 6 ),
+        bottom: ({ height }) => -( height / 6 ),
         transform: ({ percent }) => `rotateY(${percent * 180}deg) rotateX(90deg)`,
         opacity: ({ bounce }) => ( 1.2 - bounce ) * 0.4,
     },
@@ -56,7 +56,7 @@ const dynamicStyles = {
         height: ({ height }) => `${height}px`,
         boxShadow: ({ iterator, edgeWidth, height }) =>
             `0 ${-iterator * edgeWidth}px ${height * 2}px ${height}px #000`,
-        bottom: ({ height }) => 70 - ( height / 2 ),
+        bottom: ({ height }) => -( height / 2 ),
         transform: ({ percent, height, iterator }) =>
             `rotateY(${percent * 180}deg) rotateX(90deg) translate(${-( height * 0.4 * iterator )}px, ${-( height * 0.7 * iterator )}px)`,
         opacity: ({ bounce }) => 1.1 - bounce,
@@ -74,7 +74,7 @@ const Card = ({
     return (
         <div className={cx( 'col' )}>
             <div className={cx( 'row' )}>
-                <canvas height='1890' width='1080' className={cx( 'fix' )} />
+                <canvas height='1550' width='1000' className={cx( 'fix' )} />
                 <Measure
                     bounds
                     onResize={( contentRect ) => {

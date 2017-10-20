@@ -12,8 +12,8 @@ const Home = () => (
         <ul className={cx( 'subheader' )}>
             <li><Link to='/experience/' >entrepreneur</Link></li>
             <li><Link to='/open-source/' >engineer</Link></li>
-            <li><Link to='/experience/' >designer</Link></li>
-            <li><Link to='/experience/' >artist</Link></li>
+            <li><Link to='/branding/' >designer</Link></li>
+            <li><Link to='/branding/' >artist</Link></li>
         </ul>
         <div className={cx( 'swipe' )}>
             <div className={cx( 'leftTriangle', 'triangle' )}><Triangle /></div>

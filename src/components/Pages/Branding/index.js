@@ -1,10 +1,8 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import merge from 'lodash.merge';
-import topLevelStyles from '../style.scss';
 import styles from './style.scss';
 
-const cx = classNames.bind( merge( topLevelStyles, styles ));
+const cx = classNames.bind( styles );
 
 const Home = () => (
     <div className={cx( 'page' )}>

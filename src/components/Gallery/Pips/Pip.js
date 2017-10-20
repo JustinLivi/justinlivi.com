@@ -10,7 +10,7 @@ import Hexagon from '../../Shapes/Hexagon';
 const dynamicStyles = {
     scale: {
         transform: ({ percent }) => `scale3d(${percent},${percent},1)`,
-        strokeWidth: ({ percent }) => `${10 / percent}px`,
+        strokeWidth: ({ percent }) => `${9 / percent}px`,
     },
 };
 
