@@ -1,14 +1,13 @@
 {
-    "extends": "airbnb/base",
+    "parser": "babel-eslint",
+    "extends": "brinkbit",
+    "globals": {
+        "__DEV__": false,
+        "__TEST__": false,
+        "__PROD__": false,
+        "__COVERAGE__": false
+    },
     "rules": {
-        "indent": [ 2, 4, { "SwitchCase": 1 }],
-        "space-in-parens": [ 2, "always", { "exceptions": [ "{}", "[]", "()" ] }],
-        "strict": [ 2, "global" ],
-        "brace-style": [ 2, "stroustrup" ],
-        "array-bracket-spacing": [ 2, "always", {
-            "singleValue": false,
-            "objectsInArrays": false,
-            "arraysInArrays": false
-        }]
+        "react/jsx-indent-props": [2, 4],
     }
 }

@@ -1,0 +1,26 @@
+.pip {
+    fill: none;
+    stroke: white;
+}
+
+.pipContainer {
+    padding-top: 1.6%;
+    width: 11%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.pipContainer:focus {
+    outline: 1px dotted white;
+}
+
+.pipGroup {
+    position: absolute;
+    bottom: 2.5vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+}

@@ -1,0 +1,19 @@
+version: '2.3'
+services:
+    app:
+        build:
+            context: ./
+        command: npm start
+        environment:
+            - NODE_ENV=production
+        expose:
+            - '3000'
+
+    lb:
+        image: 'dockercloud/haproxy:latest'
+        links:
+            - app
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        ports:
+            - '4999:80'
