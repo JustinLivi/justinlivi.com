@@ -1,107 +1,143 @@
 @mixin fullyabsolute($inset: 0) {
-    position: absolute;
-    top: $inset;
-    right: $inset;
-    bottom: $inset;
-    left: $inset;
+  position: absolute;
+  top: $inset;
+  right: $inset;
+  bottom: $inset;
+  left: $inset;
 }
 
 @mixin edgeGradient {
-    // Old browsers
-    background: #99769b; /* Old browsers */
-    // Main style
-    background: linear-gradient(to bottom, #99769b 0%,#b5a7b0 2%,#9f75a0 4%,#9f75a0 4%,#20203e 45%,#384557 55%,#2b2e4b 61%,#829fae 73%,#253b48 96%,#253b48 100%);
-    // IE6-9 fallback
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99769b', endColorstr='#253b48',GradientType=0 );
+  // Old browsers
+  background: #99769b; /* Old browsers */
+  // Main style
+  background: linear-gradient(
+    to bottom,
+    #99769b 0%,
+    #b5a7b0 2%,
+    #9f75a0 4%,
+    #9f75a0 4%,
+    #20203e 45%,
+    #384557 55%,
+    #2b2e4b 61%,
+    #829fae 73%,
+    #253b48 96%,
+    #253b48 100%
+  );
+  // IE6-9 fallback
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99769b', endColorstr='#253b48',GradientType=0 );
 }
 
 .col {
-    flex: 0 0 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 95vh * ( 9vh / 16vh );
-    --height: calc( 95vh - 80px );
-    max-width: calc( var( --height ) * ( 9 / 16 ));
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 95vh * (9vh / 16vh);
+  --height: calc(95vh - 80px);
+  max-width: calc(var(--height) * (9 / 16));
 }
 
 .row {
-    max-height: 100%;
-    position: relative;
+  max-height: 100%;
+  position: relative;
 }
 
 .fix {
-    width: 100%;
-    pointer-events: none;
+  width: 100%;
+  pointer-events: none;
 }
 
 .cardface {
-    pointer-events: none;
-    @include fullyabsolute();
-    @include edgeGradient();
-    overflow: hidden;
-    backface-visibility: hidden;
-    bottom: 0px;
+  pointer-events: none;
+  @include fullyabsolute();
+  @include edgeGradient();
+  overflow: hidden;
+  backface-visibility: hidden;
+  bottom: 0px;
 }
 
 .cardContent {
-    @include fullyabsolute(3px);
-    padding: 2vh;
-    backface-visibility: hidden;
-    overflow: auto;
-    // Old browsers
-    background: #253b48;
-    // Main style
-    background: linear-gradient(45deg, #253b48 0%,#20203e 50%,#312051 100%);
-    // IE6-9 fallback on horizontal gradient
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#253b48', endColorstr='#312051',GradientType=1 );
+  @include fullyabsolute(3px);
+  padding: 2vh;
+  backface-visibility: hidden;
+  overflow: auto;
+  // Old browsers
+  background: #253b48;
+  // Main style
+  background: linear-gradient(45deg, #253b48 0%, #20203e 50%, #312051 100%);
+  // IE6-9 fallback on horizontal gradient
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#253b48', endColorstr='#312051',GradientType=1 );
 }
 
 .touchable {
-    pointer-events: unquote("initial");
+  pointer-events: unquote('initial');
 }
 
 .darken {
-    @include fullyabsolute(0px);
-    pointer-events: none;
-    opacity: 0.4;
-    background-color: black;
+  @include fullyabsolute(0px);
+  pointer-events: none;
+  opacity: 0.4;
+  background-color: black;
 }
 
 .highlight {
-    @include fullyabsolute(0px);
-    pointer-events: none;
-    backface-visibility: hidden;
-    width: 35%;
-    opacity: 0.4;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#badae0+0,eafdff+23,eafdff+83,badae0+100&0+0,0.5+23,1+51,0.57+76,0+100 */
-    background: -moz-linear-gradient(left, rgba(186,218,224,0) 0%, rgba(234,253,255,0.5) 23%, rgba(234,253,255,1) 51%, rgba(234,253,255,0.57) 76%, rgba(234,253,255,0.4) 83%, rgba(186,218,224,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(186,218,224,0) 0%,rgba(234,253,255,0.5) 23%,rgba(234,253,255,1) 51%,rgba(234,253,255,0.57) 76%,rgba(234,253,255,0.4) 83%,rgba(186,218,224,0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(186,218,224,0) 0%,rgba(234,253,255,0.5) 23%,rgba(234,253,255,0.6) 51%,rgba(234,253,255,0.57) 76%,rgba(234,253,255,0.4) 83%,rgba(186,218,224,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00badae0', endColorstr='#00badae0',GradientType=1 ); /* IE6-9 */
+  @include fullyabsolute(0px);
+  pointer-events: none;
+  backface-visibility: hidden;
+  width: 35%;
+  opacity: 0.4;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#badae0+0,eafdff+23,eafdff+83,badae0+100&0+0,0.5+23,1+51,0.57+76,0+100 */
+  background: -moz-linear-gradient(
+    left,
+    rgba(186, 218, 224, 0) 0%,
+    rgba(234, 253, 255, 0.5) 23%,
+    rgba(234, 253, 255, 1) 51%,
+    rgba(234, 253, 255, 0.57) 76%,
+    rgba(234, 253, 255, 0.4) 83%,
+    rgba(186, 218, 224, 0) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(186, 218, 224, 0) 0%,
+    rgba(234, 253, 255, 0.5) 23%,
+    rgba(234, 253, 255, 1) 51%,
+    rgba(234, 253, 255, 0.57) 76%,
+    rgba(234, 253, 255, 0.4) 83%,
+    rgba(186, 218, 224, 0) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgba(186, 218, 224, 0) 0%,
+    rgba(234, 253, 255, 0.5) 23%,
+    rgba(234, 253, 255, 0.6) 51%,
+    rgba(234, 253, 255, 0.57) 76%,
+    rgba(234, 253, 255, 0.4) 83%,
+    rgba(186, 218, 224, 0) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00badae0', endColorstr='#00badae0',GradientType=1 ); /* IE6-9 */
 }
 
 .cardside {
-    @include fullyabsolute();
-    @include edgeGradient();
-    margin: auto;
-    width: 8px;
-    bottom: 0px;
-    overflow: auto;
+  @include fullyabsolute();
+  @include edgeGradient();
+  margin: auto;
+  width: 8px;
+  bottom: 0px;
+  overflow: auto;
 }
 
 .shadow {
-    width: 100%;
-    position: absolute;
-    background-color: black;
-    border-radius: 50px;
-    opacity: 0.4;
-    transform-origin: center;
+  width: 100%;
+  position: absolute;
+  background-color: black;
+  border-radius: 50px;
+  opacity: 0.4;
+  transform-origin: center;
 }
 
 .content {
-    @include fullyabsolute();
-    transform-style: preserve-3d;
-    perspective-origin: 50% 40%;
-    perspective: 2000px;
+  @include fullyabsolute();
+  transform-style: preserve-3d;
+  perspective-origin: 50% 40%;
+  perspective: 2000px;
 }

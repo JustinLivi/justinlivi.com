@@ -12,7 +12,7 @@ const Home = () => (
         <h4>August 2013—Present</h4>
         <p>
             I founded Brinkbit with the goal of streamlining the game development workflow.
-            As a co-founder and Chief Technology Officer I raised the inital seed round,
+            As a co-founder and Chief Technology Officer I raised the initial seed round,
             developed the core backend as a service platform, and closed initial sales.
             I&lsquo;m currently focused on growing our early customer traction and expanding the
             feature set of our beta offering.
@@ -37,9 +37,9 @@ const Home = () => (
         <p>
             As a Software Developer at Millennial Media I maintained and modernized legacy php
             web services and front-end javascript libraries and developed new products and services.
-            Products included a &quot;photoshoot&quot; unit in which the user captured and editted
-            photos, a mobile 360 video product, and several game types including frogger, tetris,
-            match 3, and catch-it.
+            Products included a &quot;photoshoot&quot; unit in which the user captured and edited
+            photos, a mobile 360 video product, and several game types including Frogger, Tetris,
+            Match 3, and Catch-it.
         </p>
     </div>
 );

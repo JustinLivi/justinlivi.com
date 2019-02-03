@@ -1,13 +1,12 @@
 {
-    "parser": "babel-eslint",
-    "extends": "brinkbit",
-    "globals": {
-        "__DEV__": false,
-        "__TEST__": false,
-        "__PROD__": false,
-        "__COVERAGE__": false
-    },
-    "rules": {
-        "react/jsx-indent-props": [2, 4],
-    }
+  "parser": "babel-eslint",
+  "globals": {
+    "__DEV__": false,
+    "__TEST__": false,
+    "__PROD__": false,
+    "__COVERAGE__": false
+  },
+  "rules": {
+    "react/jsx-indent-props": [2, 4]
+  }
 }
