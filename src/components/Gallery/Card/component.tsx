@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import merge from 'lodash.merge';
-import PropTypes from 'prop-types';
 import React from 'react';
 import injectSheet from 'react-jss';
 import Measure from 'react-measure';
@@ -77,11 +76,16 @@ const dynamicStyles = {
   }
 };
 
-const Card = ({
+export interface CardProps {
+  classes: {};
+  percent: number;
+  setCardWidth: (width: number) => void;
+}
+
+const UnstyledCard: React.SFC<CardProps> = ({
   classes,
   children,
   percent,
-  // action creators
   setCardWidth
 }) => {
   const cx = classNames.bind(merge(classes, styles));
@@ -132,17 +136,4 @@ const Card = ({
   );
 };
 
-Card.propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  children: PropTypes.node.isRequired,
-  percent: PropTypes.number.isRequired,
-  // action creators
-  setCardWidth: PropTypes.func.isRequired
-};
-
-Card.defaultProps = {
-  percent: 0,
-  cardWidth: 0
-};
-
-export default injectSheet(dynamicStyles)(Card);
+export const UnconnectedCard = injectSheet(dynamicStyles)(UnstyledCard);
