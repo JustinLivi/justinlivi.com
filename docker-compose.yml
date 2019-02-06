@@ -1,8 +1,7 @@
 version: '2.3'
 services:
     app:
-        build:
-            context: ./
+        image: 'justinlivi/justinlivi.com:latest'
         command: npm start
         environment:
             - NODE_ENV=production
