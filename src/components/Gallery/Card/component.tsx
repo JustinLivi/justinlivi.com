@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import merge from 'lodash.merge';
+import { merge } from 'lodash';
 import React from 'react';
 import injectSheet from 'react-jss';
 import Measure from 'react-measure';

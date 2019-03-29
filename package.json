@@ -38,6 +38,8 @@
     "prettier": "^1.15.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-jss": "^8.6.1",
+    "react-measure": "^2.2.4",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.3",

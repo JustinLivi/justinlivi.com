@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
+import * as actions from './actions';
 import { UnconnectedCard } from './component';
-import { actions } from './reducers';
 
 export const mapStateToProps = ({ card: { cardWidth } }, { percent }) => {
   percent *= -1;

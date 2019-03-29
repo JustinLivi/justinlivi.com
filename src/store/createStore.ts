@@ -1,44 +1,20 @@
-import { applyMiddleware, compose, createStore as createReduxStore } from 'redux';
-import thunk from 'redux-thunk';
+import { applyMiddleware, createStore } from 'redux';
+import { apiMiddleware } from 'redux-api-middleware';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import logger from 'redux-logger';
 
-import reducers from './reducers';
+import { NODE_ENV } from '../config';
+import { reducer } from './reducers';
+import { initialState } from './stateDefinition';
 
-const createStore = (initialState = {}) => {
-  // ======================================================
-  // Middleware Configuration
-  // ======================================================
-  const middleware = [thunk];
+export const middleware = [apiMiddleware];
 
-  // ======================================================
-  // Store Enhancers
-  // ======================================================
-  const enhancers = [];
-  let composeEnhancers = compose;
+if (NODE_ENV === 'development') {
+  middleware.push(logger);
+}
 
-  if (__DEV__) {
-    if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function') {
-      composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-    }
-  }
-
-  // ======================================================
-  // Store Instantiation and HMR Setup
-  // ======================================================
-  const store = createReduxStore(
-    reducers(),
-    initialState,
-    composeEnhancers(applyMiddleware(...middleware), ...enhancers)
-  );
-  store.asyncReducers = {};
-
-  if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      const hotReducers = require('./reducers').default; // eslint-disable-line global-require
-      store.replaceReducer(hotReducers(store.asyncReducers));
-    });
-  }
-
-  return store;
-};
-
-export default createStore;
+export const store = createStore(
+  reducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
