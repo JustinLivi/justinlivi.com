@@ -11,7 +11,7 @@ export interface OpenSourceProps {
   fetchPackagesIfNeeded: () => void;
 }
 
-class OpenSource extends Component<OpenSourceProps> {
+export class OpenSource extends Component<OpenSourceProps> {
   componentDidMount() {
     const { fetchPackagesIfNeeded } = this.props;
     fetchPackagesIfNeeded();

@@ -5,6 +5,7 @@
     "no-submodule-imports": [false],
     "interface-name": [true, "never-prefix"],
     "import-name": [false],
-    "variable-name": [false]
+    "variable-name": [false],
+    "jsx-no-lambda": [false]
   }
 }

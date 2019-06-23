@@ -1,5 +1,5 @@
 import fetchPonyfill from 'fetch-ponyfill';
-import merge from 'lodash.merge';
+import { merge } from 'lodash';
 
 const { fetch } = fetchPonyfill();
 

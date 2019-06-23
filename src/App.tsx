@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { CardDisplay, Pip, PipGroup, SwipeHandler } from './components/Gallery';
 import Nav from './components/Nav';
+import PageLayout from './components/PageLayout';
 import pages from './components/Pages';
 import { routes } from './components/routes';
-import PageLayout from './layouts/PageLayout';
 import { store } from './store/createStore';
 
 const { Card } = CardDisplay;

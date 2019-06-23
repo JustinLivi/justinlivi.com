@@ -2,7 +2,6 @@ export const MOVE_DRAG = 'MOVE_DRAG';
 export const START_DRAG = 'START_DRAG';
 export const END_DRAG = 'END_DRAG';
 export const SET_HANDLER_WIDTH = 'SET_HANDLER_WIDTH';
-export const GO_TO_ROUTE = 'GO_TO_ROUTE';
 
 export const drag = (clientX: number = 0) => ({
   clientX,
@@ -23,9 +22,4 @@ export const endDrag = () => ({
 export const setHandlerWidth = (handlerWidth: number) => ({
   handlerWidth,
   type: SET_HANDLER_WIDTH
-});
-
-export const goToRoute = (route: string) => ({
-  route,
-  type: GO_TO_ROUTE
 });

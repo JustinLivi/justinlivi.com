@@ -1,84 +1,83 @@
 .page {
-    h1 {
-        text-align: center;
-        font-size: 5vh;
-        font-weight: 500;
-        margin-top: 20%;
-        margin-left: 0.2vh;
-        margin-bottom: 2rem;
-        letter-spacing: 1.3vh;
-    }
+  h1 {
+    text-align: center;
+    font-size: 5vh;
+    font-weight: 500;
+    margin-top: 20%;
+    margin-left: 0.2vh;
+    margin-bottom: 2rem;
+    letter-spacing: 1.3vh;
+  }
 
-    ul {
-        text-align: center;
-        padding: 0;
-    }
+  ul {
+    text-align: center;
+    padding: 0;
+  }
 
-    li {
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.8vh;
-        font-weight: 300;
-        letter-spacing: 0.1vh;
-        text-align: center;
-        list-style-type: none;
-        display: inline-block;
-    }
+  li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8vh;
+    font-weight: 300;
+    letter-spacing: 0.1vh;
+    text-align: center;
+    list-style-type: none;
+    display: inline-block;
+  }
 
-    ul.subheader {
-        margin-left: -0.35vh;
-        li + li:before {
-            content: '/';
-            margin: -0.25vh;
-        }
-        button {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8vh;
-            font-weight: 300;
-            letter-spacing: 0.1vh;
-            cursor: pointer;
-            color: white;
-            background: none;
-            border: none;
-            padding: 0.5vh;
-        }
-        button:hover {
-            text-decoration: underline;
-        }
-        button:focus {
-            outline: 1px dotted white;
-        }
+  ul.subheader {
+    margin-left: -0.35vh;
+    li + li:before {
+      content: '/';
+      margin: -0.25vh;
     }
-
-    .swipe {
-        margin-top: 80%;
-        font-size: 1.8vh;
-        font-weight: 300;
-        letter-spacing: 0.3vh;
-        display: flex;
-        justify-content: center;
-        margin-left: 0.5vh;
-        margin-right: 0.5vh;
+    button {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8vh;
+      font-weight: 300;
+      letter-spacing: 0.1vh;
+      cursor: pointer;
+      color: white;
+      background: none;
+      border: none;
+      padding: 0.5vh;
     }
-
-    .triangle {
-        padding-top: 2px;
-        fill: none;
-        stroke: white;
-        stroke-width: 3px;
-        opacity: 0.3;
-        margin-left: 4%;
-        margin-right: 4%;
+    button:hover {
+      text-decoration: underline;
     }
-
-    .leftTriangle {
-        height: 100%;
-        width: 5%;
-        transform: rotateY(180deg);
+    button:focus {
+      outline: 1px dotted white;
     }
+  }
 
-    .rightTriangle {
-        height: 100%;
-        width: 5%;
-    }
+  .swipe {
+    margin-top: 80%;
+    font-size: 1.8vh;
+    font-weight: 300;
+    letter-spacing: 0.3vh;
+    display: flex;
+    justify-content: center;
+    margin-left: 0.5vh;
+    margin-right: 0.5vh;
+  }
 
+  .triangle {
+    padding-top: 2px;
+    fill: none;
+    stroke: white;
+    stroke-width: 3px;
+    opacity: 0.3;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+
+  .leftTriangle {
+    height: 100%;
+    width: 5%;
+    transform: rotateY(180deg);
+  }
+
+  .rightTriangle {
+    height: 100%;
+    width: 5%;
+  }
 }

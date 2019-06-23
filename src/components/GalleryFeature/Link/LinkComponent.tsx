@@ -1,14 +1,16 @@
 import React from 'react';
 
-export interface NavProps {
+import { goToRoute } from './LinkActions';
+
+export interface LinkProps {
   tabIndex?: number;
   to: string;
   className?: string;
   role?: string;
-  goToRoute: (to: string) => void;
+  goToRoute: typeof goToRoute;
 }
 
-const Nav: React.SFC<NavProps> = ({
+export const UnconnectedLink: React.SFC<LinkProps> = ({
   children,
   to,
   role = 'link',
@@ -21,12 +23,10 @@ const Nav: React.SFC<NavProps> = ({
     role={role}
     onClick={e => {
       e.currentTarget.blur();
-      goToRoute(to);
+      goToRoute({ route: to });
     }}
     className={className}
   >
     {children}
   </button>
 );
-
-export default Nav;

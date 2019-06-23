@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface TriangleProps {
-  className: string;
+  className?: string;
 }
 
 export const Triangle: React.SFC<TriangleProps> = ({ className }) => (
