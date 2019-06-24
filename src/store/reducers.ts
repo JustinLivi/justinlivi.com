@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { cardStandardRootReducer } from '../components/Gallery/Card/CardReducers';
-import { OpenSourceReducers } from '../components/Pages/OpenSource';
-import { gallery } from './gallery';
+import { rootGalleryReducer } from '../features/Gallery/rootGalleryReducer';
 
 export const reducer = combineReducers({
-  gallery,
-  card: cardStandardRootReducer,
-  packages: OpenSourceReducers
+  gallery: rootGalleryReducer,
+  pages: () => ({})
 });

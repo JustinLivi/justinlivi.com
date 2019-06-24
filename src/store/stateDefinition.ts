@@ -1,11 +1,12 @@
-import { CardState } from '../components/Gallery/Card/CardReducers';
-
-export interface GalleryState {}
-
-export interface PackagesState {}
+import { galleryInitialState, GalleryState } from '../features/Gallery/galleryState';
+import { pagesInitialState, PagesState } from '../features/Pages/pagesState';
 
 export interface State {
-  card: CardState;
   gallery: GalleryState;
-  packages: PackagesState;
+  pages: PagesState;
 }
+
+export const initialState: State = {
+  gallery: galleryInitialState,
+  pages: pagesInitialState
+};
