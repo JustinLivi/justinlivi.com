@@ -1,7 +1,7 @@
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import React from 'react';
 
-import styles from './PageLayoutStyles.scss';
+import styles from './PageLayoutStyles.module.scss';
 
 const cx = classNames.bind(styles);
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 import { TriangleComponent } from '../../../App/components/Triangle/TriangleComponent';
 import { LinkContainer } from '../../../Gallery/components/Link/LinkContainer';
-import styles from './HomeStyles.scss';
+import styles from './HomeStyles.module.scss';
 
 const cx = classNames.bind(styles);
 

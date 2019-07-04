@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import styles from './BrandingStyles.scss';
+import styles from './BrandingStyles.module.scss';
 
 const cx = classNames.bind(styles);
 

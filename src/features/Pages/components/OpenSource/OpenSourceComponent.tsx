@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import React, { Component } from 'react';
 
 import { Package } from '../../pagesState';
-import styles from './OpenSourceStyles.scss';
+import styles from './OpenSourceStyles.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -15,7 +15,7 @@ export interface OpenSourceProps {
 export class OpenSourceComponent extends Component<OpenSourceProps> {
   componentDidMount() {
     const { fetchPackagesIfNeeded } = this.props;
-    fetchPackagesIfNeeded();
+    // fetchPackagesIfNeeded();
   }
 
   render() {
@@ -23,7 +23,7 @@ export class OpenSourceComponent extends Component<OpenSourceProps> {
     return (
       <div className={cx('page', 'openSource')}>
         <h1>OPEN SOURCE</h1>
-        {isFetching
+        {isFetching || !packages
           ? 'Loading...'
           : packages.map(({ name, links }) => (
               <div key={name}>

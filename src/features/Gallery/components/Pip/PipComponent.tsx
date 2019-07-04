@@ -1,12 +1,12 @@
 import { createStyles, WithStyles } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { merge } from 'lodash';
 import React from 'react';
 
 import { HexagonComponent } from '../Hexagon/HexagonComponent';
 import { LinkContainer } from '../Link/LinkContainer';
-import styles from './PipStyle.scss';
+import styles from './PipStyle.module.scss';
 
 export interface PipParentProps {
   percent: number;

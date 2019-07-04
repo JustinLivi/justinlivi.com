@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import React from 'react';
 import Measure from 'react-measure';
 import { Motion, spring } from 'react-motion';
@@ -11,7 +11,7 @@ import { setHandlerWidth } from '../../actions/setHandlerWidth';
 import { startDrag } from '../../actions/startDrag';
 import { CardContainer } from '../Card/CardContainer';
 import { PipGroupComponent } from '../PipGroup/PipGroupComponent';
-import styles from './SwipeHandlerStyle.scss';
+import styles from './SwipeHandlerStyle.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -56,24 +56,46 @@ export const SwipeHandlerComponent: React.SFC<SwipeHandlerProps> = ({
         className={cx('swipeHandler')}
         ref={measureRef}
         onMouseDown={e => {
-          startDrag({ startX: e.clientX });
+          if (!dragging) {
+            startDrag({ startX: e.clientX });
+          }
         }}
         onTouchStart={e => {
-          startDrag({ startX: e.changedTouches[0].clientX });
+          if (!dragging) {
+            startDrag({ startX: e.changedTouches[0].clientX });
+          }
         }}
-        onMouseUp={() => endDrag(undefined)}
-        onTouchEnd={() => endDrag(undefined)}
-        onTouchCancel={() => endDrag(undefined)}
+        onMouseUp={() => {
+          if (dragging) {
+            endDrag(undefined);
+          }
+        }}
+        onTouchEnd={() => {
+          if (dragging) {
+            endDrag(undefined);
+          }
+        }}
+        onTouchCancel={() => {
+          if (dragging) {
+            endDrag(undefined);
+          }
+        }}
         onMouseLeave={e => {
           e.preventDefault();
-          endDrag(undefined);
+          if (dragging) {
+            endDrag(undefined);
+          }
         }}
         onMouseMove={e => {
           e.preventDefault();
-          moveDrag({ clientX: e.clientX });
+          if (dragging) {
+            moveDrag({ clientX: e.clientX });
+          }
         }}
         onTouchMove={e => {
-          moveDrag({ clientX: e.changedTouches[0].clientX });
+          if (dragging) {
+            moveDrag({ clientX: e.changedTouches[0].clientX });
+          }
         }}
         role='presentation'
       >
@@ -100,7 +122,7 @@ export const SwipeHandlerComponent: React.SFC<SwipeHandlerProps> = ({
                   <Redirect to={`/${route}/`} />
                 );
               })()}
-              <CardContainer>
+              <CardContainer percent={i}>
                 <Switch>
                   {routes.map(route => (
                     <Route

@@ -9,7 +9,7 @@ export const endDragGalleryReducer = createKeyableReducer<
   EndDragAction
 >(END_DRAG, state =>
   immer(state, draft => {
-    const { percent, index } = draft;
+    const { percent, index } = state;
     draft.index =
       Math.abs(percent) > continueThreshold
         ? index + Math.sign(percent) * Math.ceil(Math.abs(percent))

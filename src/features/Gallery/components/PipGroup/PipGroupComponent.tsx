@@ -1,8 +1,8 @@
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import React from 'react';
 
 import { PipComponent } from '../Pip/PipComponent';
-import styles from './PipGroupStyles.scss';
+import styles from './PipGroupStyles.module.scss';
 
 const cx = classNames.bind(styles);
 

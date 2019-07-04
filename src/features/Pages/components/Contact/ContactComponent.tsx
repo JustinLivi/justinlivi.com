@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import styles from './ContactStyles.scss';
+import styles from './ContactStyles.module.scss';
 
 const cx = classNames.bind(styles);
 

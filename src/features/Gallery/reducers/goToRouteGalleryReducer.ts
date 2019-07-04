@@ -12,7 +12,7 @@ export const goToRouteGalleryReducer = createKeyableReducer<
   GoToRouteAction
 >(GO_TO_ROUTE, (state, { payload: { route } }) =>
   immer(state, draft => {
-    const { index: oldIndex } = draft;
+    const { index: oldIndex } = state;
     const newIndex =
       getIndex(route) + frameCount * Math.floor(oldIndex / frameCount);
     const distance = Math.abs(oldIndex - newIndex);
