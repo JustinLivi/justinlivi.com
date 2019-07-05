@@ -2,7 +2,6 @@ import { combineKeyableReducers } from 'redux-keyable';
 
 import { galleryInitialState, GalleryState } from './galleryState';
 import { endDragGalleryReducer } from './reducers/endDragGalleryReducer';
-import { goToRouteGalleryReducer } from './reducers/goToRouteGalleryReducer';
 import { moveDragGalleryReducer } from './reducers/moveDragGalleryReducer';
 import { setCardWidthGalleryReducer } from './reducers/setCardWidthGalleryReducer';
 import { setHandlerWidthGalleryReducer } from './reducers/setHandlerWidthGalleryReducer';
@@ -15,6 +14,5 @@ export const rootGalleryReducer = combineKeyableReducers<GalleryState>(
   moveDragGalleryReducer,
   startDragGalleryReducer,
   endDragGalleryReducer,
-  goToRouteGalleryReducer,
   setHandlerWidthGalleryReducer
 );
