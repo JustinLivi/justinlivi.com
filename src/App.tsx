@@ -11,7 +11,7 @@ export const App = () => (
   <BrowserRouter>
     <Provider store={store}>
       <div>
-        <HeaderComponent title='test' />
+        <HeaderComponent title='justin livi' />
       </div>
     </Provider>
   </BrowserRouter>

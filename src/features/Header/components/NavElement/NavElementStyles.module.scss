@@ -1,12 +1,15 @@
+@import '../../../../styles/mixins';
+
 .navElement {
   padding-top: 1rem;
 
+  &:first-child {
+    padding-top: 0.9rem;
+  }
+
   a {
-    &:focus {
-      outline: 0.3rem;
-      outline-style: double;
-      outline-offset: 0.3rem;
-    }
+    padding-bottom: 0.1rem;
+    @include interactive;
   }
 
   &:before {

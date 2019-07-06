@@ -6,16 +6,23 @@ import styles from './BreadCrumbsStyles.module.scss';
 const cx = classNames.bind(styles);
 
 export interface BreadCrumbsComponentProps {
-  title: string;
+  path: string[];
 }
 
 export const BreadCrumbsComponent: React.SFC<BreadCrumbsComponentProps> = ({
-  title
+  path
 }) => (
-  <button className={cx('breadCrumbs')}>
+  <button className={cx('breadCrumbs')} disabled={path.length === 0}>
     <ol className={cx('breadCrumbsList')}>
-      <li className={cx('breadCrumbsElement')}>index</li>
-      <li className={cx('breadCrumbsElement')}>{title}</li>
+      {path.length === 0 ? (
+        <li className={cx('breadCrumbsElement')} />
+      ) : (
+        path.map((node, i) => (
+          <li className={cx('breadCrumbsElement')} key={i}>
+            {node}
+          </li>
+        ))
+      )}
     </ol>
   </button>
 );

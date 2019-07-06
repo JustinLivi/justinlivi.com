@@ -1,33 +1,15 @@
+@import '../../../../styles/mixins';
+
 .brand {
-  letter-spacing: 0.3rem;
   display: inline-block;
-  border: none;
   margin: 0;
   padding: 0;
-  margin-left: -0.2rem;
-  padding-left: 0.2rem;
-  text-decoration: none;
-  background: none;
   font-weight: 500;
   font-size: 1.2rem;
-  cursor: pointer;
-  text-align: center;
-  -webkit-appearance: none;
-  -moz-appearance: none;
 
-  &:hover,
-  &:focus {
-    background: none;
-  }
+  @include interactive(0.2rem);
+}
 
-  &:focus {
-    outline: 0.3rem;
-    outline-style: double;
-    outline-offset: 0.3rem;
-    padding-left: 0.2rem;
-  }
-
-  &:active {
-    transform: scale(0.99);
-  }
+.wide {
+  letter-spacing: 0.3rem;
 }

@@ -15,7 +15,7 @@ export const NavigationComponent: React.SFC<NavigationComponentProps> = ({
   title
 }) => (
   <nav>
-    <BreadCrumbsComponent title={title} />
+    <BreadCrumbsComponent path={['open source']} />
     <ul className={cx('navList')}>
       <NavElementComponent title='open source' target='/open-source' />
       <NavElementComponent title='generative art' target='/generative-art' />

@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 export const BrandComponent: React.SFC = () => (
   <nav>
     <LinkContainer to='/' className={cx('brand')}>
-      JL
+      <span className={cx('wide')}>J</span>L
     </LinkContainer>
   </nav>
 );
