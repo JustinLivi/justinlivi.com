@@ -1,9 +1,11 @@
 .brand {
   letter-spacing: 0.3rem;
-  padding: 0;
   display: inline-block;
   border: none;
   margin: 0;
+  padding: 0;
+  margin-left: -0.2rem;
+  padding-left: 0.2rem;
   text-decoration: none;
   background: none;
   font-weight: 500;
@@ -19,8 +21,10 @@
   }
 
   &:focus {
-    outline: 0;
-    outline-offset: -4px;
+    outline: 0.3rem;
+    outline-style: double;
+    outline-offset: 0.3rem;
+    padding-left: 0.2rem;
   }
 
   &:active {

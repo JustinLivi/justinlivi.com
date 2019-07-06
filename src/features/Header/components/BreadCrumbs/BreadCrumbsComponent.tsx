@@ -12,12 +12,10 @@ export interface BreadCrumbsComponentProps {
 export const BreadCrumbsComponent: React.SFC<BreadCrumbsComponentProps> = ({
   title
 }) => (
-  <nav>
-    <button className={cx('breadCrumbs')}>
-      <ol className={cx('breadCrumbsList')}>
-        <li className={cx('breadCrumbsElement')}>index</li>
-        <li className={cx('breadCrumbsElement')}>{title}</li>
-      </ol>
-    </button>
-  </nav>
+  <button className={cx('breadCrumbs')}>
+    <ol className={cx('breadCrumbsList')}>
+      <li className={cx('breadCrumbsElement')}>index</li>
+      <li className={cx('breadCrumbsElement')}>{title}</li>
+    </ol>
+  </button>
 );

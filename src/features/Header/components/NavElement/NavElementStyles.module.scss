@@ -1,6 +1,14 @@
 .navElement {
   padding-top: 1rem;
 
+  a {
+    &:focus {
+      outline: 0.3rem;
+      outline-style: double;
+      outline-offset: 0.3rem;
+    }
+  }
+
   &:before {
     content: '-';
     padding-right: 0.5rem;
