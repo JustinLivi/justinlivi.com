@@ -1,0 +1,8 @@
+.navElement {
+  padding-top: 1rem;
+
+  &:before {
+    content: '-';
+    padding-right: 0.5rem;
+  }
+}
