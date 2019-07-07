@@ -1,0 +1,34 @@
+@import '../../../../styles/variables';
+
+.navList {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.expandable {
+  transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) height 300ms;
+  overflow: hidden;
+  background-color: $background-color;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+
+  ul {
+    width: 100%;
+    line-height: 1rem;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+.navFooter {
+  overflow: hidden;
+  height: 2rem;
+}
+
+.navShadow {
+  height: 1.5rem;
+  background-color: $background-color;
+}

@@ -1,8 +1,10 @@
+@import '../../../../styles/variables';
+
 .header {
   position: fixed;
   top: 0;
   line-height: 1em;
   padding: 2.5rem;
   width: 100%;
-  background-color: rgb(253, 251, 255);
+  background-color: $background-color;
 }

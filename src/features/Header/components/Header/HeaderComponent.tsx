@@ -19,7 +19,11 @@ export const HeaderComponent: React.SFC<HeaderComponentProps> = ({ title }) => {
       <header className={cx('header')}>
         <BrandComponent />
       </header>
-      <TitleGroupComponent title='justin livi' path={[]} />
+      <TitleGroupComponent
+        title='justin livi'
+        path={['test']}
+        expanded={false}
+      />
     </React.Fragment>
   );
 };
