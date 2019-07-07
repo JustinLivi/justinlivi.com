@@ -1,16 +1,8 @@
-.container {
+.spacer {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  height: 5rem;
 }
 
-main {
-  width: 100%;
+.content {
   position: relative;
-  flex-grow: 2;
 }

@@ -8,14 +8,14 @@ import styles from './NavigationStyles.module.scss';
 const cx = classNames.bind(styles);
 
 export interface NavigationComponentProps {
-  title: string;
+  path: string[];
 }
 
 export const NavigationComponent: React.SFC<NavigationComponentProps> = ({
-  title
+  path
 }) => (
   <nav>
-    <BreadCrumbsComponent path={['open source']} />
+    <BreadCrumbsComponent path={path} />
     <ul className={cx('navList')}>
       <NavElementComponent title='open source' target='/open-source' />
       <NavElementComponent title='generative art' target='/generative-art' />

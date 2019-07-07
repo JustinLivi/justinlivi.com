@@ -6,16 +6,22 @@ import styles from './PageLayoutStyles.module.scss';
 const cx = classNames.bind(styles);
 
 export interface PageLayoutProps {
-  nav: React.ReactNode;
+  header: React.ReactNode;
+  title: React.ReactNode;
   main: React.ReactNode;
 }
 
 export const PageLayoutComponent: React.SFC<PageLayoutProps> = ({
-  nav,
-  main
+  header,
+  main,
+  title
 }) => (
-  <div className={cx('container')}>
-    {nav}
-    <main>{main}</main>
-  </div>
+  <React.Fragment>
+    {header}
+    <div className={cx('spacer')} />
+    <div className={cx('content')}>
+      {title}
+      <main>{main}</main>
+    </div>
+  </React.Fragment>
 );

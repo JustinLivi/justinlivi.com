@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 import React from 'react';
 
+import { useScrollPosition } from '../../hooks/useScrollPosition';
 import { BrandComponent } from '../Brand/BrandComponent';
-import { NavigationComponent } from '../Navigation/NavigationComponent';
-import { TitleComponent } from '../Title/TitleComponent';
+import { TitleGroupComponent } from '../TitleGroup/TitleGroupComponent';
 import styles from './HeaderComponent.module.scss';
 
 const cx = classNames.bind(styles);
@@ -12,10 +12,14 @@ export interface HeaderComponentProps {
   title: string;
 }
 
-export const HeaderComponent: React.SFC<HeaderComponentProps> = ({ title }) => (
-  <header>
-    <BrandComponent />
-    <TitleComponent title={title} />
-    <NavigationComponent title={title} />
-  </header>
-);
+export const HeaderComponent: React.SFC<HeaderComponentProps> = ({ title }) => {
+  const position = useScrollPosition();
+  return (
+    <React.Fragment>
+      <header className={cx('header')}>
+        <BrandComponent />
+      </header>
+      <TitleGroupComponent title='justin livi' path={[]} />
+    </React.Fragment>
+  );
+};
