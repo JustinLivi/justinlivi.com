@@ -21,9 +21,6 @@ const mapRoute = (key: string) => {
   return isNil(value) ? 'not found' : value;
 };
 
-const getTitle = (path: string[]): string =>
-  path.length <= 1 ? 'justin livi' : mapRoute(path[path.length - 1]);
-
 export const HeaderComponent: React.SFC = () => (
   <Location>
     {({ location: { pathname } }) => {
@@ -35,7 +32,9 @@ export const HeaderComponent: React.SFC = () => (
             <BrandComponent />
           </header>
           <TitleGroupComponent
-            title={getTitle(path)}
+            title={
+              pathname === '/' ? 'justin livi' : mapRoute(path[path.length - 1])
+            }
             path={pathname === '/' ? [] : map(path, mapRoute)}
             expanded={pathname === '/'}
           />
