@@ -1,3 +1,4 @@
+import { Link } from '@reach/router';
 import classNames from 'classnames/bind';
 import React from 'react';
 
@@ -15,13 +16,6 @@ export const NavElementComponent: React.SFC<NavElementComponentProps> = ({
   target
 }) => (
   <li className={cx('navElement')}>
-    <a
-      href={target}
-      onClick={e => {
-        e.preventDefault();
-      }}
-    >
-      {title}
-    </a>
+    <Link to={target}>{title}</Link>
   </li>
 );

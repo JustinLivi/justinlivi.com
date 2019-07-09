@@ -5,9 +5,12 @@ import styles from './ContactStyles.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const ContactComponent = () => (
+export interface ContactProps {
+  path: string;
+}
+
+export const ContactComponent: React.SFC<ContactProps> = () => (
   <div className={cx('page')}>
-    <h1>CONTACT</h1>
     <ul className={cx('subheader')}>
       <li>
         <a href='mailto:justin@brinkbit.com'>email</a>

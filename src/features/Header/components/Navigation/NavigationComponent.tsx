@@ -20,7 +20,7 @@ export const NavigationComponent: React.SFC<NavigationComponentProps> = ({
         onClick={() => setExpandedState(true)}
         onBlur={() => setExpandedState(false)}
       />
-      <NavListComponent expanded={expandedState} />
+      <NavListComponent expanded={expanded || expandedState} />
     </nav>
   );
 };

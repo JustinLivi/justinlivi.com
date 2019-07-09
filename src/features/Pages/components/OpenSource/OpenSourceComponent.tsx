@@ -22,7 +22,6 @@ export class OpenSourceComponent extends Component<OpenSourceProps> {
     const { packages, isFetching } = this.props;
     return (
       <div className={cx('page', 'openSource')}>
-        <h1>OPEN SOURCE</h1>
         {isFetching || !packages
           ? 'Loading...'
           : packages.map(({ name, links }) => (
