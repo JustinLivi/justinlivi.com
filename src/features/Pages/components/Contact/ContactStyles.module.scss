@@ -1,11 +1,4 @@
-@import '../../style.scss';
-
-.page {
-  h1 {
-    text-align: right;
-  }
-
-  li {
-    list-style-type: none;
-  }
+.contactList {
+  list-style: none;
+  padding: 0;
 }

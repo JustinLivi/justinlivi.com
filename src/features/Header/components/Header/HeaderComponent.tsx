@@ -25,7 +25,6 @@ export const HeaderComponent: React.SFC = () => (
   <Location>
     {({ location: { pathname } }) => {
       const path = pathname.split('/').slice(1);
-      console.log(pathname);
       return (
         <Fragment>
           <header className={cx('header')}>

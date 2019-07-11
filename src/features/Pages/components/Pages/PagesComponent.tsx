@@ -7,10 +7,12 @@ import { HomeComponent } from '../Home/HomeComponent';
 import { OpenSourceContainer } from '../OpenSource/OpenSourceContainer';
 
 export const PagesComponent: React.SFC = () => (
-  <Router>
-    <HomeComponent path='/' />
-    <ContactComponent path='contact' />
-    <OpenSourceContainer path='open-source' />
-    <DesignComponent path='design' />
-  </Router>
+  <main>
+    <Router>
+      <HomeComponent path='/' />
+      <ContactComponent path='contact' />
+      <OpenSourceContainer path='open-source' />
+      <DesignComponent path='design' />
+    </Router>
+  </main>
 );
