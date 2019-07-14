@@ -1,10 +1,9 @@
+import { appRootReducer } from 'features/App/reducers/appRootReducer';
+import { routerMiddleware } from 'features/App/reducers/appRouterReducer';
+import { initialState } from 'features/App/store/stateDefinition';
 import { applyMiddleware, createStore, Middleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { reachify } from 'redux-first-history';
 import logger from 'redux-logger';
-
-import { createReduxHistory, reducer, routerMiddleware } from './reducers';
-import { initialState } from './stateDefinition';
 
 export const middleware: Middleware[] = [routerMiddleware];
 
@@ -13,11 +12,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export const store = createStore(
-  reducer,
+  appRootReducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
-
-export const history = createReduxHistory(store);
-
-export const reachHistory = reachify(history);

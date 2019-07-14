@@ -13,7 +13,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "lib": ["es2015", "dom"],
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": "./src"
   },
   "include": ["src"],
   "files": ["custom.d.ts"]

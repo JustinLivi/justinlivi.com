@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
+import { Package } from 'features/Pages/pagesState';
 import React, { Component } from 'react';
 
-import { Package } from '../../pagesState';
 import styles from './OpenSourceStyles.module.scss';
 
 const cx = classNames.bind(styles);

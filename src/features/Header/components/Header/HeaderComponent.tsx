@@ -1,7 +1,7 @@
 import { Location } from '@reach/router';
 import classNames from 'classnames/bind';
 import { isNil, map } from 'lodash';
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { BrandComponent } from '../Brand/BrandComponent';
 import { TitleGroupComponent } from '../TitleGroup/TitleGroupComponent';
@@ -26,7 +26,7 @@ export const HeaderComponent: React.SFC = () => (
     {({ location: { pathname } }) => {
       const path = pathname.split('/').slice(1);
       return (
-        <Fragment>
+        <>
           <header className={cx('header')}>
             <BrandComponent />
           </header>
@@ -37,7 +37,7 @@ export const HeaderComponent: React.SFC = () => (
             path={pathname === '/' ? [] : map(path, mapRoute)}
             fixed={pathname === '/'}
           />
-        </Fragment>
+        </>
       );
     }}
   </Location>

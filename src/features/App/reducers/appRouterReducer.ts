@@ -1,5 +1,4 @@
 import createHistory from 'history/createBrowserHistory';
-import { combineReducers } from 'redux';
 import { createReduxHistoryContext } from 'redux-first-history';
 
 export const {
@@ -9,9 +8,4 @@ export const {
 } = createReduxHistoryContext({
   history: createHistory(),
   reduxTravelling: true
-});
-
-export const reducer = combineReducers({
-  pages: () => ({}),
-  router: routerReducer
 });

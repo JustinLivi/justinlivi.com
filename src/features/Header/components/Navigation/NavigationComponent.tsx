@@ -11,17 +11,15 @@ export interface NavigationComponentProps {
 export const NavigationComponent: React.SFC<NavigationComponentProps> = ({
   path,
   fixed = false
-}) => {
-  const [expandedState, setExpandedState] = useState(fixed);
-  return (
-    <nav>
-      <BreadCrumbsComponent
-        path={path}
-        onClick={() => setExpandedState(true)}
-        // onBlur={() => setExpandedState(false)}
-        onBlur={() => {}}
-      />
-      <NavListComponent fixed={fixed} expanded={expandedState} />
-    </nav>
-  );
-};
+}) => (
+  <nav>
+    <BreadCrumbsComponent
+      path={path}
+      // onClick={() => setExpandedState(true)}
+      // onBlur={() => setExpandedState(false)}
+      onClick={() => {}}
+      onBlur={() => {}}
+    />
+    <NavListComponent fixed={fixed} expanded />
+  </nav>
+);
