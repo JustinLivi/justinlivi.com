@@ -9,20 +9,20 @@ const cx = classNames.bind(styles);
 
 export interface TitleGroupComponentProps {
   title: string;
-  expanded: boolean;
+  fixed: boolean;
   path: string[];
 }
 
 export const TitleGroupComponent: React.SFC<TitleGroupComponentProps> = ({
   title,
-  expanded,
+  fixed,
   path
 }) => {
   return (
     <React.Fragment>
       <nav className={cx('sticky')}>
         <TitleComponent title={title} />
-        <NavigationComponent path={path} expanded={expanded} />
+        <NavigationComponent path={path} fixed={fixed} />
       </nav>
     </React.Fragment>
   );

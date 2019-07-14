@@ -9,38 +9,47 @@ import { NavElementComponent } from '../NavElement/NavElementComponent';
 import styles from './NavListStyles.module.scss';
 
 export interface NavListProps {
+  fixed: boolean;
   expanded: boolean;
 }
 
 export interface NavListStyleProps {
   expandedHeight: number;
   scrollY: number;
+  fixed: boolean;
   expanded: boolean;
 }
 
 const useStyles = makeStyles<unknown, NavListStyleProps>({
-  dynamicHeight: ({ expandedHeight, expanded }) => ({
+  dynamicHeight: ({ expandedHeight, expanded, fixed }) => ({
     height:
-      expandedHeight === -1
+      fixed || expandedHeight === -1
         ? 'initial'
         : expanded
         ? `calc(${expandedHeight}px + 1rem)`
         : 0,
-    visibility: expandedHeight === -1 ? 'hidden' : 'initial'
+    visibility: fixed ? 'initial' : expandedHeight === -1 ? 'hidden' : 'initial'
   }),
-  dynamicShadow: ({ expanded, scrollY }) => ({
+  dynamicShadow: ({ fixed, expanded, scrollY }) => ({
     boxShadow: `0rem 0rem 0.5rem 0rem rgba(0, 0, 0, ${
-      expanded ? 0.3 : Math.min(Math.max(scrollY - 75, 0) / 100, 0.3)
+      fixed
+        ? 0
+        : expanded
+        ? 0.3
+        : Math.min(Math.max(scrollY - 75, 0) / 100, 0.3)
     })`
   })
 });
 
-export const NavListComponent: React.SFC<NavListProps> = ({ expanded }) => {
+export const NavListComponent: React.SFC<NavListProps> = ({
+  fixed,
+  expanded
+}) => {
   const ref = useRef(null);
   const boundingclientrect = useBoundingClientRect(ref as any);
   const expandedHeight = boundingclientrect ? boundingclientrect.height : -1;
   const { y: scrollY } = useScrollPosition();
-  const dymanicStyles = useStyles({ expandedHeight, expanded, scrollY });
+  const dymanicStyles = useStyles({ expandedHeight, expanded, fixed, scrollY });
   const cx = classNames.bind(merge({}, styles, dymanicStyles));
   return (
     <nav className={cx('navList')}>

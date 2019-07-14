@@ -60,6 +60,7 @@
     "redux": "^4.0.1",
     "redux-api-middleware": "^3.0.1",
     "redux-devtools-extension": "^2.13.8",
+    "redux-first-history": "^4.0.4",
     "redux-keyable": "^0.2.17",
     "redux-logger": "^3.0.6",
     "reselect": "^4.0.0",

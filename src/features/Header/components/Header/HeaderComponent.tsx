@@ -35,7 +35,7 @@ export const HeaderComponent: React.SFC = () => (
               pathname === '/' ? 'justin livi' : mapRoute(path[path.length - 1])
             }
             path={pathname === '/' ? [] : map(path, mapRoute)}
-            expanded={pathname === '/'}
+            fixed={pathname === '/'}
           />
         </Fragment>
       );

@@ -5,22 +5,23 @@ import { NavListComponent } from '../NavList/NavListComponent';
 
 export interface NavigationComponentProps {
   path: string[];
-  expanded: boolean;
+  fixed: boolean;
 }
 
 export const NavigationComponent: React.SFC<NavigationComponentProps> = ({
   path,
-  expanded = false
+  fixed = false
 }) => {
-  const [expandedState, setExpandedState] = useState(expanded);
+  const [expandedState, setExpandedState] = useState(fixed);
   return (
     <nav>
       <BreadCrumbsComponent
         path={path}
         onClick={() => setExpandedState(true)}
-        onBlur={() => setExpandedState(false)}
+        // onBlur={() => setExpandedState(false)}
+        onBlur={() => {}}
       />
-      <NavListComponent expanded={expanded || expandedState} />
+      <NavListComponent fixed={fixed} expanded={expandedState} />
     </nav>
   );
 };
