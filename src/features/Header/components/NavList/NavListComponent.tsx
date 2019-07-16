@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/styles';
 import useBoundingClientRect from '@rooks/use-boundingclientrect';
 import classNames from 'classnames/bind';
 import { merge } from 'lodash';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 import { NavElementComponent } from '../NavElement/NavElementComponent';
