@@ -12,6 +12,7 @@
   background-color: $background-color;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+  padding-bottom: 0.5rem;
 
   ul {
     width: 100%;
@@ -25,10 +26,10 @@
 
 .navFooter {
   overflow: hidden;
-  height: 2rem;
+  height: 1.5rem;
 }
 
 .navShadow {
-  height: 1.5rem;
+  height: 1rem;
   background-color: $background-color;
 }
