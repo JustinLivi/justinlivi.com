@@ -1,16 +1,17 @@
 import { makeStyles } from '@material-ui/styles';
 import useBoundingClientRect from '@rooks/use-boundingclientrect';
 import classNames from 'classnames/bind';
+import { NavElementComponent } from 'features/Header/components/NavElement/NavElementComponent';
+import { useScrollPosition } from 'features/Header/hooks/useScrollPosition';
+import { headerExpandedSelector } from 'features/Header/selectors/headerStateSelector';
 import { merge } from 'lodash';
 import React, { useRef } from 'react';
+import { useSelector } from 'react-redux';
 
-import { useScrollPosition } from '../../hooks/useScrollPosition';
-import { NavElementComponent } from '../NavElement/NavElementComponent';
 import styles from './NavListStyles.module.scss';
 
 export interface NavListProps {
   fixed: boolean;
-  expanded: boolean;
 }
 
 export interface NavListStyleProps {
@@ -41,11 +42,9 @@ const useStyles = makeStyles<unknown, NavListStyleProps>({
   })
 });
 
-export const NavListComponent: React.SFC<NavListProps> = ({
-  fixed,
-  expanded
-}) => {
+export const NavListComponent: React.SFC<NavListProps> = ({ fixed }) => {
   const ref = useRef(null);
+  const expanded = useSelector(headerExpandedSelector);
   const boundingclientrect = useBoundingClientRect(ref as any);
   const expandedHeight = boundingclientrect ? boundingclientrect.height : -1;
   const { y: scrollY } = useScrollPosition();
