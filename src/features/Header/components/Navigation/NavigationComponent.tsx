@@ -1,5 +1,5 @@
-import { collapseNav } from 'features/Header/actions/collapseNav';
-import { expandNav } from 'features/Header/actions/expandNav';
+import { breadcrumbsBlur } from 'features/Header/actions/breadcrumbsBlur';
+import { breadcrumbsSelect } from 'features/Header/actions/breadcrumbsSelect';
 import { BreadCrumbsComponent } from 'features/Header/components/BreadCrumbs/BreadCrumbsComponent';
 import { NavListComponent } from 'features/Header/components/NavList/NavListComponent';
 import React from 'react';
@@ -20,10 +20,10 @@ export const NavigationComponent: React.SFC<NavigationComponentProps> = ({
       <BreadCrumbsComponent
         path={path}
         onClick={() => {
-          dispatch(expandNav());
+          dispatch(breadcrumbsSelect());
         }}
         onBlur={() => {
-          dispatch(collapseNav());
+          dispatch(breadcrumbsBlur());
         }}
       />
       <NavListComponent fixed={fixed} />
