@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { BrinkbitLogo } from 'features/Pages/components/BrinkbitLogo/BrinkbitLogoComponent';
+import { BrinkbitLogo } from 'features/RootPages/components/BrinkbitLogo/BrinkbitLogoComponent';
 import React from 'react';
 
 import styles from './BrinkbitLogoThumbStyles.module.scss';

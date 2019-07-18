@@ -1,16 +1,16 @@
 import classNames from 'classnames/bind';
-import { ContactLink } from 'features/Pages/components/ContactLink/ContactLinkComponent';
+import { ContactLink } from 'features/RootPages/components/ContactLink/ContactLinkComponent';
 import React from 'react';
 
-import styles from './ContactStyles.module.scss';
+import styles from './ContactPageStyles.module.scss';
 
 const cx = classNames.bind(styles);
 
-export interface ContactProps {
+export interface ContactPageProps {
   path: string;
 }
 
-export const Contact: React.SFC<ContactProps> = () => (
+export const ContactPage: React.SFC<ContactPageProps> = () => (
   <ul className={cx('contactList')}>
     <ContactLink href='mailto:justin@brinkbit.com'>email</ContactLink>
     <ContactLink href='https://www.linkedin.com/in/justinlivi/'>

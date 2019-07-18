@@ -1,19 +1,19 @@
 import classNames from 'classnames/bind';
-import { packagesRsaa } from 'features/Pages/actions/packagesRsaa';
-import { packagesCacheStatusSelector, packagesResultsSelector } from 'features/Pages/selectors/packagesSelectors';
+import { packagesRsaa } from 'features/RootPages/actions/packagesRsaa';
+import { packagesCacheStatusSelector, packagesResultsSelector } from 'features/RootPages/selectors/packagesSelectors';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CacheStatus } from 'utils';
 
-import styles from './OpenSourceStyles.module.scss';
+import styles from './OpenSourcePageStyles.module.scss';
 
 const cx = classNames.bind(styles);
 
-export interface OpenSourceProps {
+export interface OpenSourcePageProps {
   path: string;
 }
 
-export const OpenSource: React.SFC<OpenSourceProps> = () => {
+export const OpenSourcePage: React.SFC<OpenSourcePageProps> = () => {
   const dispatch = useDispatch();
   const packages = useSelector(packagesResultsSelector);
   const packagesCacheStatus = useSelector(packagesCacheStatusSelector);

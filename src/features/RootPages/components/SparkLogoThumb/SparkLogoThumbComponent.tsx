@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { SparkLogo } from 'features/Pages/components/SparkLogo/SparkLogoComponent';
+import { SparkLogo } from 'features/RootPages/components/SparkLogo/SparkLogoComponent';
 import React from 'react';
 
 import styles from './SparkLogoThumbStyles.module.scss';
