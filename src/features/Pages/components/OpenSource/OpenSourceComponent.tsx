@@ -11,12 +11,9 @@ const cx = classNames.bind(styles);
 
 export interface OpenSourceProps {
   path: string;
-  isFetching?: boolean;
 }
 
-export const OpenSourceComponent: React.SFC<OpenSourceProps> = ({
-  isFetching
-}) => {
+export const OpenSourceComponent: React.SFC<OpenSourceProps> = () => {
   const dispatch = useDispatch();
   const packages = useSelector(packagesResultsSelector);
   const packagesCacheStatus = useSelector(packagesCacheStatusSelector);
@@ -27,7 +24,8 @@ export const OpenSourceComponent: React.SFC<OpenSourceProps> = ({
   }, [packagesCacheStatus, dispatch]);
   return (
     <>
-      {isFetching || !packages
+      {packagesCacheStatus === CacheStatus.BEHIND ||
+      packagesCacheStatus === CacheStatus.FETCHING
         ? 'Loading...'
         : packages.map(({ name, npm, repository }) => (
             <div className={cx('package')} key={name}>
@@ -36,10 +34,18 @@ export const OpenSourceComponent: React.SFC<OpenSourceProps> = ({
                 <a href={npm} target='_blank' rel='noopener noreferrer'>
                   npm
                 </a>{' '}
-                |{' '}
-                <a href={repository} target='_blank' rel='noopener noreferrer'>
-                  github
-                </a>
+                {repository && (
+                  <>
+                    |{' '}
+                    <a
+                      href={repository}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      github
+                    </a>
+                  </>
+                )}
               </p>
             </div>
           ))}
