@@ -1,8 +1,9 @@
 import classNames from 'classnames/bind';
 import { packagesRsaa } from 'features/Pages/actions/packagesRsaa';
-import { Package } from 'features/Pages/pagesState';
+import { packagesCacheStatusSelector, packagesResultsSelector } from 'features/Pages/selectors/packagesSelectors';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { CacheStatus } from 'utils';
 
 import styles from './OpenSourceStyles.module.scss';
 
@@ -10,42 +11,38 @@ const cx = classNames.bind(styles);
 
 export interface OpenSourceProps {
   path: string;
-  packages?: Package[];
   isFetching?: boolean;
-  fetchPackagesIfNeeded?: () => void;
 }
 
 export const OpenSourceComponent: React.SFC<OpenSourceProps> = ({
-  packages,
   isFetching
 }) => {
   const dispatch = useDispatch();
+  const packages = useSelector(packagesResultsSelector);
+  const packagesCacheStatus = useSelector(packagesCacheStatusSelector);
   useEffect(() => {
-    dispatch(packagesRsaa());
-  });
+    if (packagesCacheStatus === CacheStatus.BEHIND) {
+      dispatch(packagesRsaa());
+    }
+  }, [packagesCacheStatus, dispatch]);
   return (
-    <div className={cx('page', 'openSource')}>
+    <>
       {isFetching || !packages
         ? 'Loading...'
-        : packages.map(({ name, links }) => (
-            <div key={name}>
-              <p>{name}</p>
+        : packages.map(({ name, npm, repository }) => (
+            <div className={cx('package')} key={name}>
+              <h3>{name}</h3>
               <p>
-                <a href={links.npm} target='_blank' rel='noopener noreferrer'>
+                <a href={npm} target='_blank' rel='noopener noreferrer'>
                   npm
                 </a>{' '}
                 |{' '}
-                <a
-                  href={links.repository}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
+                <a href={repository} target='_blank' rel='noopener noreferrer'>
                   github
                 </a>
               </p>
-              <hr />
             </div>
           ))}
-    </div>
+    </>
   );
 };

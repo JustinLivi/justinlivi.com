@@ -1,11 +1,11 @@
-import { pagesInitialState, PagesState } from 'features/Pages/pagesState';
+import { packagesInitialState, PackagesState } from 'features/Pages/pagesState';
 
 export interface State {
-  pages: PagesState;
+  packages: PackagesState;
   headerExpanded: boolean;
 }
 
 export const initialState: State = {
-  pages: pagesInitialState,
+  packages: packagesInitialState,
   headerExpanded: true
 };

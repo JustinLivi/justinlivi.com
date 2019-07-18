@@ -1,14 +1,17 @@
+import { CacheStatus } from 'utils';
+
 export interface Package {
+  npm: string;
+  repository?: string;
   name: string;
-  links: { npm: string; repository: string };
 }
 
-export interface PagesState {
-  packages: Package[];
-  isFetching: boolean;
+export interface PackagesState {
+  cacheStatus: CacheStatus;
+  results: Package[];
 }
 
-export const pagesInitialState: PagesState = {
-  packages: [],
-  isFetching: false
+export const packagesInitialState: PackagesState = {
+  cacheStatus: CacheStatus.BEHIND,
+  results: []
 };

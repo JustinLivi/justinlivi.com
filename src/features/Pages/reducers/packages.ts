@@ -1,24 +1,8 @@
 import { packagesRequest, PackagesResult, packagesSucceed } from 'features/Pages/actions/packagesRsaa';
+import { Package, packagesInitialState } from 'features/Pages/pagesState';
 import { filter, map } from 'lodash';
 import { on, reducer } from 'ts-action';
-
-export enum CacheStatus {
-  BEHIND = 'BEHIND',
-  FETCHING = 'FETCHING',
-  CACHED = 'CACHED',
-  ERRORED = 'ERRORED'
-}
-
-export interface Package {
-  npm: string;
-  repository?: string;
-  name: string;
-}
-
-export interface PackagesState {
-  cacheStatus: CacheStatus;
-  results: Package[];
-}
+import { CacheStatus } from 'utils';
 
 export const defaultLinks = { npm: undefined, repository: undefined };
 
@@ -38,11 +22,8 @@ export const isPackage = (arg: any): arg is Package =>
   typeof arg.name === 'string' &&
   typeof arg.npm === 'string';
 
-export const packageStateReducer = reducer<PackagesState>(
-  {
-    cacheStatus: CacheStatus.BEHIND,
-    results: []
-  },
+export const packageStateReducer = reducer(
+  packagesInitialState,
   on(packagesRequest, state => ({
     ...state,
     cacheStatus: CacheStatus.FETCHING
