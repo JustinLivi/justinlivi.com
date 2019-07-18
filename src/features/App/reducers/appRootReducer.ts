@@ -4,7 +4,6 @@ import { packageStateReducer } from 'features/Pages/reducers/packages';
 import { combineReducers } from 'redux';
 
 export const appRootReducer = combineReducers({
-  pages: () => ({}),
   router: routerReducer,
   headerExpanded: headerStateReducer,
   packages: packageStateReducer

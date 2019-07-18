@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/styles';
 import useBoundingClientRect from '@rooks/use-boundingclientrect';
 import classNames from 'classnames/bind';
-import { NavElementComponent } from 'features/Header/components/NavElement/NavElementComponent';
+import { NavElement } from 'features/Header/components/NavElement/NavElementComponent';
 import { useScrollPosition } from 'features/Header/hooks/useScrollPosition';
 import { headerExpandedSelector } from 'features/Header/selectors/headerStateSelector';
 import { merge } from 'lodash';
@@ -42,7 +42,7 @@ const useStyles = makeStyles<unknown, NavListStyleProps>({
   })
 });
 
-export const NavListComponent: React.SFC<NavListProps> = ({ fixed }) => {
+export const NavList: React.SFC<NavListProps> = ({ fixed }) => {
   const ref = useRef(null);
   const expanded = useSelector(headerExpandedSelector);
   const boundingclientrect = useBoundingClientRect(ref as any);
@@ -54,13 +54,10 @@ export const NavListComponent: React.SFC<NavListProps> = ({ fixed }) => {
     <nav className={cx('navList')}>
       <div className={cx('expandable', 'dynamicHeight')}>
         <ul ref={ref}>
-          <NavElementComponent title='open source' target='/open-source' />
-          <NavElementComponent
-            title='generative art'
-            target='/generative-art'
-          />
-          <NavElementComponent title='design' target='/design' />
-          <NavElementComponent title='contact' target='/contact' />
+          <NavElement title='open source' target='/open-source' />
+          <NavElement title='generative art' target='/generative-art' />
+          <NavElement title='design' target='/design' />
+          <NavElement title='contact' target='/contact' />
         </ul>
       </div>
       <div className={cx('navFooter')}>

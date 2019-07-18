@@ -5,13 +5,13 @@ import styles from './BreadCrumbsStyles.module.scss';
 
 const cx = classNames.bind(styles);
 
-export interface BreadCrumbsComponentProps {
+export interface BreadCrumbsProps {
   path: string[];
   onClick: MouseEventHandler<HTMLButtonElement>;
   onBlur: FocusEventHandler<HTMLButtonElement>;
 }
 
-export const BreadCrumbsComponent: React.SFC<BreadCrumbsComponentProps> = ({
+export const BreadCrumbs: React.SFC<BreadCrumbsProps> = ({
   path,
   onClick,
   onBlur

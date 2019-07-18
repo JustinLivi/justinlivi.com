@@ -6,15 +6,12 @@ import styles from './NavElementStyles.module.scss';
 
 const cx = classNames.bind(styles);
 
-export interface NavElementComponentProps {
+export interface NavElementProps {
   title: string;
   target: string;
 }
 
-export const NavElementComponent: React.SFC<NavElementComponentProps> = ({
-  title,
-  target
-}) => (
+export const NavElement: React.SFC<NavElementProps> = ({ title, target }) => (
   <li className={cx('navElement')}>
     <Link to={target}>{title}</Link>
   </li>

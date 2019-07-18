@@ -13,7 +13,7 @@ export interface OpenSourceProps {
   path: string;
 }
 
-export const OpenSourceComponent: React.SFC<OpenSourceProps> = () => {
+export const OpenSource: React.SFC<OpenSourceProps> = () => {
   const dispatch = useDispatch();
   const packages = useSelector(packagesResultsSelector);
   const packagesCacheStatus = useSelector(packagesCacheStatusSelector);

@@ -1,27 +1,27 @@
 import classNames from 'classnames/bind';
+import { Navigation } from 'features/Header/components/Navigation/NavigationComponent';
+import { Title } from 'features/Header/components/Title/TitleComponent';
 import React from 'react';
 
-import { NavigationComponent } from '../Navigation/NavigationComponent';
-import { TitleComponent } from '../Title/TitleComponent';
 import styles from './TitleGroupStyles.module.scss';
 
 const cx = classNames.bind(styles);
 
-export interface TitleGroupComponentProps {
+export interface TitleGroupProps {
   title: string;
   fixed: boolean;
   path: string[];
 }
 
-export const TitleGroupComponent: React.SFC<TitleGroupComponentProps> = ({
+export const TitleGroup: React.SFC<TitleGroupProps> = ({
   title,
   fixed,
   path
 }) => (
   <>
     <nav className={cx('sticky')}>
-      <TitleComponent title={title} />
-      <NavigationComponent path={path} fixed={fixed} />
+      <Title title={title} />
+      <Navigation path={path} fixed={fixed} />
     </nav>
   </>
 );

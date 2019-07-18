@@ -1,5 +1,5 @@
 import { packagesRequest, PackagesResult, packagesSucceed } from 'features/Pages/actions/packagesRsaa';
-import { Package, packagesInitialState } from 'features/Pages/pagesState';
+import { Package, packagesInitialState } from 'features/Pages/store/packagesState';
 import { filter, map } from 'lodash';
 import { on, reducer } from 'ts-action';
 import { CacheStatus } from 'utils';

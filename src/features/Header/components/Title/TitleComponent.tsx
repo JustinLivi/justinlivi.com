@@ -5,10 +5,10 @@ import styles from './TitleStyles.module.scss';
 
 const cx = classNames.bind(styles);
 
-export interface TitleComponentProps {
+export interface TitleProps {
   title: string;
 }
 
-export const TitleComponent: React.SFC<TitleComponentProps> = ({ title }) => (
+export const Title: React.SFC<TitleProps> = ({ title }) => (
   <h1 className={cx('title')}>{title}</h1>
 );

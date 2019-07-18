@@ -9,7 +9,7 @@ export interface ContactLinkProps {
   href: string;
 }
 
-export const ContactLinkComponent: React.SFC<ContactLinkProps> = ({
+export const ContactLink: React.SFC<ContactLinkProps> = ({
   href,
   children
 }) => (

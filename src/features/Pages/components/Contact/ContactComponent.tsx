@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { ContactLinkComponent } from 'features/Pages/components/ContactLink/ContactLinkComponent';
+import { ContactLink } from 'features/Pages/components/ContactLink/ContactLinkComponent';
 import React from 'react';
 
 import styles from './ContactStyles.module.scss';
@@ -10,22 +10,14 @@ export interface ContactProps {
   path: string;
 }
 
-export const ContactComponent: React.SFC<ContactProps> = () => (
+export const Contact: React.SFC<ContactProps> = () => (
   <ul className={cx('contactList')}>
-    <ContactLinkComponent href='mailto:justin@brinkbit.com'>
-      email
-    </ContactLinkComponent>
-    <ContactLinkComponent href='https://www.linkedin.com/in/justinlivi/'>
+    <ContactLink href='mailto:justin@brinkbit.com'>email</ContactLink>
+    <ContactLink href='https://www.linkedin.com/in/justinlivi/'>
       linkedin
-    </ContactLinkComponent>
-    <ContactLinkComponent href='https://github.com/JustinLivi'>
-      github
-    </ContactLinkComponent>
-    <ContactLinkComponent href='https://www.npmjs.com/~justinlivi'>
-      npm
-    </ContactLinkComponent>
-    <ContactLinkComponent href='https://twitter.com/justinlivi'>
-      twitter
-    </ContactLinkComponent>
+    </ContactLink>
+    <ContactLink href='https://github.com/JustinLivi'>github</ContactLink>
+    <ContactLink href='https://www.npmjs.com/~justinlivi'>npm</ContactLink>
+    <ContactLink href='https://twitter.com/justinlivi'>twitter</ContactLink>
   </ul>
 );

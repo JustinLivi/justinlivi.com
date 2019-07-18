@@ -1,23 +1,23 @@
 import { breadcrumbsBlur } from 'features/Header/actions/breadcrumbsBlur';
 import { breadcrumbsSelect } from 'features/Header/actions/breadcrumbsSelect';
-import { BreadCrumbsComponent } from 'features/Header/components/BreadCrumbs/BreadCrumbsComponent';
-import { NavListComponent } from 'features/Header/components/NavList/NavListComponent';
+import { BreadCrumbs } from 'features/Header/components/BreadCrumbs/BreadCrumbsComponent';
+import { NavList } from 'features/Header/components/NavList/NavListComponent';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-export interface NavigationComponentProps {
+export interface NavigationProps {
   path: string[];
   fixed: boolean;
 }
 
-export const NavigationComponent: React.SFC<NavigationComponentProps> = ({
+export const Navigation: React.SFC<NavigationProps> = ({
   path,
   fixed = false
 }) => {
   const dispatch = useDispatch();
   return (
     <nav>
-      <BreadCrumbsComponent
+      <BreadCrumbs
         path={path}
         onClick={() => {
           dispatch(breadcrumbsSelect());
@@ -26,7 +26,7 @@ export const NavigationComponent: React.SFC<NavigationComponentProps> = ({
           dispatch(breadcrumbsBlur());
         }}
       />
-      <NavListComponent fixed={fixed} />
+      <NavList fixed={fixed} />
     </nav>
   );
 };
