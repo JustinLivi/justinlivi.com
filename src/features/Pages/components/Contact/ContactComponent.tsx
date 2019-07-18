@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
+import { ContactLinkComponent } from 'features/Pages/components/ContactLink/ContactLinkComponent';
 import React from 'react';
 
-import { ContactLinkComponent } from '../ContactLink/ContactLinkComponent';
 import styles from './ContactStyles.module.scss';
 
 const cx = classNames.bind(styles);
