@@ -1,4 +1,5 @@
 @import '../../../../styles/base';
+@import '../../../../styles/mixins';
 
 html {
   box-sizing: border-box;
@@ -14,13 +15,6 @@ body {
   font-size: 88%;
   height: 100%;
   color: #45434f;
-  a {
-    color: #45434f;
-  }
-}
-
-main {
-  padding: 2.5rem;
 }
 
 button {
@@ -28,7 +22,9 @@ button {
 }
 
 a {
+  @include interactive;
   text-decoration: none;
+  color: #45434f;
 }
 
 *,

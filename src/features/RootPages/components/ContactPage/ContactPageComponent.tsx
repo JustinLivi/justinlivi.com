@@ -11,13 +11,15 @@ export interface ContactPageProps {
 }
 
 export const ContactPage: React.SFC<ContactPageProps> = () => (
-  <ul className={cx('contactList')}>
-    <ContactLink href='mailto:justin@brinkbit.com'>email</ContactLink>
-    <ContactLink href='https://www.linkedin.com/in/justinlivi/'>
-      linkedin
-    </ContactLink>
-    <ContactLink href='https://github.com/JustinLivi'>github</ContactLink>
-    <ContactLink href='https://www.npmjs.com/~justinlivi'>npm</ContactLink>
-    <ContactLink href='https://twitter.com/justinlivi'>twitter</ContactLink>
-  </ul>
+  <main className={cx('main')}>
+    <ul className={cx('contactList')}>
+      <ContactLink href='mailto:justin@brinkbit.com'>email</ContactLink>
+      <ContactLink href='https://www.linkedin.com/in/justinlivi/'>
+        linkedin
+      </ContactLink>
+      <ContactLink href='https://github.com/JustinLivi'>github</ContactLink>
+      <ContactLink href='https://www.npmjs.com/~justinlivi'>npm</ContactLink>
+      <ContactLink href='https://twitter.com/justinlivi'>twitter</ContactLink>
+    </ul>
+  </main>
 );

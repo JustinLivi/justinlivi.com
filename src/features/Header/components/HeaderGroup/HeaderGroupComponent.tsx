@@ -12,7 +12,9 @@ const routeMappings: { [key: string]: string } = {
   'open-source': 'open source',
   'generative-art': 'generative art',
   design: 'design',
-  contact: 'contact'
+  contact: 'contact',
+  spark: 'spark',
+  brinkbit: 'brinkbit'
 };
 
 const mapRoute = (key: string) => {
@@ -27,12 +29,14 @@ export interface HeaderGroupProps {
 export const HeaderGroup: React.SFC<HeaderGroupProps> = ({ pathname }) => {
   const path = pathname.split('/').slice(1);
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
-  }, [path]);
+    window.setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }, 200);
+  }, [pathname]);
   return (
     <>
       <header className={cx('header')}>

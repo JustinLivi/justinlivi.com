@@ -23,7 +23,7 @@ export const OpenSourcePage: React.SFC<OpenSourcePageProps> = () => {
     }
   }, [packagesCacheStatus, dispatch]);
   return (
-    <>
+    <main className={cx('main')}>
       {packagesCacheStatus === CacheStatus.BEHIND ||
       packagesCacheStatus === CacheStatus.FETCHING
         ? 'Loading...'
@@ -49,6 +49,6 @@ export const OpenSourcePage: React.SFC<OpenSourcePageProps> = () => {
               </p>
             </div>
           ))}
-    </>
+    </main>
   );
 };
