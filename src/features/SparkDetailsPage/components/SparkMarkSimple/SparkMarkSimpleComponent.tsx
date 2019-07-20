@@ -5,11 +5,11 @@ import styles from './SparkMarkStyles.module.scss';
 
 const cx = classNames.bind(styles);
 
-export interface SparMarkSimpleProps {
+export interface SparkMarkSimpleProps {
   inverted?: boolean;
 }
 
-export const SparkMarkSimple: React.SFC<SparMarkSimpleProps> = ({
+export const SparkMarkSimple: React.SFC<SparkMarkSimpleProps> = ({
   inverted
 }) => (
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 81.19 83.66'>

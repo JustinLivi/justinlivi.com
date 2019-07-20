@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import classNames from 'classnames/bind';
-import { SparkMarkComplex } from 'features/DesignDetailsPages/components/SparkMarkComplex/SparkMarkComplexComponent';
-import { SparkMarkSimple } from 'features/DesignDetailsPages/components/SparkMarkSimple/SparkMarkSimpleComponent';
+import { SparkMarkComplex } from 'features/SparkDetailsPage/components/SparkMarkComplex/SparkMarkComplexComponent';
+import { SparkMarkSimple } from 'features/SparkDetailsPage/components/SparkMarkSimple/SparkMarkSimpleComponent';
 import React from 'react';
 
 import styles from './SparkPanelMarkStyles.module.scss';

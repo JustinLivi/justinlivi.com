@@ -1,10 +1,11 @@
 import { Router } from '@reach/router';
 import {
-  DesignDetailsRouter,
-} from 'features/DesignDetailsPages/components/DesignDetailsRouter/DesignDetailsRouterComponent';
+  BrinkbitDetailsPage,
+} from 'features/BrinkbitDetailsPage/components/BrinkbitDetailsPage/BrinkbitDetailsPageComponent';
 import { ContactPage } from 'features/RootPages/components/ContactPage/ContactPageComponent';
 import { DesignPage } from 'features/RootPages/components/DesignPage/DesignPageComponent';
 import { OpenSourcePage } from 'features/RootPages/components/OpenSourcePage/OpenSourcePageComponent';
+import { SparkDetailsPage } from 'features/SparkDetailsPage/components/SparkDetailsPage/SparkDetailsPageComponent';
 import React from 'react';
 
 export const RootRouter: React.SFC = () => (
@@ -12,6 +13,7 @@ export const RootRouter: React.SFC = () => (
     <ContactPage path='contact' />
     <OpenSourcePage path='open-source' />
     <DesignPage path='design' />
-    <DesignDetailsRouter path='design/*' />
+    <SparkDetailsPage path='design/spark' />
+    <BrinkbitDetailsPage path='design/brinkbit' />
   </Router>
 );
