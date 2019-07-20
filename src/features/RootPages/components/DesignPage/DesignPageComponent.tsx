@@ -2,6 +2,7 @@ import { Grid } from '@material-ui/core';
 import classNames from 'classnames/bind';
 import { BrinkbitLogoThumb } from 'features/RootPages/components/BrinkbitLogoThumb/BrinkbitLogoThumbComponent';
 import { DesignCard } from 'features/RootPages/components/DesignCard/DesignCardComponent';
+import { HitchdLogoThumb } from 'features/RootPages/components/HitchdLogoThumb/HitchdLogoThumbComponent';
 import { SparkLogoThumb } from 'features/RootPages/components/SparkLogoThumb/SparkLogoThumbComponent';
 import React from 'react';
 
@@ -22,6 +23,11 @@ export const DesignPage: React.SFC<DesignPageProps> = () => (
         title='brinkbit'
       />
       <DesignCard thumb={<SparkLogoThumb />} target='./spark' title='spark' />
+      <DesignCard
+        thumb={<HitchdLogoThumb />}
+        target='./hitchd'
+        title='hitchd'
+      />
     </Grid>
   </main>
 );

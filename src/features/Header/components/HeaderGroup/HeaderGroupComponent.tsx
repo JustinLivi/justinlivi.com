@@ -14,7 +14,8 @@ const routeMappings: { [key: string]: string } = {
   design: 'design',
   contact: 'contact',
   spark: 'spark',
-  brinkbit: 'brinkbit'
+  brinkbit: 'brinkbit',
+  hitchd: 'hitchd'
 };
 
 const mapRoute = (key: string) => {

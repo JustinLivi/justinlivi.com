@@ -2,6 +2,7 @@ import { Router } from '@reach/router';
 import {
   BrinkbitDetailsPage,
 } from 'features/BrinkbitDetailsPage/components/BrinkbitDetailsPage/BrinkbitDetailsPageComponent';
+import { HitchdDetailsPage } from 'features/HitchdDetailsPage/components/HitchdDetailsPage/HitchdDetailsPageComponent';
 import { ContactPage } from 'features/RootPages/components/ContactPage/ContactPageComponent';
 import { DesignPage } from 'features/RootPages/components/DesignPage/DesignPageComponent';
 import { OpenSourcePage } from 'features/RootPages/components/OpenSourcePage/OpenSourcePageComponent';
@@ -15,5 +16,6 @@ export const RootRouter: React.SFC = () => (
     <DesignPage path='design' />
     <SparkDetailsPage path='design/spark' />
     <BrinkbitDetailsPage path='design/brinkbit' />
+    <HitchdDetailsPage path='design/hitchd' />
   </Router>
 );
