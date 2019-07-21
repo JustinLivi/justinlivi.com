@@ -14,7 +14,7 @@ export const DesignCard: React.SFC<DesignProps> = ({
   title
 }) => (
   <Grid item xs={12} sm={6} lg={3}>
-    {thumb}
+    <Link to={target}>{thumb}</Link>
     <p>
       <Link to={target}>{title}</Link>
     </p>
