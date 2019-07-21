@@ -26,7 +26,7 @@ export const Navigation: React.SFC<NavigationProps> = ({
           dispatch(breadcrumbsBlur());
         }}
       />
-      <NavList fixed={fixed} />
+      <NavList fixed={fixed} path={path} />
     </nav>
   );
 };

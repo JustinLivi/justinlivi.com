@@ -4,14 +4,34 @@ import classNames from 'classnames/bind';
 import { NavElement } from 'features/Header/components/NavElement/NavElementComponent';
 import { useScrollPosition } from 'features/Header/hooks/useScrollPosition';
 import { headerExpandedSelector } from 'features/Header/selectors/headerStateSelector';
-import { merge } from 'lodash';
+import { filter, map, merge } from 'lodash';
 import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from './NavListStyles.module.scss';
 
+const rootPaths = [
+  {
+    title: 'open source',
+    target: '/open-source'
+  },
+  {
+    title: 'generative art',
+    target: '/generative-art'
+  },
+  {
+    title: 'design',
+    target: '/design'
+  },
+  {
+    title: 'contact',
+    target: '/contact'
+  }
+];
+
 export interface NavListProps {
   fixed: boolean;
+  path: string[];
 }
 
 export interface NavListStyleProps {
@@ -42,7 +62,7 @@ const useStyles = makeStyles<unknown, NavListStyleProps>({
   })
 });
 
-export const NavList: React.SFC<NavListProps> = ({ fixed }) => {
+export const NavList: React.SFC<NavListProps> = ({ path, fixed }) => {
   const ref = useRef(null);
   const expanded = useSelector(headerExpandedSelector);
   const boundingclientrect = useBoundingClientRect(ref as any);
@@ -54,10 +74,14 @@ export const NavList: React.SFC<NavListProps> = ({ fixed }) => {
     <nav className={cx('navList')}>
       <div className={cx('expandable', 'dynamicHeight')}>
         <ul ref={ref}>
-          <NavElement title='open source' target='/open-source' />
-          <NavElement title='generative art' target='/generative-art' />
-          <NavElement title='design' target='/design' />
-          <NavElement title='contact' target='/contact' />
+          {map(
+            path.length === 1
+              ? filter(rootPaths, ({ title }) => title !== path[0])
+              : rootPaths,
+            props => (
+              <NavElement key={props.target} {...props} />
+            )
+          )}
         </ul>
       </div>
       <div className={cx('navFooter')}>

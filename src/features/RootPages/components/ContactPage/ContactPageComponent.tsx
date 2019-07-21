@@ -13,7 +13,9 @@ export interface ContactPageProps {
 export const ContactPage: React.SFC<ContactPageProps> = () => (
   <main className={cx('main')}>
     <ul className={cx('contactList')}>
-      <ContactLink href='mailto:justin@brinkbit.com'>email</ContactLink>
+      <ContactLink href='mailto:justin@brinkbit.com' noTarget>
+        email
+      </ContactLink>
       <ContactLink href='https://www.linkedin.com/in/justinlivi/'>
         linkedin
       </ContactLink>

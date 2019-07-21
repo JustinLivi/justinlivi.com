@@ -7,14 +7,20 @@ const cx = classNames.bind(styles);
 
 export interface ContactLinkProps {
   href: string;
+  noTarget?: boolean;
 }
 
 export const ContactLink: React.SFC<ContactLinkProps> = ({
   href,
+  noTarget,
   children
 }) => (
   <li className={cx('contactListItem')}>
-    <a href={href} target='_blank' rel='noopener noreferrer'>
+    <a
+      href={href}
+      target={noTarget ? undefined : '_blank'}
+      rel='noopener noreferrer'
+    >
       {children}
     </a>
   </li>
