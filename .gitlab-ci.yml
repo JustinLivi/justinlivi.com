@@ -2,7 +2,6 @@ image: node:10
 
 stages:
   - build
-  - test
   - terraform
   - deploy
   - invalidate_cdn
@@ -20,19 +19,6 @@ build:
   artifacts:
     paths:
       - build
-  tags:
-    - docker
-
-test:
-  stage: test
-  cache:
-    key: client
-    policy: pull
-    paths:
-      - node_modules
-  script:
-    - npm install
-    - npm test
   tags:
     - docker
 
