@@ -16,3 +16,10 @@ coverage
 
 # Dependency directories
 node_modules
+
+# terraform
+backend.tfvars
+.terraform
+
+# production
+build

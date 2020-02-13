@@ -1,0 +1,110 @@
+image: node:10
+
+stages:
+  - build
+  - test
+  - terraform
+  - deploy
+  - invalidate_cdn
+
+build:
+  stage: build
+  cache:
+    key: client
+    policy: push
+    paths:
+      - node_modules
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - build
+  tags:
+    - docker
+
+test:
+  stage: test
+  cache:
+    key: client
+    policy: pull
+    paths:
+      - node_modules
+  script:
+    - npm install
+    - npm test
+  tags:
+    - docker
+
+terraform:
+  only:
+    refs:
+      - master
+  stage: terraform
+  variables:
+    TF_VAR_aws_access_key_id: "$AWS_ACCESS_KEY_ID"
+    TF_VAR_aws_secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+    TF_BACKEND_CONFIG: "$TF_BACKEND_CONFIG"
+    TF_IN_AUTOMATION: "true"
+  image:
+    name: hashicorp/terraform:light
+    entrypoint:
+      - "/usr/bin/env"
+      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  script:
+    - cd terraform
+    - echo $TF_BACKEND_CONFIG > backend.tfvars
+    - terraform init -input=false -backend-config=backend.tfvars
+    - terraform plan -input=false
+    - terraform apply -input=false -auto-approve
+    - mkdir res
+    - terraform output cloudfront_did > res/cloudfront_did
+  artifacts:
+    paths:
+      - terraform/res/
+  tags:
+    - docker
+
+deploy:
+  image:
+    name: mesosphere/awscli
+    entrypoint:
+      - "/usr/bin/env"
+      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  only:
+    refs:
+      - master
+  stage: deploy
+  variables:
+    AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID"
+    AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY"
+  artifacts:
+    paths:
+      - build
+  script:
+    - aws s3 sync --no-progress "./build" "s3://justinlivi.com"
+  tags:
+    - docker
+
+invalidate_cdn:
+  dependencies:
+    - terraform
+  image:
+    name: mesosphere/awscli
+    entrypoint:
+      - "/usr/bin/env"
+      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  only:
+    refs:
+      - master
+  stage: deploy
+  variables:
+    AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID"
+    AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY"
+  artifacts:
+    paths:
+      - res/
+  script:
+    - aws cloudfront create-invalidation --distribution-id $(cat terraform/res/cloudfront_did) --paths /index.html
+  tags:
+    - docker
