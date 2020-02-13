@@ -39,8 +39,7 @@ terraform:
       - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   script:
     - cd terraform
-    - echo $TF_BACKEND_CONFIG > backend.tfvars
-    - terraform init -input=false -backend-config=backend.tfvars
+    - terraform init -input=false -backend-config=$TF_BACKEND_CONFIG
     - terraform plan -input=false
     - terraform apply -input=false -auto-approve
     - mkdir res
