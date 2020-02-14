@@ -52,7 +52,7 @@ terraform:
 
 deploy:
   image:
-    name: mesosphere/awscli
+    name: mesosphere/aws-cli
     entrypoint:
       - "/usr/bin/env"
       - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -75,7 +75,7 @@ invalidate_cdn:
   dependencies:
     - terraform
   image:
-    name: mesosphere/awscli
+    name: mesosphere/aws-cli
     entrypoint:
       - "/usr/bin/env"
       - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
