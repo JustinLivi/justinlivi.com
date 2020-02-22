@@ -1,5 +1,7 @@
-declare module '*.svg' {
-  const content: any;
+/* eslint-disable import/no-default-export */
+
+declare module '*.jpg' {
+  const content: string;
   export default content;
 }
 

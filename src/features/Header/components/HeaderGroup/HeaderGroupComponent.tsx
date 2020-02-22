@@ -15,7 +15,8 @@ const routeMappings: { [key: string]: string } = {
   contact: 'contact',
   spark: 'spark',
   brinkbit: 'brinkbit',
-  hitchd: 'hitchd'
+  hitchd: 'hitchd',
+  community: 'community',
 };
 
 const mapRoute = (key: string) => {
@@ -34,7 +35,7 @@ export const HeaderGroup: React.SFC<HeaderGroupProps> = ({ pathname }) => {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }, 200);
   }, [pathname]);
@@ -44,9 +45,7 @@ export const HeaderGroup: React.SFC<HeaderGroupProps> = ({ pathname }) => {
         <Brand />
       </header>
       <TitleGroup
-        title={
-          pathname === '/' ? 'justin livi' : mapRoute(path[path.length - 1])
-        }
+        title={pathname === '/' ? 'justin livi' : mapRoute(path[path.length - 1])}
         path={pathname === '/' ? [] : map(path, mapRoute)}
         fixed={pathname === '/'}
       />
