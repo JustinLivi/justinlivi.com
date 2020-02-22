@@ -1,14 +1,23 @@
 import { Router } from '@reach/router';
 import {
   BrinkbitDetailsPage,
-} from 'features/BrinkbitDetailsPage/components/BrinkbitDetailsPage/BrinkbitDetailsPageComponent';
-import { CommunityDetailsPage } from 'features/CommunityDetailsPage/CommunityDetailsPage/CommunityDetailsPageComponent';
-import { HitchdDetailsPage } from 'features/HitchdDetailsPage/components/HitchdDetailsPage/HitchdDetailsPageComponent';
+} from 'features/DesignDetailsPages/BrinkbitDetailsPage/components/BrinkbitDetailsPage/BrinkbitDetailsPageComponent';
+import {
+  HitchdDetailsPage,
+} from 'features/DesignDetailsPages/HitchdDetailsPage/components/HitchdDetailsPage/HitchdDetailsPageComponent';
+import {
+  SparkDetailsPage,
+} from 'features/DesignDetailsPages/SparkDetailsPage/components/SparkDetailsPage/SparkDetailsPageComponent';
+import {
+  CommunityDetailsPage,
+} from 'features/GenerativeArtDetailsPages/CommunityDetailsPage/components/CommunityDetailsPageComponent';
+import {
+  WatercolorSedimentDetailsPage,
+} from 'features/GenerativeArtDetailsPages/WatercolorSedimentDetailsPage/components/WatercolorSedimentDetailsPageComponent';
 import { ContactPage } from 'features/RootPages/components/ContactPage/ContactPageComponent';
 import { DesignPage } from 'features/RootPages/components/DesignPage/DesignPageComponent';
 import { GenerativeArtPage } from 'features/RootPages/components/GenerativeArtPage/GenerativeArtPageComponent';
 import { OpenSourcePage } from 'features/RootPages/components/OpenSourcePage/OpenSourcePageComponent';
-import { SparkDetailsPage } from 'features/SparkDetailsPage/components/SparkDetailsPage/SparkDetailsPageComponent';
 import React from 'react';
 
 export const RootRouter: React.SFC = () => (
@@ -21,5 +30,6 @@ export const RootRouter: React.SFC = () => (
     <HitchdDetailsPage path="design/hitchd" />
     <GenerativeArtPage path="generative-art" />
     <CommunityDetailsPage path="generative-art/community" />
+    <WatercolorSedimentDetailsPage path="generative-art/watercolor-sediment" />
   </Router>
 );

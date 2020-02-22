@@ -17,6 +17,7 @@ const routeMappings: { [key: string]: string } = {
   brinkbit: 'brinkbit',
   hitchd: 'hitchd',
   community: 'community',
+  'watercolor-sediment': 'watercolor sediment',
 };
 
 const mapRoute = (key: string) => {
