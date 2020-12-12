@@ -1,11 +1,12 @@
 import { Grid } from '@material-ui/core';
 import { FilledPath, FilledRect, FilledPolygon } from 'features/SharedComponents/SvgElements';
+import { color } from 'features/styles/colorThemes/colorTheme';
 import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
 import React from 'react';
 import styled from 'styled-components';
 
 const ContainerGrid = styled(Grid)`
-  background-color: #587687;
+  background-color: ${color(ColorToken.brinkbitGreyPrimary)};
 `;
 
 const ContainerDiv = styled.div`

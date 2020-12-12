@@ -2,10 +2,14 @@ import { ColorTheme } from 'styled-components';
 
 export const darkTheme: ColorTheme = {
   // text, etc
-  primary: '',
+  primary: '#fff',
   // backgrounds
-  secondary: '',
+  secondary: '#ff0000',
 
-  // other colors
+  // brinkbit design theme
   brinkbitBlue: '#60aecc',
+  brinkbitPrimary: '#ff0000',
+  brinkbitSecondary: '#ff0000',
+  brinkbitGreyPrimary: '#ff0000',
+  brinkbitGreySecondary: '#ff0000',
 };
