@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BrinkbitBluePath = styled.path`
-  fill: #60aecc;
+  fill: ${(props) => props.theme.colors.brinkbitBlue};
 `;
 
 export const BrinkbitBluePolygon = styled.polygon`

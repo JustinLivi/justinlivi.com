@@ -4,7 +4,7 @@ import {
 } from 'features/DesignDetailsPages/BrinkbitDetailsPage/components/BrinkbitDetailsPageComponent';
 import {
   HitchdDetailsPage,
-} from 'features/DesignDetailsPages/HitchdDetailsPage/components/HitchdDetailsPage/HitchdDetailsPageComponent';
+} from 'features/DesignDetailsPages/HitchdDetailsPage/components/HitchdDetailsPageComponent';
 import {
   SparkDetailsPage,
 } from 'features/DesignDetailsPages/SparkDetailsPage/components/SparkDetailsPage/SparkDetailsPageComponent';
