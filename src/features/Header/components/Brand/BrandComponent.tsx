@@ -1,15 +1,28 @@
 import { Link } from '@reach/router';
-import classNames from 'classnames/bind';
 import React from 'react';
+import styled from 'styled-components';
 
-import styles from './BrandStyles.module.scss';
+import { interactiveStyle } from '../../../../styles/interactive';
 
-const cx = classNames.bind(styles);
+const StyledLink = styled(Link)`
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
 
-export const Brand: React.SFC = () => (
+  ${interactiveStyle}
+`;
+
+const BrandSpan = styled.span`
+  letter-spacing: 0.3rem;
+`;
+
+export const Brand: React.FunctionComponent = () => (
   <nav>
-    <Link to='/' className={cx('brand')}>
-      <span className={cx('wide')}>J</span>L
-    </Link>
+    <StyledLink to='/'>
+      <BrandSpan >J</BrandSpan>L
+    </StyledLink>
   </nav>
 );

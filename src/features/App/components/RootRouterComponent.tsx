@@ -1,7 +1,7 @@
 import { Router } from '@reach/router';
 import {
   BrinkbitDetailsPage,
-} from 'features/DesignDetailsPages/BrinkbitDetailsPage/components/BrinkbitDetailsPage/BrinkbitDetailsPageComponent';
+} from 'features/DesignDetailsPages/BrinkbitDetailsPage/components/BrinkbitDetailsPageComponent';
 import {
   HitchdDetailsPage,
 } from 'features/DesignDetailsPages/HitchdDetailsPage/components/HitchdDetailsPage/HitchdDetailsPageComponent';
@@ -20,7 +20,7 @@ import { GenerativeArtPage } from 'features/RootPages/components/GenerativeArtPa
 import { OpenSourcePage } from 'features/RootPages/components/OpenSourcePage/OpenSourcePageComponent';
 import React from 'react';
 
-export const RootRouter: React.SFC = () => (
+export const RootRouter: React.FunctionComponent = () => (
   <Router>
     <ContactPage path="contact" />
     <OpenSourcePage path="open-source" />
