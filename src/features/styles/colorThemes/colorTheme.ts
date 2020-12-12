@@ -1,7 +1,7 @@
 import { darkTheme } from 'features/styles/colorThemes/darkTheme';
 import { lightTheme } from 'features/styles/colorThemes/lightTheme';
-import { ColorTheme, DefaultTheme, ThemedStyledProps } from 'styled-components';
-import { ColorThemeId, ColorToken } from './colorThemeTypes';
+import { DefaultTheme, ThemedStyledProps } from 'styled-components';
+import { ColorTheme, ColorThemeId, ColorToken } from './colorThemeTypes';
 
 export const getColorTheme = (colorTheme: ColorThemeId): ColorTheme =>
   colorTheme === ColorThemeId.light ? lightTheme : darkTheme;
