@@ -2,7 +2,7 @@ import { Link } from '@reach/router';
 import React from 'react';
 import styled from 'styled-components';
 
-import { interactiveStyle } from '../../../../styles/interactive';
+import { interactiveStyle } from 'features/styles/interactive';
 
 const StyledLink = styled(Link)`
   display: inline-block;
