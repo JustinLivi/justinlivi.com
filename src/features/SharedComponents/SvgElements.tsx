@@ -1,12 +1,15 @@
 import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme, ThemedStyledProps } from 'styled-components';
 
 interface StyledFilledSvgProps {
   fillToken: ColorToken;
 }
 
+const fillInterop = ({ fillToken, theme }: ThemedStyledProps<StyledFilledSvgProps, DefaultTheme>) =>
+  theme.colors[fillToken];
+
 export const fillCss = css<StyledFilledSvgProps>`
-  fill: ${({ fillToken, theme }) => theme.colors[fillToken]}
+  fill: ${fillInterop};
 `;
 
 export const FilledPath = styled.path<StyledFilledSvgProps>`
