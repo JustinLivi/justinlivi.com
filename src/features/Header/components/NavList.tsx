@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import { NavElement } from 'features/Header/components/NavElement';
 import { useScrollPosition } from 'features/Header/hooks/useScrollPosition';
-import { headerExpandedSelector } from 'features/Header/selectors/headerStateSelector';
+import { headerExpandedSelector } from 'features/Header/state/headerSelectors';
 import { color } from 'features/styles/colorThemes/colorTheme';
 import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
 

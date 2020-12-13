@@ -1,5 +1,4 @@
-import { breadcrumbsBlur } from 'features/Header/actions/breadcrumbsBlur';
-import { breadcrumbsSelect } from 'features/Header/actions/breadcrumbsSelect';
+import { breadcrumbsBlur, breadcrumbsSelect } from 'features/Header/state/headerActions';
 import { BreadCrumbs } from 'features/Header/components/BreadCrumbs';
 import { NavList } from 'features/Header/components/NavList';
 import React from 'react';
