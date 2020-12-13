@@ -12,6 +12,7 @@ export enum ColorToken {
   sparkSecondary = 'sparkSecondary',
   sparkGreyPrimary = 'sparkGreyPrimary',
   sparkGreySecondary = 'sparkGreySecondary',
+  sparkGreyTertiary = 'sparkGreyTertiary',
   sparkGradient1 = 'sparkGradient1',
   sparkGradient2 = 'sparkGradient2',
   sparkGradient3 = 'sparkGradient3',
@@ -20,6 +21,14 @@ export enum ColorToken {
   sparkGradient6 = 'sparkGradient6',
   sparkGradient7 = 'sparkGradient7',
   sparkGradient8 = 'sparkGradient8',
+  sparkGreyGradient1 = 'sparkGreyGradient1',
+  sparkGreyGradient2 = 'sparkGreyGradient2',
+  sparkGreyGradient3 = 'sparkGreyGradient3',
+  sparkGreyGradient4 = 'sparkGreyGradient4',
+  sparkGreyGradient5 = 'sparkGreyGradient5',
+  sparkGreyGradient6 = 'sparkGreyGradient6',
+  sparkGreyGradient7 = 'sparkGreyGradient7',
+  sparkGreyGradient8 = 'sparkGreyGradient8',
 }
 
 export enum ColorThemeId {
