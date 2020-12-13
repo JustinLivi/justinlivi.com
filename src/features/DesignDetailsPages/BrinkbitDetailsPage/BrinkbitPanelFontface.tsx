@@ -1,24 +1,21 @@
+import React from 'react';
+import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
+
+import { DesignContainerDiv } from 'features/SharedComponents/DesignDetailsElements';
 import { FilledPath, FilledRect, FilledPolygon } from 'features/SharedComponents/SvgElements';
 import { color } from 'features/styles/colorThemes/colorTheme';
 import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
-import React from 'react';
-import styled from 'styled-components';
 
 const ContainerGrid = styled(Grid)`
   background-color: ${color(ColorToken.brinkbitGreyPrimary)};
-`;
-
-const ContainerDiv = styled.div`
-  padding-top: 30vh;
-  padding-bottom: 30vh;
 `;
 
 export const BrinkbitPanelFontface: React.FunctionComponent = () => (
   <Grid item={true} xs={12}>
     <ContainerGrid container={true} justify="center">
       <Grid item={true} xs={10} sm={8} md={6}>
-        <ContainerDiv>
+        <DesignContainerDiv>
           <svg viewBox="0 0 302.62 15.26">
             <FilledPath
               fillToken={ColorToken.secondary}
@@ -157,7 +154,7 @@ export const BrinkbitPanelFontface: React.FunctionComponent = () => (
               points="133.56 3.02 131.07 3.02 129.7 5.59 128.34 3.02 125.85 3.02 128.46 7.28 125.85 11.56 128.32 11.56 129.7 8.81 131.09 11.56 133.56 11.56 130.94 7.28 133.56 3.02"
             />
           </svg>
-        </ContainerDiv>
+        </DesignContainerDiv>
       </Grid>
     </ContainerGrid>
   </Grid>

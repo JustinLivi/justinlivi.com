@@ -1,25 +1,21 @@
-import { Grid } from '@material-ui/core';
 import React from 'react';
+import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 
 import { color } from 'features/styles/colorThemes/colorTheme';
 import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
 import { FilledPath, FilledPolygon, FilledRect } from 'features/SharedComponents/SvgElements';
+import { DesignContainerDiv } from 'features/SharedComponents/DesignDetailsElements';
 
 const DarkBackgroundGrid = styled(Grid)`
   background-color: ${color(ColorToken.brinkbitPrimary)};
-`;
-
-const ContainerDiv = styled.div`
-  padding-top: 30vh;
-  padding-bottom: 30vh;
 `;
 
 export const BrinkbitPanelTypography: React.FunctionComponent = () => (
   <Grid item={true} xs={12}>
     <DarkBackgroundGrid container={true} justify="center">
       <Grid item={true} xs={8} sm={6} md={4}>
-        <ContainerDiv>
+        <DesignContainerDiv>
           <svg viewBox="0 0 127.59 26.74">
             <FilledPath
               fillToken={ColorToken.brinkbitBlue}
@@ -50,7 +46,7 @@ export const BrinkbitPanelTypography: React.FunctionComponent = () => (
               d="M57,6.37h0a5.4,5.4,0,0,0-5.27,3.45l-.26-3H47.06V26.72h4.7v-10c0-3.26,1.39-5.54,3.47-5.54,3.8,0,4,3.89,4,7v8.57h5l0-10.88C64.19,11.45,61.78,6.37,57,6.37Z"
             />
           </svg>
-        </ContainerDiv>
+        </DesignContainerDiv>
       </Grid>
     </DarkBackgroundGrid>
   </Grid>

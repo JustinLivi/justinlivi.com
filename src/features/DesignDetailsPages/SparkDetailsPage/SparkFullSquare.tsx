@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
   FilledPath,
   FilledRect,
@@ -6,7 +8,6 @@ import {
   StopColor,
 } from 'features/SharedComponents/SvgElements';
 import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
-import React from 'react';
 
 export interface SparkFullSquareProps {
   backgroundColorToken: ColorToken;

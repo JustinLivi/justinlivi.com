@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { FilledPath, FilledPolygon, FilledRect } from 'features/SharedComponents/SvgElements';
 import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
-import React from 'react';
 
 export const BrinkbitLinear: React.FunctionComponent = () => (
   <svg viewBox="0 0 119.41 45">
