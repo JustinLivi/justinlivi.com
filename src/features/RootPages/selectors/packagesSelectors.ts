@@ -1,8 +1,5 @@
-import { State } from 'features/App/store/rootState';
+import { State } from 'features/App/state/rootState';
 
-export const packagesResultsSelector = ({ packages: { results } }: State) =>
-  results;
+export const packagesResultsSelector = ({ packages: { results } }: State) => results;
 
-export const packagesCacheStatusSelector = ({
-  packages: { cacheStatus }
-}: State) => cacheStatus;
+export const packagesCacheStatusSelector = ({ packages: { cacheStatus } }: State) => cacheStatus;

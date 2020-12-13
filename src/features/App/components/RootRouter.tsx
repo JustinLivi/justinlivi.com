@@ -1,4 +1,6 @@
+import React from 'react';
 import { Router } from '@reach/router';
+
 import { BrinkbitDetailsPage } from 'features/DesignDetailsPages/BrinkbitDetailsPage/BrinkbitDetailsPage';
 import { HitchdDetailsPage } from 'features/DesignDetailsPages/HitchdDetailsPage/components/HitchdDetailsPageComponent';
 import { SparkDetailsPage } from 'features/DesignDetailsPages/SparkDetailsPage/SparkDetailsPage';
@@ -8,7 +10,6 @@ import { ContactPage } from 'features/RootPages/components/ContactPage/ContactPa
 import { DesignPage } from 'features/RootPages/components/DesignPage/DesignPageComponent';
 import { GenerativeArtPage } from 'features/RootPages/components/GenerativeArtPage/GenerativeArtPageComponent';
 import { OpenSourcePage } from 'features/RootPages/components/OpenSourcePage/OpenSourcePageComponent';
-import React from 'react';
 
 export const RootRouter: React.FunctionComponent = () => (
   <Router>
