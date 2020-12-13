@@ -1,20 +1,24 @@
+import React from 'react';
+import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
-import classNames from 'classnames/bind';
 import { WatercolorSedimentSeed0 } from 'justinlivi-generative-art';
-import * as React from 'react';
-
-import styles from './WatercolorSedimentDetailsPageStyles.module.scss';
-
-const cx = classNames.bind(styles);
 
 export interface WatercolorSedimentDetailsPageProps {
   path: string;
 }
 
+const StyledSketch = styled(WatercolorSedimentSeed0)`
+  max-width: calc(100vw - 5rem);
+  max-height: calc(100vh - 200px);
+  margin-top: 30px;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+`;
+
 export const WatercolorSedimentDetailsPage: React.SFC<WatercolorSedimentDetailsPageProps> = () => (
   <main>
-    <Grid container>
-      <WatercolorSedimentSeed0 className={cx('sketch')} />
+    <Grid container={true}>
+      <StyledSketch />
     </Grid>
   </main>
 );
