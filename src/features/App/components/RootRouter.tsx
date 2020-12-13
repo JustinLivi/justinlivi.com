@@ -6,10 +6,10 @@ import { HitchdDetailsPage } from 'features/DesignDetailsPages/HitchdDetailsPage
 import { SparkDetailsPage } from 'features/DesignDetailsPages/SparkDetailsPage/SparkDetailsPage';
 import { CommunityDetailsPage } from 'features/GenerativeArtDetailsPages/CommunityDetailsPage';
 import { WatercolorSedimentDetailsPage } from 'features/GenerativeArtDetailsPages/WatercolorSedimentDetailsPage';
-import { ContactPage } from 'features/RootPages/components/ContactPage/ContactPageComponent';
-import { DesignPage } from 'features/RootPages/components/DesignPage/DesignPageComponent';
-import { GenerativeArtPage } from 'features/RootPages/components/GenerativeArtPage/GenerativeArtPageComponent';
-import { OpenSourcePage } from 'features/RootPages/components/OpenSourcePage/OpenSourcePageComponent';
+import { ContactPage } from 'features/RootPages/components/ContactPage';
+import { DesignPage } from 'features/RootPages/components/DesignPage';
+import { GenerativeArtPage } from 'features/RootPages/components/GenerativeArtPage';
+import { OpenSourcePage } from 'features/RootPages/components/OpenSourcePage';
 
 export const RootRouter: React.FunctionComponent = () => (
   <Router>

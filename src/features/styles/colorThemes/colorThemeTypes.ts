@@ -1,6 +1,8 @@
 export enum ColorToken {
   primary = 'primary',
   secondary = 'secondary',
+  greyPrimary = 'greyPrimary',
+  greySecondary = 'greySecondary',
 
   brinkbitBlue = 'brinkbitBlue',
   brinkbitPrimary = 'brinkbitPrimary',
@@ -29,6 +31,15 @@ export enum ColorToken {
   sparkGreyGradient6 = 'sparkGreyGradient6',
   sparkGreyGradient7 = 'sparkGreyGradient7',
   sparkGreyGradient8 = 'sparkGreyGradient8',
+  sparkMonoOrange = 'sparkMonoOrange',
+  sparkMonoOrangeDesaturated = 'sparkMonoOrangeDesaturated',
+  sparkMonoRed = 'sparkMonoRed',
+  sparkMonoRedDesaturated = 'sparkMonoRedDesaturated',
+  sparkMonoYellow = 'sparkMonoYellow',
+  sparkMonoYellowDesaturated = 'sparkMonoYellowDesaturated',
+
+  hitchdPink = 'hitchdPink',
+  hitchdPinkDesaturated = 'hitchdPinkDesaturated',
 }
 
 export enum ColorThemeId {
