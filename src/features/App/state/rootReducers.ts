@@ -3,7 +3,7 @@ import { createBrowserHistory } from 'history';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { reducer } from 'ts-action';
 
-import { headerStateReducer } from 'features/Header/reducers/headerStateReducer';
+import { headerStateReducer } from 'features/Header/state/headerReducers';
 import { packageStateReducer } from 'features/RootPages/reducers/packages';
 import { ColorThemeId } from 'features/styles/colorThemes/colorThemeTypes';
 

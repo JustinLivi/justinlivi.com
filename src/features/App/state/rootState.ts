@@ -1,4 +1,4 @@
-import { headerInitialState, HeaderState } from 'features/Header/store/headerState';
+import { headerInitialState, HeaderState } from 'features/Header/state/headerState';
 import { packagesInitialState, PackagesState } from 'features/RootPages/store/packagesState';
 import { ColorThemeId } from 'features/styles/colorThemes/colorThemeTypes';
 
