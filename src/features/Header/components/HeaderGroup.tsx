@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { isNil, map } from 'lodash';
 
-import { Brand } from 'features/Header/components/BrandComponent';
-import { TitleGroup } from 'features/Header/components/TitleGroupComponent';
+import { Brand } from 'features/Header/components/Brand';
+import { TitleGroup } from 'features/Header/components/TitleGroup';
 import { color } from 'features/styles/colorThemes/colorTheme';
 import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
 

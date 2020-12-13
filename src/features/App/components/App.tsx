@@ -1,14 +1,13 @@
-import { LocationProvider } from '@reach/router';
 import React from 'react';
+import { LocationProvider } from '@reach/router';
 import { Provider, useSelector } from 'react-redux';
-
-import { RootRouter } from 'features/App/components/RootRouterComponent';
-import { reachHistory } from 'features/App/selectors/routerSelector';
-import { store } from 'features/App/store/createStore';
-import { Header } from 'features/Header/components/HeaderComponent';
-import { colorThemeSelector } from 'features/App/selectors/themeSelectors';
-import { constructTheme } from 'features/styles/theme';
 import { ThemeProvider } from 'styled-components';
+
+import { RootRouter } from 'features/App/components/RootRouter';
+import { reachHistory, colorThemeSelector } from 'features/App/state/rootSelectors';
+import { store } from 'features/App/state/createStore';
+import { Header } from 'features/Header/components/Header';
+import { constructTheme } from 'features/styles/theme';
 
 const ThemeRoot = () => {
   const colorTheme = useSelector(colorThemeSelector);

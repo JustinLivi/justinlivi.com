@@ -1,7 +1,7 @@
 import { breadcrumbsBlur } from 'features/Header/actions/breadcrumbsBlur';
 import { breadcrumbsSelect } from 'features/Header/actions/breadcrumbsSelect';
-import { BreadCrumbs } from 'features/Header/components/BreadCrumbsComponent';
-import { NavList } from 'features/Header/components/NavListComponent';
+import { BreadCrumbs } from 'features/Header/components/BreadCrumbs';
+import { NavList } from 'features/Header/components/NavList';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 

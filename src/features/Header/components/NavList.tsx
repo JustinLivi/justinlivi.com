@@ -4,7 +4,7 @@ import useBoundingClientRect from '@rooks/use-boundingclientrect';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { NavElement } from 'features/Header/components/NavElementComponent';
+import { NavElement } from 'features/Header/components/NavElement';
 import { useScrollPosition } from 'features/Header/hooks/useScrollPosition';
 import { headerExpandedSelector } from 'features/Header/selectors/headerStateSelector';
 import { color } from 'features/styles/colorThemes/colorTheme';

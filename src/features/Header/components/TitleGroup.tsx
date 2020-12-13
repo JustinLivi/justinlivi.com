@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Navigation } from 'features/Header/components/NavigationComponent';
-import { Title } from 'features/Header/components/TitleComponent';
+import { Navigation } from 'features/Header/components/Navigation';
+import { Title } from 'features/Header/components/Title';
 import { color } from 'features/styles/colorThemes/colorTheme';
 import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
 
