@@ -1,12 +1,11 @@
-import classNames from 'classnames/bind';
-import { Brand } from 'features/Header/components/Brand/BrandComponent';
-import { TitleGroup } from 'features/Header/components/TitleGroup/TitleGroupComponent';
-import { isNil, map } from 'lodash';
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { isNil, map } from 'lodash';
 
-import styles from './HeaderStyles.module.scss';
-
-const cx = classNames.bind(styles);
+import { Brand } from 'features/Header/components/BrandComponent';
+import { TitleGroup } from 'features/Header/components/TitleGroupComponent';
+import { color } from 'features/styles/colorThemes/colorTheme';
+import { ColorToken } from 'features/styles/colorThemes/colorThemeTypes';
 
 const routeMappings: { [key: string]: string } = {
   'open-source': 'open source',
@@ -29,7 +28,16 @@ export interface HeaderGroupProps {
   pathname: string;
 }
 
-export const HeaderGroup: React.SFC<HeaderGroupProps> = ({ pathname }) => {
+const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
+  line-height: 1em;
+  padding: 2.5rem;
+  width: 100%;
+  background-color: ${color(ColorToken.secondary)};
+`;
+
+export const HeaderGroup: React.FunctionComponent<HeaderGroupProps> = ({ pathname }) => {
   const path = pathname.split('/').slice(1);
   useEffect(() => {
     window.setTimeout(() => {
@@ -42,9 +50,9 @@ export const HeaderGroup: React.SFC<HeaderGroupProps> = ({ pathname }) => {
   }, [pathname]);
   return (
     <>
-      <header className={cx('header')}>
+      <StyledHeader>
         <Brand />
-      </header>
+      </StyledHeader>
       <TitleGroup
         title={pathname === '/' ? 'justin livi' : mapRoute(path[path.length - 1])}
         path={pathname === '/' ? [] : map(path, mapRoute)}

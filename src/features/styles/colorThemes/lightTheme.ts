@@ -4,12 +4,12 @@ export const lightTheme: ColorTheme = {
   // text, etc
   primary: '#ff0000',
   // backgrounds
-  secondary: '#f',
+  secondary: '#fff',
 
   // brinkbit design theme
   brinkbitBlue: '#60aecc',
   brinkbitPrimary: '#050f17',
-  brinkbitSecondary: '#f',
+  brinkbitSecondary: '#fff',
   brinkbitGreyPrimary: '#587687',
   brinkbitGreySecondary: '#bfced6',
 
