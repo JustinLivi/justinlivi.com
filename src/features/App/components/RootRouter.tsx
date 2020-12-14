@@ -2,7 +2,7 @@ import React from 'react';
 import { Router } from '@reach/router';
 
 import { BrinkbitDetailsPage } from 'features/DesignDetailsPages/BrinkbitDetailsPage/BrinkbitDetailsPage';
-import { HitchdDetailsPage } from 'features/DesignDetailsPages/HitchdDetailsPage/components/HitchdDetailsPageComponent';
+import { HitchdDetailsPage } from 'features/DesignDetailsPages/HitchdDetailsPage/HitchdDetailsPage';
 import { SparkDetailsPage } from 'features/DesignDetailsPages/SparkDetailsPage/SparkDetailsPage';
 import { CommunityDetailsPage } from 'features/GenerativeArtDetailsPages/CommunityDetailsPage';
 import { WatercolorSedimentDetailsPage } from 'features/GenerativeArtDetailsPages/WatercolorSedimentDetailsPage';
