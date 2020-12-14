@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { interactiveStyle } from 'styles/interactive';
 
 const StyledLink = styled(Link)`
+  float: left;
   display: inline-block;
   margin: 0;
   padding: 0;

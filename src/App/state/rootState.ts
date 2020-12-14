@@ -11,5 +11,5 @@ export interface State {
 export const initialState: State = {
   packages: packagesInitialState,
   headerExpanded: headerInitialState,
-  colorTheme: ColorThemeId.dark,
+  colorTheme: ColorThemeId.light,
 };

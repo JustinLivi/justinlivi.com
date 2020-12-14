@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { NavElement } from 'Header/components/NavElement';
 import { useScrollPosition } from 'Header/hooks/useScrollPosition';
 import { headerExpandedSelector } from 'Header/state/headerSelectors';
-import { color } from 'styles/colorThemes/colorTheme';
+import { color, themeTransition } from 'styles/colorThemes/colorTheme';
 import { ColorToken } from 'styles/colorThemes/colorThemeTypes';
 
 const rootPaths = [
@@ -42,7 +42,7 @@ export interface NavListStyleProps {
 }
 
 const ExpandableDiv = styled.div<NavListStyleProps>`
-  transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) height 300ms;
+  transition: height 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95), ${themeTransition};
   overflow: hidden;
   background-color: ${color(ColorToken.secondary)};
   padding-left: 2.5rem;

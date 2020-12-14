@@ -6,6 +6,7 @@ import { Brand } from 'Header/components/Brand';
 import { TitleGroup } from 'Header/components/TitleGroup';
 import { color } from 'styles/colorThemes/colorTheme';
 import { ColorToken } from 'styles/colorThemes/colorThemeTypes';
+import { ColorThemeToggle } from 'Header/components/ColorThemeToggle';
 
 const routeMappings: { [key: string]: string } = {
   'open-source': 'open source',
@@ -37,6 +38,10 @@ const StyledHeader = styled.header`
   background-color: ${color(ColorToken.secondary)};
 `;
 
+const RightControls = styled.div`
+  float: right;
+`;
+
 export const HeaderGroup: React.FunctionComponent<HeaderGroupProps> = ({ pathname }) => {
   const path = pathname.split('/').slice(1);
   useEffect(() => {
@@ -52,6 +57,9 @@ export const HeaderGroup: React.FunctionComponent<HeaderGroupProps> = ({ pathnam
     <>
       <StyledHeader>
         <Brand />
+        <RightControls>
+          <ColorThemeToggle />
+        </RightControls>
       </StyledHeader>
       <TitleGroup
         title={pathname === '/' ? 'justin livi' : mapRoute(path[path.length - 1])}
