@@ -15,10 +15,24 @@ interface StyledGradientProps {
   gradientId: string;
 }
 
+export interface FilledOrGradientProps {
+  useGradient?: boolean;
+  fillToken: ColorToken;
+  gradientId: string;
+}
+
 const fillInterop = ({ fillToken, theme }: ThemedStyledProps<StyledFilledSvgProps, DefaultTheme>) =>
   theme.colors[fillToken];
 
 const gradientInterop = ({ gradientId }: ThemedStyledProps<StyledGradientProps, DefaultTheme>) => `url(#${gradientId})`;
+
+const fillOrGradientInterop = ({
+  gradientId,
+  fillToken,
+  theme,
+  useGradient,
+}: ThemedStyledProps<FilledOrGradientProps, DefaultTheme>) =>
+  useGradient ? `url(#${gradientId})` : theme.colors[fillToken];
 
 export const fillCss = css<StyledFilledSvgProps>`
   fill: ${fillInterop};
@@ -26,6 +40,10 @@ export const fillCss = css<StyledFilledSvgProps>`
 
 export const gradientCss = css<StyledGradientProps>`
   fill: ${gradientInterop};
+`;
+
+export const fillOrGradientCss = css<FilledOrGradientProps>`
+  fill: ${fillOrGradientInterop};
 `;
 
 export const FilledPath = styled.path<StyledFilledSvgProps>`

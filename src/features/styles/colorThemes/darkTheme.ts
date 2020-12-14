@@ -44,5 +44,8 @@ export const darkTheme: ColorTheme = {
 
   // hitchd design theme
   hitchdPink: '#fe5168',
+  hitchdOrange: '#ff6160',
+  hitchdSecondary: '#fff',
   hitchdPinkDesaturated: '#c4c4c4',
+  hitchdGreyPrimary: '#e3e3e3',
 };

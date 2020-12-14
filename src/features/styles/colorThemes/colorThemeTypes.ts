@@ -39,7 +39,10 @@ export enum ColorToken {
   sparkMonoYellowDesaturated = 'sparkMonoYellowDesaturated',
 
   hitchdPink = 'hitchdPink',
+  hitchdOrange = 'hitchdOrange',
+  hitchdSecondary = 'hitchdSecondary',
   hitchdPinkDesaturated = 'hitchdPinkDesaturated',
+  hitchdGreyPrimary = 'hitchdGreyPrimary',
 }
 
 export enum ColorThemeId {
