@@ -1,24 +1,27 @@
 import { ColorTheme } from 'styles/colorThemes/colorThemeTypes';
 
 export const darkTheme: ColorTheme = {
-  primary: '#fff',
-  secondary: '#ff0000',
-  greyPrimary: '#f7f7f7',
+  primary: '#b9b9b9',
+  secondary: '#151418',
+  greyPrimary: '#1e1e21',
   greySecondary: '#ccc',
+  interactiveHiglightInactive: 'rgba(207, 207, 207, 0)',
+  interactiveHiglightHover: 'rgba(207, 207, 207, 0.8)',
+  interactiveHiglightActive: 'rgba(207, 207, 207, 1)',
 
   // brinkbit design theme
   brinkbitBlue: '#60aecc',
-  brinkbitPrimary: '#ff0000',
-  brinkbitSecondary: '#ff0000',
-  brinkbitGreyPrimary: '#ff0000',
-  brinkbitGreySecondary: '#ff0000',
+  brinkbitPrimary: '#a6e4ff',
+  brinkbitSecondary: '#050f17',
+  brinkbitGreyPrimary: '#050f17',
+  brinkbitGreySecondary: '#132a40',
 
   // spark design theme
-  sparkPrimary: '#fff',
-  sparkSecondary: '#081f2c',
-  sparkGreyPrimary: '#bfced6',
-  sparkGreySecondary: '#081f2c',
-  sparkGreyTertiary: '#5f717d',
+  sparkPrimary: '#bbcbd4',
+  sparkSecondary: '#e3e8ea',
+  sparkGreyPrimary: '#6e8592',
+  sparkGreySecondary: '#040708',
+  sparkGreyTertiary: '#000',
   sparkGradient1: '#e08e26',
   sparkGradient2: '#b84a21',
   sparkGradient3: '#c25823',
@@ -43,9 +46,10 @@ export const darkTheme: ColorTheme = {
   sparkMonoYellowDesaturated: '#d2d2d2',
 
   // hitchd design theme
-  hitchdPink: '#fe5168',
-  hitchdOrange: '#ff6160',
-  hitchdSecondary: '#fff',
+  hitchdPink: '#fe5e73',
+  hitchdOrange: '#ff8d73',
+  hitchedLargeColorFill: '#ef3c54',
+  hitchdSecondary: '#efd4d4',
   hitchdPinkDesaturated: '#c4c4c4',
-  hitchdGreyPrimary: '#e3e3e3',
+  hitchdGreyPrimary: '#231b1c',
 };
