@@ -1,17 +1,20 @@
 import { ColorTheme } from 'styles/colorThemes/colorThemeTypes';
 
 export const lightTheme: ColorTheme = {
-  primary: '#ff0000',
+  primary: '#45434f',
   secondary: '#fff',
   greyPrimary: '#f7f7f7',
   greySecondary: '#ccc',
+  interactiveHiglightInactive: 'rgba(69, 67, 79, 0)',
+  interactiveHiglightHover: 'rgba(69, 67, 79, 0.8)',
+  interactiveHiglightActive: 'rgba(69, 67, 79, 1)',
 
   // brinkbit design theme
   brinkbitBlue: '#60aecc',
   brinkbitPrimary: '#050f17',
   brinkbitSecondary: '#fff',
-  brinkbitGreyPrimary: '#587687',
-  brinkbitGreySecondary: '#bfced6',
+  brinkbitGreyPrimary: '#bfced6',
+  brinkbitGreySecondary: '#587687',
 
   // spark design theme
   sparkPrimary: '#081f2c',
@@ -45,6 +48,7 @@ export const lightTheme: ColorTheme = {
   // hitchd design theme
   hitchdPink: '#fe5168',
   hitchdOrange: '#ff6160',
+  hitchedLargeColorFill: '#fe5168',
   hitchdSecondary: '#fff',
   hitchdPinkDesaturated: '#c4c4c4',
   hitchdGreyPrimary: '#e3e3e3',

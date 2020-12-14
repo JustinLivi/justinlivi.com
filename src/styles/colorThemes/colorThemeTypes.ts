@@ -3,6 +3,9 @@ export enum ColorToken {
   secondary = 'secondary',
   greyPrimary = 'greyPrimary',
   greySecondary = 'greySecondary',
+  interactiveHiglightInactive = 'interactiveHiglightInactive',
+  interactiveHiglightHover = 'interactiveHiglightHover',
+  interactiveHiglightActive = 'interactiveHiglightActive',
 
   brinkbitBlue = 'brinkbitBlue',
   brinkbitPrimary = 'brinkbitPrimary',
@@ -40,6 +43,7 @@ export enum ColorToken {
 
   hitchdPink = 'hitchdPink',
   hitchdOrange = 'hitchdOrange',
+  hitchedLargeColorFill = 'hitchedLargeColorFill',
   hitchdSecondary = 'hitchdSecondary',
   hitchdPinkDesaturated = 'hitchdPinkDesaturated',
   hitchdGreyPrimary = 'hitchdGreyPrimary',

@@ -8,7 +8,7 @@ import { color } from 'styles/colorThemes/colorTheme';
 import { DesignContainerDiv } from 'SharedComponents/DesignDetailsElements';
 
 const SecondaryColorPanel = styled(Grid)`
-  background-color: ${color(ColorToken.sparkPrimary)};
+  background-color: ${color(ColorToken.sparkGreySecondary)};
 `;
 
 export const SparkPanelTypography: React.FunctionComponent = () => (

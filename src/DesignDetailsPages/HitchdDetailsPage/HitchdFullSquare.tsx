@@ -90,7 +90,7 @@ export const HitchdFullSquare: React.FunctionComponent<HitchdFullSquareProps> = 
       />
     </defs>
     <FilledRect
-      fillToken={inverted ? ColorToken.hitchdPink : ColorToken.hitchdSecondary}
+      fillToken={inverted ? ColorToken.hitchedLargeColorFill : ColorToken.hitchdSecondary}
       width="137.27"
       height="137.27"
     />

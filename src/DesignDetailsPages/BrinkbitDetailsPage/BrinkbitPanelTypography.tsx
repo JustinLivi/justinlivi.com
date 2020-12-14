@@ -8,7 +8,7 @@ import { FilledPath, FilledPolygon, FilledRect } from 'SharedComponents/SvgEleme
 import { DesignContainerDiv } from 'SharedComponents/DesignDetailsElements';
 
 const DarkBackgroundGrid = styled(Grid)`
-  background-color: ${color(ColorToken.brinkbitPrimary)};
+  background-color: ${color(ColorToken.brinkbitSecondary)};
 `;
 
 export const BrinkbitPanelTypography: React.FunctionComponent = () => (
