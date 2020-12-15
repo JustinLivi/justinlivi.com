@@ -10,6 +10,8 @@ const StyledLink = styled(Link)`
   padding: 0;
   font-weight: 500;
   font-size: 1.2rem;
+  margin-top: 0.3rem;
+  display: block;
   padding-bottom: 0.5rem;
 
   ${interactiveStyle}

@@ -27,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
     ${interactiveStyle}
   }
 

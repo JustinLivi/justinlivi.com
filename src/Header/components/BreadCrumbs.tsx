@@ -36,6 +36,10 @@ const BreadcrumbsElement = styled.li`
   }
 `;
 
+const StyledButton = styled.button`
+  font-size: 1rem;
+`;
+
 export const BreadCrumbs: React.FunctionComponent<BreadCrumbsProps> = ({ path, onClick, onBlur }) => (
   <BreadCrumbsContainer>
     <BreadCrumbsList>
@@ -45,9 +49,9 @@ export const BreadCrumbs: React.FunctionComponent<BreadCrumbsProps> = ({ path, o
         path.map((node, index) => (
           <BreadcrumbsElement key={node}>
             {index === 0 ? (
-              <button type="button" disabled={path.length === 0} onClick={onClick} onBlur={onBlur}>
+              <StyledButton type="button" disabled={path.length === 0} onClick={onClick} onBlur={onBlur}>
                 {node}
-              </button>
+              </StyledButton>
             ) : (
               node
             )}
