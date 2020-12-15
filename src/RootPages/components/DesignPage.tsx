@@ -18,9 +18,9 @@ const StyledMain = styled.main`
 export const DesignPage: React.FunctionComponent<DesignPageProps> = () => (
   <StyledMain>
     <Grid container={true} spacing={3}>
-      <DesignCard thumb={<BrinkbitThumb />} target="./brinkbit" title="brinkbit" />
-      <DesignCard thumb={<SparkThumb />} target="./spark" title="spark" />
-      <DesignCard thumb={<HitchdThumb />} target="./hitchd" title="hitchd" />
+      <DesignCard thumb={<BrinkbitThumb />} target="design/brinkbit" title="brinkbit" />
+      <DesignCard thumb={<SparkThumb />} target="design/spark" title="spark" />
+      <DesignCard thumb={<HitchdThumb />} target="design/hitchd" title="hitchd" />
     </Grid>
   </StyledMain>
 );

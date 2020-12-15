@@ -1,4 +1,4 @@
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -6,7 +6,6 @@ import { interactiveStyle } from 'styles/interactive';
 
 const StyledLink = styled(Link)`
   float: left;
-  display: inline-block;
   margin: 0;
   padding: 0;
   font-weight: 500;
