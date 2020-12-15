@@ -17,10 +17,10 @@
       "dom"
     ],
     "jsx": "preserve",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
   },
   "include": [
-    "src"
+    "src", "@types"
   ],
   "files": [
     "custom.d.ts"

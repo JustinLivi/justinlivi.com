@@ -1,0 +1,55 @@
+import { ColorTheme } from 'styles/colorThemes/colorThemeTypes';
+
+export const lightTheme: ColorTheme = {
+  primary: '#45434f',
+  secondary: '#fff',
+  greyPrimary: '#f7f7f7',
+  greySecondary: '#ccc',
+  interactiveHiglightInactive: 'rgba(69, 67, 79, 0)',
+  interactiveHiglightHover: 'rgba(69, 67, 79, 0.8)',
+  interactiveHiglightActive: 'rgba(69, 67, 79, 1)',
+
+  // brinkbit design theme
+  brinkbitBlue: '#60aecc',
+  brinkbitPrimary: '#050f17',
+  brinkbitSecondary: '#fff',
+  brinkbitGreyPrimary: '#bfced6',
+  brinkbitGreySecondary: '#587687',
+
+  // spark design theme
+  sparkPrimary: '#081f2c',
+  sparkSecondary: '#fff',
+  sparkGreyPrimary: '#bfced6',
+  sparkGreySecondary: '#000',
+  sparkGreyTertiary: '#5f717d',
+  sparkGradient1: '#e08e26',
+  sparkGradient2: '#b84a21',
+  sparkGradient3: '#c25823',
+  sparkGradient4: '#bb4d1e',
+  sparkGradient5: '#a82f11',
+  sparkGradient6: '#941103',
+  sparkGradient7: '#731001',
+  sparkGradient8: '#9e1708',
+  sparkGreyGradient1: '#a8a8a8',
+  sparkGreyGradient2: '#666',
+  sparkGreyGradient3: '#828282',
+  sparkGreyGradient4: '#777',
+  sparkGreyGradient5: '#595959',
+  sparkGreyGradient6: '#363636',
+  sparkGreyGradient7: '#474747',
+  sparkGreyGradient8: '#707070',
+  sparkMonoOrange: '#bc4729',
+  sparkMonoOrangeDesaturated: '#bcbcbc',
+  sparkMonoRed: '#9a3322',
+  sparkMonoRedDesaturated: '#9a9a9a',
+  sparkMonoYellow: '#d2892d',
+  sparkMonoYellowDesaturated: '#d2d2d2',
+
+  // hitchd design theme
+  hitchdPink: '#fe5168',
+  hitchdOrange: '#ff6160',
+  hitchedLargeColorFill: '#fe5168',
+  hitchdSecondary: '#fff',
+  hitchdPinkDesaturated: '#c4c4c4',
+  hitchdGreyPrimary: '#e3e3e3',
+};
