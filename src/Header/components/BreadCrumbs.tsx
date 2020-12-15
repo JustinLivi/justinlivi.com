@@ -1,23 +1,19 @@
 import React, { FocusEventHandler, MouseEventHandler } from 'react';
 import styled from 'styled-components';
 
-import { interactiveStyle } from 'styles/interactive';
-
 export interface BreadCrumbsProps {
   path: string[];
   onClick: MouseEventHandler<HTMLButtonElement>;
   onBlur: FocusEventHandler<HTMLButtonElement>;
 }
 
-const BreadCrumbsButton = styled.button`
+const BreadCrumbsContainer = styled.div`
   display: inline-block;
   margin: 0;
   padding: 0;
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
   font-size: 1rem;
-
-  ${interactiveStyle}
 `;
 
 const BreadCrumbsList = styled.ol`
@@ -40,14 +36,20 @@ const BreadcrumbsElement = styled.li`
   }
 `;
 
-export const BreadCrumbs: React.FunctionComponent<BreadCrumbsProps> = ({ path, onClick, onBlur }) => (
-  <BreadCrumbsButton type="button" disabled={path.length === 0} onClick={onClick} onBlur={onBlur}>
+export const BreadCrumbs: React.FunctionComponent<BreadCrumbsProps> = ({ path, onClick }) => (
+  <BreadCrumbsContainer>
     <BreadCrumbsList>
       {path.length === 0 ? (
         <BreadcrumbsElement />
       ) : (
-        path.map(node => <BreadcrumbsElement key={node}>{node}</BreadcrumbsElement>)
+        path.map(node => (
+          <BreadcrumbsElement key={node}>
+            <button type="button" disabled={path.length === 0} onClick={onClick}>
+              {node}
+            </button>
+          </BreadcrumbsElement>
+        ))
       )}
     </BreadCrumbsList>
-  </BreadCrumbsButton>
+  </BreadCrumbsContainer>
 );
