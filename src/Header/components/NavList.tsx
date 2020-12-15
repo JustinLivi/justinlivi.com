@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { filter, map } from 'lodash';
 import useBoundingClientRect from '@rooks/use-boundingclientrect';
 import { useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ import { headerExpandedSelector } from 'Header/state/headerSelectors';
 import { color, themeTransition } from 'styles/colorThemes/colorTheme';
 import { ColorToken } from 'styles/colorThemes/colorThemeTypes';
 import { scrollTopPosition } from 'styles/theme';
+import { usePrevious } from 'Header/hooks/usePrevious';
 
 const rootPaths = [
   {
@@ -96,21 +97,36 @@ const FooterDiv = styled.div`
 `;
 
 export const NavList: React.FunctionComponent<NavListProps> = ({ path, fixed }) => {
-  const ref = useRef(null);
+  const ulRef = useRef<HTMLUListElement>(null);
+  const [transitioning, setTransitionState] = useState(false);
   const expanded = useSelector(headerExpandedSelector);
-  const boundingclientrect = useBoundingClientRect(ref);
-  const expandedHeight = boundingclientrect?.height ?? -1;
+  const expandedPrev = usePrevious(expanded);
+  const ulBounds = useBoundingClientRect(ulRef);
+  const expandedHeight = ulBounds?.height ?? -1;
   const { y: scrollY } = useScrollPosition();
+  useEffect(() => {
+    if (expanded !== expandedPrev) {
+      setTransitionState(true);
+    }
+  }, [expanded, transitioning]);
   return (
     <StyledNav>
-      <ExpandableDiv expandedHeight={expandedHeight} expanded={expanded} fixed={fixed} scrollY={scrollY}>
-        <ul ref={ref}>
-          {map(
-            path.length === 1 ? filter(rootPaths, ({ title }) => title !== path[0]) : rootPaths,
-            ({ title, target }) => (
-              <NavElement key={target} title={title} target={target} />
-            ),
-          )}
+      <ExpandableDiv
+        onTransitionEnd={() => {
+          setTransitionState(false);
+        }}
+        expandedHeight={expandedHeight}
+        expanded={expanded}
+        fixed={fixed}
+        scrollY={scrollY}
+      >
+        <ul ref={ulRef}>
+          {expanded || transitioning
+            ? map(
+                path.length === 1 ? filter(rootPaths, ({ title }) => title !== path[0]) : rootPaths,
+                ({ title, target }) => <NavElement key={target} title={title} target={target} />,
+              )
+            : undefined}
         </ul>
       </ExpandableDiv>
       <FooterDiv>
