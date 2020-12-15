@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { filter, map } from 'lodash';
+import { filter, find, isNil, map, reject } from 'lodash';
 import useBoundingClientRect from '@rooks/use-boundingclientrect';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
@@ -141,8 +141,19 @@ export const NavList: React.FunctionComponent<NavListProps> = ({ path, fixed }) 
         <ul ref={ulRef}>
           {delayedExpanded || transitioning || fixed
             ? map(
-                path.length === 1 ? filter(rootPaths, ({ title }) => title !== path[0]) : rootPaths,
-                ({ title, target }) => <NavElement key={target} title={title} target={target} />,
+                reject(
+                  [
+                    find(rootPaths, ({ title }) => title === path[0]),
+                    ...filter(rootPaths, ({ title }) => title !== path[0]),
+                  ],
+                  isNil,
+                ) as {
+                  title: string;
+                  target: string;
+                }[],
+                ({ title, target }, index) => (
+                  <NavElement decorate={index === 0} key={target} title={title} target={target} />
+                ),
               )
             : undefined}
         </ul>
