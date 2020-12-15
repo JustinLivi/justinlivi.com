@@ -36,7 +36,7 @@ const BreadcrumbsElement = styled.li`
   }
 `;
 
-export const BreadCrumbs: React.FunctionComponent<BreadCrumbsProps> = ({ path, onClick }) => (
+export const BreadCrumbs: React.FunctionComponent<BreadCrumbsProps> = ({ path, onClick, onBlur }) => (
   <BreadCrumbsContainer>
     <BreadCrumbsList>
       {path.length === 0 ? (
@@ -44,7 +44,7 @@ export const BreadCrumbs: React.FunctionComponent<BreadCrumbsProps> = ({ path, o
       ) : (
         path.map(node => (
           <BreadcrumbsElement key={node}>
-            <button type="button" disabled={path.length === 0} onClick={onClick}>
+            <button type="button" disabled={path.length === 0} onClick={onClick} onBlur={onBlur}>
               {node}
             </button>
           </BreadcrumbsElement>

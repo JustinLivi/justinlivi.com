@@ -100,6 +100,8 @@ export const NavList: React.FunctionComponent<NavListProps> = ({ path, fixed }) 
   const ulRef = useRef<HTMLUListElement>(null);
   const [transitioning, setTransitionState] = useState(false);
   const expanded = useSelector(headerExpandedSelector);
+  const [delayedExpanded, setDelayedExpanded] = useState(expanded);
+  const [timeout, setTimeoutId] = useState<number | undefined>();
   const expandedPrev = usePrevious(expanded);
   const ulBounds = useBoundingClientRect(ulRef);
   const expandedHeight = ulBounds?.height ?? -1;
@@ -108,7 +110,23 @@ export const NavList: React.FunctionComponent<NavListProps> = ({ path, fixed }) 
     if (expanded !== expandedPrev) {
       setTransitionState(true);
     }
-  }, [expanded, transitioning]);
+    // starting to collapse
+    if (expanded !== expandedPrev) {
+      if (timeout) {
+        clearTimeout(timeout);
+        setTimeoutId(undefined);
+      }
+      if (!expanded) {
+        setTimeoutId(
+          window.setTimeout(() => {
+            setDelayedExpanded(expanded);
+          }, 200),
+        );
+      } else {
+        setDelayedExpanded(expanded);
+      }
+    }
+  }, [expanded, expandedPrev, timeout]);
   return (
     <StyledNav>
       <ExpandableDiv
@@ -121,7 +139,7 @@ export const NavList: React.FunctionComponent<NavListProps> = ({ path, fixed }) 
         scrollY={scrollY}
       >
         <ul ref={ulRef}>
-          {expanded || transitioning
+          {delayedExpanded || transitioning || fixed
             ? map(
                 path.length === 1 ? filter(rootPaths, ({ title }) => title !== path[0]) : rootPaths,
                 ({ title, target }) => <NavElement key={target} title={title} target={target} />,

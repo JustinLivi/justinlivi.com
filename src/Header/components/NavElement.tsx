@@ -3,6 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { interactiveStyle } from 'styles/interactive';
+import { useDispatch } from 'react-redux';
+import { breadcrumbsBlur, menuItemFocus } from 'Header/state/headerActions';
 
 export interface NavElementProps {
   title: string;
@@ -23,8 +25,18 @@ const StyledLi = styled.li`
   }
 `;
 
-export const NavElement: React.FunctionComponent<NavElementProps> = ({ title, target }) => (
-  <StyledLi>
-    <Link to={target}>{title}</Link>
-  </StyledLi>
-);
+export const NavElement: React.FunctionComponent<NavElementProps> = ({ title, target }) => {
+  const dispatch = useDispatch();
+  return (
+    <StyledLi>
+      <Link
+        onFocus={() => dispatch(menuItemFocus())}
+        onBlur={() => dispatch(breadcrumbsBlur())}
+        onClick={() => dispatch(breadcrumbsBlur())}
+        to={target}
+      >
+        {title}
+      </Link>
+    </StyledLi>
+  );
+};
