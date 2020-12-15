@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
 
 import { BrinkbitThumb } from 'RootPages/components/thumbnails/BrinkbitThumb';
-import { DesignCard } from 'RootPages/components/DesignCard';
 import { HitchdThumb } from 'RootPages/components/thumbnails/HitchdThumb';
 import { SparkThumb } from 'RootPages/components/thumbnails/SparkThumb';
 
@@ -18,9 +17,9 @@ const StyledMain = styled.main`
 export const DesignPage: React.FunctionComponent<DesignPageProps> = () => (
   <StyledMain>
     <Grid container={true} spacing={3}>
-      <DesignCard thumb={<BrinkbitThumb />} target="design/brinkbit" title="brinkbit" />
-      <DesignCard thumb={<SparkThumb />} target="design/spark" title="spark" />
-      <DesignCard thumb={<HitchdThumb />} target="design/hitchd" title="hitchd" />
+      <BrinkbitThumb />
+      <SparkThumb />
+      <HitchdThumb />
     </Grid>
   </StyledMain>
 );

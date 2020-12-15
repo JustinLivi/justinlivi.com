@@ -1,9 +1,6 @@
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 
-import { color } from 'styles/colorThemes/colorTheme';
-import { ColorToken } from 'styles/colorThemes/colorThemeTypes';
-
 export const SquareGrid = styled(Grid).attrs({ item: true })`
   padding: 4%;
 `;
@@ -13,12 +10,8 @@ export const DesignContainerDiv = styled.div`
   padding-bottom: 30vh;
 `;
 
-export const ThumbnailContainer = styled.span`
+export const ThumbnailContainer = styled.img`
   cursor: pointer;
-  background-color: ${color(ColorToken.greyPrimary)};
-
-  img {
-    cursor: pointer;
-    width: 100%;
-  }
+  width: 100%;
+  border-bottom: none;
 `;
