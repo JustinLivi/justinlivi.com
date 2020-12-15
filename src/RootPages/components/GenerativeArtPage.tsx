@@ -17,8 +17,12 @@ const StyledMain = styled.main`
 export const GenerativeArtPage: React.FunctionComponent<GenerativeArtPageProps> = () => (
   <StyledMain>
     <Grid container={true} spacing={3}>
-      <DesignCard thumb={<CommunityThumb />} target="./community" title="community" />
-      <DesignCard thumb={<WatercolorSedimentThumb />} target="./watercolor-sediment" title="watercolor sediment" />
+      <DesignCard thumb={<CommunityThumb />} target="/generative-art/community" title="community" />
+      <DesignCard
+        thumb={<WatercolorSedimentThumb />}
+        target="/generative-art/watercolor-sediment"
+        title="watercolor sediment"
+      />
     </Grid>
   </StyledMain>
 );

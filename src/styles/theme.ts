@@ -10,3 +10,5 @@ export interface ThemeConstructorArgs {
 export const constructTheme = ({ colorTheme }: ThemeConstructorArgs): DefaultTheme => ({
   colors: getColorTheme(colorTheme),
 });
+
+export const scrollTopPosition = 70;

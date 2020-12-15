@@ -9,6 +9,7 @@ import { useScrollPosition } from 'Header/hooks/useScrollPosition';
 import { headerExpandedSelector } from 'Header/state/headerSelectors';
 import { color, themeTransition } from 'styles/colorThemes/colorTheme';
 import { ColorToken } from 'styles/colorThemes/colorThemeTypes';
+import { scrollTopPosition } from 'styles/theme';
 
 const rootPaths = [
   {
@@ -79,7 +80,7 @@ const ShadowDiv = styled.div<NavListStyleProps>`
     `0rem 0rem 0.5rem 0rem rgba(0, 0, 0, ${(() => {
       if (fixed) return 0;
       if (expanded) return 0.3;
-      return Math.min(Math.max(scrollY - 75, 0) / 100, 0.3);
+      return Math.min(Math.max(scrollY - scrollTopPosition, 0) / 100, 0.3);
     })()})`};
 `;
 
@@ -98,7 +99,7 @@ export const NavList: React.FunctionComponent<NavListProps> = ({ path, fixed }) 
   const ref = useRef(null);
   const expanded = useSelector(headerExpandedSelector);
   const boundingclientrect = useBoundingClientRect(ref);
-  const expandedHeight = boundingclientrect ? boundingclientrect.height : -1;
+  const expandedHeight = boundingclientrect?.height ?? -1;
   const { y: scrollY } = useScrollPosition();
   return (
     <StyledNav>

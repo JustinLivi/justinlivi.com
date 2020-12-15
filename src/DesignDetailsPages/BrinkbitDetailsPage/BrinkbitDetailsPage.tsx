@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 
+import { Main } from 'SharedComponents/Main';
 import { BrinkbitPanelFontface } from 'DesignDetailsPages/BrinkbitDetailsPage/BrinkbitPanelFontface';
 import { BrinkbitPanelFooter } from 'DesignDetailsPages/BrinkbitDetailsPage/BrinkbitPanelFooter';
 import { BrinkbitPanelFullSquares } from 'DesignDetailsPages/BrinkbitDetailsPage/BrinkbitPanelFullSquares';
@@ -12,7 +13,7 @@ export interface BrinkbitDetailsPageProps {
 }
 
 export const BrinkbitDetailsPage: React.FunctionComponent<BrinkbitDetailsPageProps> = () => (
-  <main>
+  <Main>
     <Grid container={true}>
       <BrinkbitPanelHeader />
       <BrinkbitPanelTypography />
@@ -20,5 +21,5 @@ export const BrinkbitDetailsPage: React.FunctionComponent<BrinkbitDetailsPagePro
       <BrinkbitPanelFontface />
       <BrinkbitPanelFooter />
     </Grid>
-  </main>
+  </Main>
 );

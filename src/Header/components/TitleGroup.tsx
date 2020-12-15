@@ -21,7 +21,7 @@ const StickyNav = styled.nav`
   background-color: ${color(ColorToken.secondary)};
 `;
 
-export const TitleGroup: React.SFC<TitleGroupProps> = ({ title, fixed, path }) => (
+export const TitleGroup: React.FunctionComponent<TitleGroupProps> = ({ title, fixed, path }) => (
   <>
     <StickyNav>
       <Title title={title} />
