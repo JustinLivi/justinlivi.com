@@ -27,6 +27,12 @@ const PackageDiv = styled.div`
   }
 `;
 
+const StyledH2 = styled.h2`
+  font-size: 14.08px;
+  font-weight: 700;
+  margin: 0;
+`;
+
 export const OpenSourcePage: React.FunctionComponent<OpenSourcePageProps> = () => {
   const dispatch = useDispatch();
   const packages = useSelector(packagesResultsSelector);
@@ -42,7 +48,7 @@ export const OpenSourcePage: React.FunctionComponent<OpenSourcePageProps> = () =
         ? 'Loading...'
         : packages.map(({ name, npm, repository }) => (
             <PackageDiv key={name}>
-              <h3>{name}</h3>
+              <StyledH2>{name}</StyledH2>
               <p>
                 <a href={npm} target="_blank" rel="noopener noreferrer">
                   npm
