@@ -42,11 +42,15 @@ export const BreadCrumbs: React.FunctionComponent<BreadCrumbsProps> = ({ path, o
       {path.length === 0 ? (
         <BreadcrumbsElement />
       ) : (
-        path.map(node => (
+        path.map((node, index) => (
           <BreadcrumbsElement key={node}>
-            <button type="button" disabled={path.length === 0} onClick={onClick} onBlur={onBlur}>
-              {node}
-            </button>
+            {index === 0 ? (
+              <button type="button" disabled={path.length === 0} onClick={onClick} onBlur={onBlur}>
+                {node}
+              </button>
+            ) : (
+              node
+            )}
           </BreadcrumbsElement>
         ))
       )}
