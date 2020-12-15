@@ -11,5 +11,5 @@ export interface State {
 export const initialState: State = {
   packages: packagesInitialState,
   headerExpanded: headerInitialState,
-  colorTheme: ColorThemeId.light,
+  colorTheme: window.matchMedia('(prefers-color-scheme: dark)') ? ColorThemeId.dark : ColorThemeId.light,
 };
