@@ -152,7 +152,7 @@ export const NavList: React.FunctionComponent<NavListProps> = ({ path, fixed }) 
                   target: string;
                 }[],
                 ({ title, target }, index) => (
-                  <NavElement decorate={index === 0} key={target} title={title} target={target} />
+                  <NavElement decorate={index === 0 && !fixed} key={target} title={title} target={target} />
                 ),
               )
             : undefined}
