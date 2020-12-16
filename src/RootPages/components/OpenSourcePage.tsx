@@ -67,3 +67,6 @@ export const OpenSourcePage: React.FunctionComponent<OpenSourcePageProps> = () =
     </StyledMain>
   );
 };
+
+// eslint-disable-next-line import/no-default-export
+export default OpenSourcePage;

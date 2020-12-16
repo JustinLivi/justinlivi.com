@@ -20,3 +20,6 @@ export const HitchdDetailsPage: React.FunctionComponent<HitchdDetailsPageProps> 
     </Grid>
   </main>
 );
+
+// eslint-disable-next-line import/no-default-export
+export default HitchdDetailsPage;

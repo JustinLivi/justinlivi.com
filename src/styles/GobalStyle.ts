@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   html,
   body {
     font-family: 'Poppins', sans-serif;
+    font-display: swap;
     font-weight: 400;
     background-color: ${color(ColorToken.secondary)};
     margin: 0;

@@ -22,3 +22,6 @@ export const SparkDetailsPage: React.FunctionComponent<SparkDetailsPageProps> = 
     </Grid>
   </main>
 );
+
+// eslint-disable-next-line import/no-default-export
+export default SparkDetailsPage;

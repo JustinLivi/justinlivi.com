@@ -22,3 +22,6 @@ export const CommunityDetailsPage: React.FunctionComponent<CommunityDetailsPageP
     </Grid>
   </main>
 );
+
+// eslint-disable-next-line import/no-default-export
+export default CommunityDetailsPage;

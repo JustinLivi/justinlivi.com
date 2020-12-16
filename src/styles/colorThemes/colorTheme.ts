@@ -6,7 +6,7 @@ import { ColorTheme, ColorThemeId, ColorToken } from './colorThemeTypes';
 export const getColorTheme = (colorTheme: ColorThemeId): ColorTheme =>
   colorTheme === ColorThemeId.light ? lightTheme : darkTheme;
 
-export const color = (token: ColorToken) => ({ theme }: ThemedStyledProps<{}, DefaultTheme>) => theme.colors[token];
+export const color = (token: ColorToken) => <P>({ theme }: ThemedStyledProps<P, DefaultTheme>) => theme.colors[token];
 
 export const themeTransition = 'background-color 3s ease-out, fill 3s ease-out';
 

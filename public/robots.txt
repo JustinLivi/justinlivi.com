@@ -1,0 +1,11 @@
+user-agent: *
+allow: /
+allow: /design
+allow: /design/brinkbit
+allow: /design/spark
+allow: /design/hitchd
+allow: /open-source
+allow: /contact
+allow: /generative-art
+allow: /generative-art/community
+allow: /generative-art/watercolor-sediment

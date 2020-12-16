@@ -23,3 +23,6 @@ export const BrinkbitDetailsPage: React.FunctionComponent<BrinkbitDetailsPagePro
     </Grid>
   </Main>
 );
+
+// eslint-disable-next-line import/no-default-export
+export default BrinkbitDetailsPage;

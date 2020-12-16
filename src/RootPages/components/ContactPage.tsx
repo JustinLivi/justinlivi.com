@@ -29,3 +29,6 @@ export const ContactPage: React.FunctionComponent<ContactPageProps> = () => (
     </ContactList>
   </StyledMain>
 );
+
+// eslint-disable-next-line import/no-default-export
+export default ContactPage;

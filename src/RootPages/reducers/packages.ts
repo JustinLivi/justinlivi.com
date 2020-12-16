@@ -17,6 +17,7 @@ export const transformPackageResults = ({
   repository,
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isPackage = (arg: any): arg is Package =>
   typeof arg === 'object' && typeof arg.name === 'string' && typeof arg.npm === 'string';
 

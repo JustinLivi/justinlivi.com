@@ -22,3 +22,6 @@ export const WatercolorSedimentDetailsPage: React.SFC<WatercolorSedimentDetailsP
     </Grid>
   </main>
 );
+
+// eslint-disable-next-line import/no-default-export
+export default WatercolorSedimentDetailsPage;

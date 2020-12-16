@@ -16,11 +16,13 @@
       "es2015",
       "dom"
     ],
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "baseUrl": "./src",
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src", "@types"
+    "src",
+    "@types"
   ],
   "files": [
     "custom.d.ts"

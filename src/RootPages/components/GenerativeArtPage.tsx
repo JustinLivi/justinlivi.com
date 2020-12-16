@@ -21,3 +21,6 @@ export const GenerativeArtPage: React.FunctionComponent<GenerativeArtPageProps> 
     </Grid>
   </StyledMain>
 );
+
+// eslint-disable-next-line import/no-default-export
+export default GenerativeArtPage;

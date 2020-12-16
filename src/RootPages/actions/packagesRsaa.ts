@@ -1,6 +1,6 @@
 import { DeepPartial } from 'redux';
 import { RSAA } from 'redux-api-middleware';
-import { action } from 'ts-action';
+import { action, payload } from 'ts-action';
 
 export const PACKAGES_REQUEST = '[pages] packages request';
 export const PACKAGES_SUCCEED = '[pages] packages succeed';
@@ -8,11 +8,10 @@ export const PACKAGES_FAIL = '[pages] packages fail';
 
 export const packagesRsaa = () => ({
   [RSAA]: {
-    endpoint:
-      'https://api.npms.io/v2/search?q=maintainer:justinlivi&size=250&from=0',
+    endpoint: 'https://api.npms.io/v2/search?q=maintainer:justinlivi&size=250&from=0',
     method: 'GET',
-    types: [PACKAGES_REQUEST, PACKAGES_SUCCEED, PACKAGES_FAIL]
-  }
+    types: [PACKAGES_REQUEST, PACKAGES_SUCCEED, PACKAGES_FAIL],
+  },
 });
 
 export interface Maintainer {
@@ -54,8 +53,5 @@ export interface PackagesPayload {
 }
 
 export const packagesRequest = action(PACKAGES_REQUEST);
-export const packagesSucceed = action<typeof PACKAGES_SUCCEED, PackagesPayload>(
-  PACKAGES_SUCCEED,
-  undefined as any
-);
+export const packagesSucceed = action(PACKAGES_SUCCEED, payload<PackagesPayload>());
 export const packagesFail = action(PACKAGES_FAIL);

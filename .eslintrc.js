@@ -29,6 +29,8 @@ module.exports = {
     'react/jsx-boolean-value': ['error', 'always'],
     'no-use-before-define': [0],
     '@typescript-eslint/no-use-before-define': [1],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error']
   },
   env: {
     'jest/globals': true,
