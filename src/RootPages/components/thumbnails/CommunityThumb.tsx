@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
-import ProgressiveImage from 'react-progressive-image-loading';
+import ProgressiveImage from 'react-progressive-image';
 
 import { ThumbnailContainer } from 'SharedComponents/DesignDetailsElements';
 import {
@@ -48,11 +48,9 @@ export const CommunityThumb: React.FunctionComponent = () => (
   <Grid item={true} xs={12} sm={6} lg={3}>
     <StyledLink to="generative-art/community">
       <StyledSpan>
-        <ProgressiveImage
-          preview={communityThumbTiny}
-          src={communityThumb}
-          render={(src, style) => <ThumbnailContainer style={style} src={src} alt="community" />}
-        />
+        <ProgressiveImage placeholder={communityThumbTiny} src={communityThumb}>
+          {(src: string) => <ThumbnailContainer src={src} alt="community" />}
+        </ProgressiveImage>
         <StyledParagraph>community</StyledParagraph>
       </StyledSpan>
     </StyledLink>

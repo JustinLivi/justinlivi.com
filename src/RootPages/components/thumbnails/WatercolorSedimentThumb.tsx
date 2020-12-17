@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
-import ProgressiveImage from 'react-progressive-image-loading';
+import ProgressiveImage from 'react-progressive-image';
 
 import { ThumbnailContainer } from 'SharedComponents/DesignDetailsElements';
 import {
@@ -48,11 +48,9 @@ export const WatercolorSedimentThumb: React.FunctionComponent = () => (
   <Grid item={true} xs={12} sm={6} lg={3}>
     <StyledLink to="generative-art/watercolor-sediment">
       <StyledSpan>
-        <ProgressiveImage
-          preview={watercolorSedimentThumbTiny}
-          src={watercolorSedimentThumb}
-          render={(src, style) => <ThumbnailContainer style={style} src={src} alt="watercolor sediment" />}
-        />
+        <ProgressiveImage placeholder={watercolorSedimentThumbTiny} src={watercolorSedimentThumb}>
+          {(src: string) => <ThumbnailContainer src={src} alt="watercolor sediment" />}
+        </ProgressiveImage>
         <StyledParagraph>watercolor sediment</StyledParagraph>
       </StyledSpan>
     </StyledLink>

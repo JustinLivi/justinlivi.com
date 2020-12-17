@@ -21,8 +21,6 @@ const ThemeRoot = () => {
 
 export const App = () => (
   <Provider store={store}>
-    {/* <LocationProvider history={reachHistory}> */}
     <ThemeRoot />
-    {/* </LocationProvider> */}
   </Provider>
 );
