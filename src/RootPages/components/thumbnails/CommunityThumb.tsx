@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
+import ProgressiveImage from 'react-progressive-image-loading';
 
 import { ThumbnailContainer } from 'SharedComponents/DesignDetailsElements';
 import {
@@ -11,7 +12,8 @@ import {
   interactiveHoverStyle,
 } from 'styles/interactive';
 
-import communityThumb from './communityThumb.jpg';
+import communityThumbTiny from './communityThumbTiny.png';
+import communityThumb from './communityThumb.png';
 
 const StyledParagraph = styled.p`
   display: inline-block;
@@ -46,7 +48,11 @@ export const CommunityThumb: React.FunctionComponent = () => (
   <Grid item={true} xs={12} sm={6} lg={3}>
     <StyledLink to="generative-art/community">
       <StyledSpan>
-        <ThumbnailContainer src={communityThumb} alt="community" />
+        <ProgressiveImage
+          preview={communityThumbTiny}
+          src={communityThumb}
+          render={(src, style) => <ThumbnailContainer style={style} src={src} alt="community" />}
+        />
         <StyledParagraph>community</StyledParagraph>
       </StyledSpan>
     </StyledLink>
