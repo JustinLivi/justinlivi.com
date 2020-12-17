@@ -9,6 +9,7 @@ export interface CommunityDetailsPageProps {
 
 const StyledSketch = styled(CommunitySeed0)`
   max-width: calc(100vw - 5rem);
+  height: calc((100vw - 5rem) * (9 / 16));
   max-height: calc(100vh - 200px);
   margin-top: 30px;
   margin-left: 2.5rem;

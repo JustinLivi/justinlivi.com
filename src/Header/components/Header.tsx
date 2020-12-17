@@ -8,8 +8,8 @@ import { TitleGroup } from 'Header/components/TitleGroup';
 import { color } from 'styles/colorThemes/colorTheme';
 import { ColorToken } from 'styles/colorThemes/colorThemeTypes';
 import { ColorThemeToggle } from 'Header/components/ColorThemeToggle';
-import { useScrollPosition } from 'Header/hooks/useScrollPosition';
-import { usePrevious } from 'Header/hooks/usePrevious';
+import { useScrollPosition } from 'hooks/useScrollPosition';
+import { usePrevious } from 'hooks/usePrevious';
 import { scrollTopPosition } from 'styles/theme';
 
 const routeMappings: { [key: string]: string } = {

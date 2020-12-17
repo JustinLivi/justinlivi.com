@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { NavElement } from 'Header/components/NavElement';
-import { useScrollPosition } from 'Header/hooks/useScrollPosition';
+import { useScrollPosition } from 'hooks/useScrollPosition';
 import { headerExpandedSelector } from 'Header/state/headerSelectors';
 import { color, themeTransition } from 'styles/colorThemes/colorTheme';
 import { ColorToken } from 'styles/colorThemes/colorThemeTypes';
 import { scrollTopPosition } from 'styles/theme';
-import { usePrevious } from 'Header/hooks/usePrevious';
+import { usePrevious } from 'hooks/usePrevious';
 
 const rootPaths = [
   {

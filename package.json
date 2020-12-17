@@ -53,7 +53,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "history": "^4.10.1",
-    "justinlivi-generative-art": "^0.2.1",
+    "justinlivi-generative-art": "^0.2.2",
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "prettier": "^1.19.1",
