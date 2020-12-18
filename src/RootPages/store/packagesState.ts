@@ -13,5 +13,5 @@ export interface PackagesState {
 
 export const packagesInitialState: PackagesState = {
   cacheStatus: CacheStatus.BEHIND,
-  results: []
+  results: [],
 };

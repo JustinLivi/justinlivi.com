@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
-import { CommunitySeed0 } from 'justinlivi-generative-art';
+import { CommunitySeed0 } from 'justinlivi-generative-art/build/series/community/sketches/seed0/CommunitySeed0';
 
 export interface CommunityDetailsPageProps {
   path: string;

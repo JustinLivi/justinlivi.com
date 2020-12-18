@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { isNil, map } from 'lodash';
 import { useLocation } from 'react-router-dom';
 
 import { Brand } from 'Header/components/Brand';
@@ -26,7 +25,7 @@ const routeMappings: { [key: string]: string } = {
 
 const mapRoute = (key: string) => {
   const value = routeMappings[key];
-  return isNil(value) ? 'not found' : value;
+  return value ?? 'not found';
 };
 
 const StyledHeader = styled.header`
@@ -64,7 +63,7 @@ export const Header: React.FunctionComponent = () => {
       </StyledHeader>
       <TitleGroup
         title={pathname === '/' ? 'justin livi' : mapRoute(path[path.length - 1])}
-        path={pathname === '/' ? [] : map(path, mapRoute)}
+        path={pathname === '/' ? [] : path.map(mapRoute)}
         fixed={pathname === '/'}
       />
     </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
-import { WatercolorSedimentSeed0 } from 'justinlivi-generative-art';
+import { WatercolorSedimentSeed0 } from 'justinlivi-generative-art/build/series/watercolor-sediment/sketches/seed0/WatercolorSedimentSeed0';
 
 import { useWindowSize } from '../hooks/useWindowSize';
 

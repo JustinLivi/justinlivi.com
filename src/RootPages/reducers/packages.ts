@@ -1,6 +1,5 @@
 import { packagesRequest, PackagesResult, packagesSucceed } from 'RootPages/actions/packagesRsaa';
 import { Package, packagesInitialState } from 'RootPages/store/packagesState';
-import { filter, map } from 'lodash';
 import { on, reducer } from 'ts-action';
 import { CacheStatus } from 'utils';
 
@@ -11,7 +10,7 @@ export const transformPackageResults = ({
     name: undefined,
     links: defaultLinks,
   },
-}: PackagesResult) => ({
+}: PackagesResult): Partial<Package> => ({
   name,
   npm,
   repository,
@@ -29,6 +28,6 @@ export const packageStateReducer = reducer(
   })),
   on(packagesSucceed, (state, { payload: { results } }) => ({
     cacheStatus: CacheStatus.CACHED,
-    results: filter<Partial<Package>, Package>(map(results || [], transformPackageResults), isPackage),
+    results: (results || []).map(transformPackageResults).filter<Package>(isPackage),
   })),
 );

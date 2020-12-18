@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { filter, find, isNil, map, reject } from 'lodash';
 import useBoundingClientRect from '@rooks/use-boundingclientrect';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
@@ -96,6 +95,14 @@ const FooterDiv = styled.div`
   height: 1.5rem;
 `;
 
+export const isRootPath = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  arg: any,
+): arg is {
+  title: string;
+  target: string;
+} => typeof arg === 'object' && typeof arg.title === 'string' && typeof arg.target === 'string';
+
 export const NavList: React.FunctionComponent<NavListProps> = ({ path, fixed }) => {
   const ulRef = useRef<HTMLUListElement>(null);
   const [transitioning, setTransitionState] = useState(false);
@@ -140,21 +147,11 @@ export const NavList: React.FunctionComponent<NavListProps> = ({ path, fixed }) 
       >
         <ul ref={ulRef}>
           {delayedExpanded || transitioning || fixed
-            ? map(
-                reject(
-                  [
-                    find(rootPaths, ({ title }) => title === path[0]),
-                    ...filter(rootPaths, ({ title }) => title !== path[0]),
-                  ],
-                  isNil,
-                ) as {
-                  title: string;
-                  target: string;
-                }[],
-                ({ title, target }, index) => (
+            ? [rootPaths.find(({ title }) => title === path[0]), ...rootPaths.filter(({ title }) => title !== path[0])]
+                .filter(isRootPath)
+                .map(({ title, target }, index) => (
                   <NavElement decorate={index === 0 && !fixed} key={target} title={title} target={target} />
-                ),
-              )
+                ))
             : undefined}
         </ul>
       </ExpandableDiv>

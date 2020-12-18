@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { Header } from 'Header/components/Header';
+import styled from 'styled-components';
 
 // lazy load routes
 const BrinkbitDetailsPage = React.lazy(() => import('DesignDetailsPages/BrinkbitDetailsPage/BrinkbitDetailsPage'));
@@ -16,10 +17,14 @@ const DesignPage = React.lazy(() => import('RootPages/components/DesignPage'));
 const GenerativeArtPage = React.lazy(() => import('RootPages/components/GenerativeArtPage'));
 const OpenSourcePage = React.lazy(() => import('RootPages/components/OpenSourcePage'));
 
+const StyledMain = styled.main`
+  padding: 2.5rem;
+`;
+
 export const RootRouter: React.FunctionComponent = () => (
   <Router>
     <Header />
-    <Suspense fallback={<main>Loading...</main>}>
+    <Suspense fallback={<StyledMain>Loading...</StyledMain>}>
       <Switch>
         <Route path="/contact">
           <ContactPage path="contact" />
