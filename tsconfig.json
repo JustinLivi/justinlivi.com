@@ -18,11 +18,13 @@
     ],
     "jsx": "react-jsx",
     "baseUrl": "./src",
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "typeRoots": [
+      "@types"
+    ]
   },
   "include": [
-    "src",
-    "@types"
+    "src"
   ],
   "files": [
     "custom.d.ts"

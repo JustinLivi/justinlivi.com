@@ -10,8 +10,12 @@ export const DesignContainerDiv = styled.div`
   padding-bottom: 30vh;
 `;
 
-export const ThumbnailContainer = styled.img`
+export const ThumbnailContainer = styled.img.attrs({
+  width: 950,
+  height: 534,
+})`
   cursor: pointer;
   width: 100%;
+  height: 0%;
   border-bottom: none;
 `;

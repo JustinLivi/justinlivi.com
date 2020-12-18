@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { Header } from 'Header/components/Header';
-import styled from 'styled-components';
 
 // lazy load routes
 const BrinkbitDetailsPage = React.lazy(() => import('DesignDetailsPages/BrinkbitDetailsPage/BrinkbitDetailsPage'));
@@ -27,31 +27,31 @@ export const RootRouter: React.FunctionComponent = () => (
     <Suspense fallback={<StyledMain>Loading...</StyledMain>}>
       <Switch>
         <Route path="/contact">
-          <ContactPage path="contact" />
+          <ContactPage />
         </Route>
         <Route path="/open-source">
-          <OpenSourcePage path="open-source" />
+          <OpenSourcePage />
         </Route>
         <Route path="/design/spark">
-          <SparkDetailsPage path="design/spark" />
+          <SparkDetailsPage />
         </Route>
         <Route path="/design/brinkbit">
-          <BrinkbitDetailsPage path="design/brinkbit" />
+          <BrinkbitDetailsPage />
         </Route>
         <Route path="/design/hitchd">
-          <HitchdDetailsPage path="design/hitchd" />
+          <HitchdDetailsPage />
         </Route>
         <Route path="/design">
-          <DesignPage path="design" />
+          <DesignPage />
         </Route>
         <Route path="/generative-art/community">
-          <CommunityDetailsPage path="generative-art/community" />
+          <CommunityDetailsPage />
         </Route>
         <Route path="/generative-art/watercolor-sediment">
-          <WatercolorSedimentDetailsPage path="generative-art/watercolor-sediment" />
+          <WatercolorSedimentDetailsPage />
         </Route>
         <Route path="/generative-art">
-          <GenerativeArtPage path="generative-art" />
+          <GenerativeArtPage />
         </Route>
       </Switch>
     </Suspense>

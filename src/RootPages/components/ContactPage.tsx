@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
 import { ContactLink } from 'RootPages/components/ContactLink';
-
-export interface ContactPageProps {
-  path: string;
-}
 
 const StyledMain = styled.main`
   padding: 2.5rem;
@@ -16,8 +13,11 @@ const ContactList = styled.ul`
   padding: 0;
 `;
 
-export const ContactPage: React.FunctionComponent<ContactPageProps> = () => (
+export const ContactPage: React.FunctionComponent = () => (
   <StyledMain>
+    <Helmet>
+      <title>Justin Livi - Contact</title>
+    </Helmet>
     <ContactList>
       <ContactLink href="mailto:justin@brinkbit.com" noTarget={true}>
         email

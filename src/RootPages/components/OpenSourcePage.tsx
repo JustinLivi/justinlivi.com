@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 import { packagesRsaa } from 'RootPages/actions/packagesRsaa';
 import { packagesCacheStatusSelector, packagesResultsSelector } from 'RootPages/selectors/packagesSelectors';
 import { CacheStatus } from 'utils';
-
-export interface OpenSourcePageProps {
-  path: string;
-}
 
 const StyledMain = styled.main`
   padding: 2.5rem;
@@ -33,7 +30,7 @@ const StyledH2 = styled.h2`
   margin: 0;
 `;
 
-export const OpenSourcePage: React.FunctionComponent<OpenSourcePageProps> = () => {
+export const OpenSourcePage: React.FunctionComponent = () => {
   const dispatch = useDispatch();
   const packages = useSelector(packagesResultsSelector);
   const packagesCacheStatus = useSelector(packagesCacheStatusSelector);
@@ -44,6 +41,9 @@ export const OpenSourcePage: React.FunctionComponent<OpenSourcePageProps> = () =
   }, [packagesCacheStatus, dispatch]);
   return (
     <StyledMain>
+      <Helmet>
+        <title>Justin Livi - Generative Art</title>
+      </Helmet>
       {packagesCacheStatus === CacheStatus.BEHIND || packagesCacheStatus === CacheStatus.FETCHING
         ? 'Loading...'
         : packages.map(({ name, npm, repository }) => (

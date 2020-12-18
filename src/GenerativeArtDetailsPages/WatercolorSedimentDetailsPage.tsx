@@ -2,12 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
 import { WatercolorSedimentSeed0 } from 'justinlivi-generative-art/build/series/watercolor-sediment/sketches/seed0/WatercolorSedimentSeed0';
+import { Helmet } from 'react-helmet';
 
 import { useWindowSize } from '../hooks/useWindowSize';
-
-export interface WatercolorSedimentDetailsPageProps {
-  path: string;
-}
 
 const StyledSketch = styled(WatercolorSedimentSeed0)`
   width: calc((100vh - 200px) * (16 / 9));
@@ -19,7 +16,7 @@ const StyledSketch = styled(WatercolorSedimentSeed0)`
   margin-right: 2.5rem;
 `;
 
-export const WatercolorSedimentDetailsPage: React.FunctionComponent<WatercolorSedimentDetailsPageProps> = () => {
+export const WatercolorSedimentDetailsPage: React.FunctionComponent = () => {
   const { width, height } = useWindowSize();
   if (width === undefined || height === undefined) {
     return <></>;
@@ -28,6 +25,9 @@ export const WatercolorSedimentDetailsPage: React.FunctionComponent<WatercolorSe
   const constrainedHeight = Math.floor(constrainedWidth * (9 / 16));
   return (
     <main>
+      <Helmet>
+        <title>Justin Livi - Watercolor Sediment Generative Art</title>
+      </Helmet>
       <Grid container={true}>
         <StyledSketch width={constrainedWidth} height={constrainedHeight} />
       </Grid>

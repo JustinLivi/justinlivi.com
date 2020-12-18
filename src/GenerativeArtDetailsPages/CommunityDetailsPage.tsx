@@ -2,10 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
 import { CommunitySeed0 } from 'justinlivi-generative-art/build/series/community/sketches/seed0/CommunitySeed0';
-
-export interface CommunityDetailsPageProps {
-  path: string;
-}
+import { Helmet } from 'react-helmet';
 
 const StyledSketch = styled(CommunitySeed0)`
   max-width: calc(100vw - 5rem);
@@ -16,8 +13,11 @@ const StyledSketch = styled(CommunitySeed0)`
   margin-right: 2.5rem;
 `;
 
-export const CommunityDetailsPage: React.FunctionComponent<CommunityDetailsPageProps> = () => (
+export const CommunityDetailsPage: React.FunctionComponent = () => (
   <main>
+    <Helmet>
+      <title>Justin Livi - Community Generative Art</title>
+    </Helmet>
     <Grid container={true}>
       <StyledSketch />
     </Grid>
