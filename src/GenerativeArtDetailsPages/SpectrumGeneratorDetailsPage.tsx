@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import { WatercolorSedimentSeed0 } from 'justinlivi-generative-art/build/series/watercolor-sediment/sketches/seed0/WatercolorSedimentSeed0';
+import { SpectrumGeneratorSeed0 } from 'justinlivi-generative-art/build/series/spectrum-generator/sketches/seed0/SpectrumGeneratorSeed0';
 import { Helmet } from 'react-helmet';
 
 import { useWindowSize } from '../hooks/useWindowSize';
 
-const StyledSketch = styled(WatercolorSedimentSeed0)`
+const StyledSketch = styled(SpectrumGeneratorSeed0)`
   width: calc((100vh - 200px) * (16 / 9));
   max-width: calc(100vw - 5rem);
   height: calc((100vw - 5rem) * (9 / 16));
@@ -16,7 +16,7 @@ const StyledSketch = styled(WatercolorSedimentSeed0)`
   margin-right: 2.5rem;
 `;
 
-export const WatercolorSedimentDetailsPage: React.FunctionComponent = () => {
+export const SpectrumGeneratorDetailsPage: React.FunctionComponent = () => {
   const { width, height } = useWindowSize();
   if (width === undefined || height === undefined) {
     return <></>;
@@ -26,7 +26,7 @@ export const WatercolorSedimentDetailsPage: React.FunctionComponent = () => {
   return (
     <main>
       <Helmet>
-        <title>Justin Livi - Watercolor Sediment Generative Art</title>
+        <title>Justin Livi - Spectrum Generator Generative Art</title>
       </Helmet>
       <Grid container={true}>
         <StyledSketch width={constrainedWidth} height={constrainedHeight} />
@@ -36,4 +36,4 @@ export const WatercolorSedimentDetailsPage: React.FunctionComponent = () => {
 };
 
 // eslint-disable-next-line import/no-default-export
-export default WatercolorSedimentDetailsPage;
+export default SpectrumGeneratorDetailsPage;

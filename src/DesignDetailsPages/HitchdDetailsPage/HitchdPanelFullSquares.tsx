@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 import { HitchdFullSquare } from 'DesignDetailsPages/HitchdDetailsPage/HitchdFullSquare';
 import { SquareGrid } from 'SharedComponents/DesignDetailsElements';

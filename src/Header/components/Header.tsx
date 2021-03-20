@@ -21,6 +21,7 @@ const routeMappings: { [key: string]: string } = {
   hitchd: 'hitchd',
   community: 'community',
   'watercolor-sediment': 'watercolor sediment',
+  'spectrum-generator': 'spectrum generator',
 };
 
 const mapRoute = (key: string) => {

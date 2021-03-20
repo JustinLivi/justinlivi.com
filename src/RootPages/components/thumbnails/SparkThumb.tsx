@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components';
 
 import { color } from 'styles/colorThemes/colorTheme';

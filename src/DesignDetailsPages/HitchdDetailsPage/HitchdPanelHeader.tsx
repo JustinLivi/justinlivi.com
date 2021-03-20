@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 import { DesignContainerDiv } from 'SharedComponents/DesignDetailsElements';
 import { GradientPath, StopColor } from 'SharedComponents/SvgElements';

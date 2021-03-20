@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import { CommunitySeed0 } from 'justinlivi-generative-art/build/series/community/sketches/seed0/CommunitySeed0';
 import { Helmet } from 'react-helmet';
 

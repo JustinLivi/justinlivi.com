@@ -12,8 +12,8 @@ import {
   interactiveHoverStyle,
 } from 'styles/interactive';
 
-import communityThumbTiny from './communityThumbTiny.png';
-import communityThumb from './communityThumb.png';
+import spectrumGeneratorThumb from './spectrumGeneratorThumb.jpg';
+import spectrumGeneratorThumbTiny from './spectrumGeneratorThumbTiny.jpg';
 
 const StyledParagraph = styled.p`
   display: inline-block;
@@ -44,14 +44,14 @@ const StyledSpan = styled.span`
   }
 `;
 
-export const CommunityThumb: React.FunctionComponent = () => (
+export const SpectrumGeneratorThumb: React.FunctionComponent = () => (
   <Grid item={true} xs={12} sm={6} lg={3}>
-    <StyledLink to="generative-art/community">
+    <StyledLink to="generative-art/spectrum-generator">
       <StyledSpan>
-        <ProgressiveImage placeholder={communityThumbTiny} src={communityThumb}>
-          {(src: string) => <ThumbnailContainer src={src} alt="community" />}
+        <ProgressiveImage placeholder={spectrumGeneratorThumbTiny} src={spectrumGeneratorThumb}>
+          {(src: string) => <ThumbnailContainer src={src} alt="spectrum generator" />}
         </ProgressiveImage>
-        <StyledParagraph>community</StyledParagraph>
+        <StyledParagraph>spectrum generator</StyledParagraph>
       </StyledSpan>
     </StyledLink>
   </Grid>

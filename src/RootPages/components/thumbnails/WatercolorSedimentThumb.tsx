@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import ProgressiveImage from 'react-progressive-image';
 
 import { ThumbnailContainer } from 'SharedComponents/DesignDetailsElements';

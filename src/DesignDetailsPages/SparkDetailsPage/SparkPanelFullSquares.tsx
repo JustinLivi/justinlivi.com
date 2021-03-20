@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 import { SparkFullSquare } from 'DesignDetailsPages/SparkDetailsPage/SparkFullSquare';
 import { color } from 'styles/colorThemes/colorTheme';
