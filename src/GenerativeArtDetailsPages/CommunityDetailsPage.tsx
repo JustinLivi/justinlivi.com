@@ -4,25 +4,31 @@ import Grid from '@material-ui/core/Grid';
 import { CommunitySeed0 } from 'justinlivi-generative-art/build/series/community/sketches/seed0/CommunitySeed0';
 import { Helmet } from 'react-helmet';
 
+import { sketchStyle } from 'styles/sketch';
+import { useWindowSize } from '../hooks/useWindowSize';
+
 const StyledSketch = styled(CommunitySeed0)`
-  max-width: calc(100vw - 5rem);
-  height: calc((100vw - 5rem) * (9 / 16));
-  max-height: calc(100vh - 200px);
-  margin-top: 30px;
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+  ${sketchStyle}
 `;
 
-export const CommunityDetailsPage: React.FunctionComponent = () => (
-  <main>
-    <Helmet>
-      <title>Justin Livi - Community Generative Art</title>
-    </Helmet>
-    <Grid container={true}>
-      <StyledSketch />
-    </Grid>
-  </main>
-);
+export const CommunityDetailsPage: React.FunctionComponent = () => {
+  const { width, height } = useWindowSize();
+  if (width === undefined || height === undefined) {
+    return <></>;
+  }
+  const constrainedWidth = Math.min(width, 1920);
+  const constrainedHeight = Math.floor(constrainedWidth * (9 / 16));
+  return (
+    <main>
+      <Helmet>
+        <title>Justin Livi - Community Generative Art</title>
+      </Helmet>
+      <Grid container={true}>
+        <StyledSketch width={constrainedWidth} height={constrainedHeight} />
+      </Grid>
+    </main>
+  );
+};
 
 // eslint-disable-next-line import/no-default-export
 export default CommunityDetailsPage;

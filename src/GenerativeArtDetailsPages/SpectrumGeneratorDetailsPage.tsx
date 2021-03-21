@@ -4,16 +4,11 @@ import Grid from '@material-ui/core/Grid';
 import { SpectrumGeneratorSeed0 } from 'justinlivi-generative-art/build/series/spectrum-generator/sketches/seed0/SpectrumGeneratorSeed0';
 import { Helmet } from 'react-helmet';
 
+import { sketchStyle } from 'styles/sketch';
 import { useWindowSize } from '../hooks/useWindowSize';
 
 const StyledSketch = styled(SpectrumGeneratorSeed0)`
-  width: calc((100vh - 200px) * (16 / 9));
-  max-width: calc(100vw - 5rem);
-  height: calc((100vw - 5rem) * (9 / 16));
-  max-height: calc(100vh - 200px);
-  margin-top: 30px;
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+  ${sketchStyle}
 `;
 
 export const SpectrumGeneratorDetailsPage: React.FunctionComponent = () => {
