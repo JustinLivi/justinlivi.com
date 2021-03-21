@@ -13,6 +13,7 @@ const WatercolorSedimentDetailsPage = React.lazy(() =>
   import('GenerativeArtDetailsPages/WatercolorSedimentDetailsPage'),
 );
 const SpectrumGeneratorDetailsPage = React.lazy(() => import('GenerativeArtDetailsPages/SpectrumGeneratorDetailsPage'));
+const AncientBeastsDetailsPage = React.lazy(() => import('GenerativeArtDetailsPages/AncientBeastsDetailsPage'));
 const ContactPage = React.lazy(() => import('RootPages/components/ContactPage'));
 const DesignPage = React.lazy(() => import('RootPages/components/DesignPage'));
 const GenerativeArtPage = React.lazy(() => import('RootPages/components/GenerativeArtPage'));
@@ -53,6 +54,9 @@ export const RootRouter: React.FunctionComponent = () => (
         </Route>
         <Route path="/generative-art/spectrum-generator">
           <SpectrumGeneratorDetailsPage />
+        </Route>
+        <Route path="/generative-art/ancient-beasts">
+          <AncientBeastsDetailsPage />
         </Route>
         <Route path="/generative-art">
           <GenerativeArtPage />

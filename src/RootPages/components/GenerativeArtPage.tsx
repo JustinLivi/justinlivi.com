@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 import { CommunityThumb } from 'RootPages/components/thumbnails/CommunityThumb';
 import { WatercolorSedimentThumb } from 'RootPages/components/thumbnails/WatercolorSedimentThumb';
 import { SpectrumGeneratorThumb } from 'RootPages/components/thumbnails/SpectrumGeneratorThumb';
+import { AncientBeastsThumb } from 'RootPages/components/thumbnails/AncientBeastsThumb';
 
 const StyledMain = styled.main`
   padding: 2.5rem;
@@ -20,6 +21,7 @@ export const GenerativeArtPage: React.FunctionComponent = () => (
       <CommunityThumb />
       <WatercolorSedimentThumb />
       <SpectrumGeneratorThumb />
+      <AncientBeastsThumb />
     </Grid>
   </StyledMain>
 );
