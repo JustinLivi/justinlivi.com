@@ -23,6 +23,7 @@ const routeMappings: { [key: string]: string } = {
   'watercolor-sediment': 'watercolor sediment',
   'spectrum-generator': 'spectrum generator',
   'ancient-beasts': 'ancient beasts',
+  'bold-strokes': 'bold strokes',
 };
 
 const mapRoute = (key: string) => {

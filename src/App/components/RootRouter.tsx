@@ -18,6 +18,7 @@ const ContactPage = React.lazy(() => import('RootPages/components/ContactPage'))
 const DesignPage = React.lazy(() => import('RootPages/components/DesignPage'));
 const GenerativeArtPage = React.lazy(() => import('RootPages/components/GenerativeArtPage'));
 const OpenSourcePage = React.lazy(() => import('RootPages/components/OpenSourcePage'));
+const BoldStrokesDetailsPage = React.lazy(() => import('GenerativeArtDetailsPages/BoldStrokesDetailsPage'));
 
 const StyledMain = styled.main`
   padding: 2.5rem;
@@ -57,6 +58,9 @@ export const RootRouter: React.FunctionComponent = () => (
         </Route>
         <Route path="/generative-art/ancient-beasts">
           <AncientBeastsDetailsPage />
+        </Route>
+        <Route path="/generative-art/bold-strokes">
+          <BoldStrokesDetailsPage />
         </Route>
         <Route path="/generative-art">
           <GenerativeArtPage />

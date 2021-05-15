@@ -37,7 +37,7 @@
     "@types/redux-api-middleware": "^3.2.2",
     "@types/redux-logger": "^3.0.8",
     "@types/styled-components": "^5.1.5",
-    "justinlivi-generative-art": "^0.5.0",
+    "justinlivi-generative-art": "^0.6.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
