@@ -49,11 +49,6 @@ module "acm_ops" {
   source       = "./modules/aws_acm_certificate"
   domain_names = [var.domain, var.subdomain]
   zone_id      = aws_route53_zone.route53_zone.zone_id
-
-  providers = {
-    aws.acm     = aws
-    aws.route53 = aws
-  }
 }
 
 resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {}
