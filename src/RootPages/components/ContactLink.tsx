@@ -17,3 +17,7 @@ export const ContactLink: React.FunctionComponent<ContactLinkProps> = ({ href, n
     </a>
   </StyledLi>
 );
+
+ContactLink.defaultProps = {
+  noTarget: false,
+};

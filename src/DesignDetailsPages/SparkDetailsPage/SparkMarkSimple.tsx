@@ -28,3 +28,7 @@ export const SparkMarkSimple: React.FunctionComponent<SparkMarkSimpleProps> = ({
     />
   </svg>
 );
+
+SparkMarkSimple.defaultProps = {
+  inverted: false,
+};

@@ -141,3 +141,7 @@ export const HitchdFullSquare: React.FunctionComponent<HitchdFullSquareProps> = 
     />
   </svg>
 );
+
+HitchdFullSquare.defaultProps = {
+  inverted: false,
+};
