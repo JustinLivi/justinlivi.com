@@ -1,4 +1,4 @@
-image: node:12
+image: node:22
 
 stages:
   - build
@@ -28,15 +28,15 @@ terraform:
       - master
   stage: terraform
   variables:
-    TF_VAR_aws_access_key_id: "$AWS_ACCESS_KEY_ID"
-    TF_VAR_aws_secret_access_key: "$AWS_SECRET_ACCESS_KEY"
-    TF_BACKEND_CONFIG: "$TF_BACKEND_CONFIG"
-    TF_IN_AUTOMATION: "true"
+    TF_VAR_aws_access_key_id: '$AWS_ACCESS_KEY_ID'
+    TF_VAR_aws_secret_access_key: '$AWS_SECRET_ACCESS_KEY'
+    TF_BACKEND_CONFIG: '$TF_BACKEND_CONFIG'
+    TF_IN_AUTOMATION: 'true'
   image:
     name: hashicorp/terraform:light
     entrypoint:
-      - "/usr/bin/env"
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - '/usr/bin/env'
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
   script:
     - cd terraform
     - terraform init -input=false -backend-config=$TF_BACKEND_CONFIG
@@ -54,15 +54,15 @@ deploy:
   image:
     name: mesosphere/aws-cli
     entrypoint:
-      - "/usr/bin/env"
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - '/usr/bin/env'
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
   only:
     refs:
       - master
   stage: deploy
   variables:
-    AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID"
-    AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY"
+    AWS_ACCESS_KEY_ID: '$AWS_ACCESS_KEY_ID'
+    AWS_SECRET_ACCESS_KEY: '$AWS_SECRET_ACCESS_KEY'
   artifacts:
     paths:
       - build
@@ -77,15 +77,15 @@ invalidate_cdn:
   image:
     name: mesosphere/aws-cli
     entrypoint:
-      - "/usr/bin/env"
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - '/usr/bin/env'
+      - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
   only:
     refs:
       - master
   stage: deploy
   variables:
-    AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID"
-    AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY"
+    AWS_ACCESS_KEY_ID: '$AWS_ACCESS_KEY_ID'
+    AWS_SECRET_ACCESS_KEY: '$AWS_SECRET_ACCESS_KEY'
   artifacts:
     paths:
       - res/
