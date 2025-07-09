@@ -22,7 +22,6 @@ export const ContactPage: React.FunctionComponent = () => (
       <ContactLink href="https://www.linkedin.com/in/justinlivi/">linkedin</ContactLink>
       <ContactLink href="https://github.com/JustinLivi">github</ContactLink>
       <ContactLink href="https://www.npmjs.com/~justinlivi">npm</ContactLink>
-      <ContactLink href="https://twitter.com/justinlivi">twitter</ContactLink>
     </ContactList>
   </StyledMain>
 );
