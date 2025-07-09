@@ -22,10 +22,8 @@ const StickyNav = styled.nav`
 `;
 
 export const TitleGroup: React.FunctionComponent<TitleGroupProps> = ({ title, fixed, path }) => (
-  <>
-    <StickyNav>
-      <Title title={title} />
-      <Navigation path={path} fixed={fixed} />
-    </StickyNav>
-  </>
+  <StickyNav>
+    <Title title={title} />
+    <Navigation path={path} fixed={fixed} />
+  </StickyNav>
 );

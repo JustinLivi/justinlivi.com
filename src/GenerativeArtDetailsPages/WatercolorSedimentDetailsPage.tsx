@@ -14,7 +14,7 @@ const StyledSketch = styled(WatercolorSedimentSeed0)`
 export const WatercolorSedimentDetailsPage: React.FunctionComponent = () => {
   const { width, height } = useWindowSize();
   if (width === undefined || height === undefined) {
-    return <></>;
+    return null;
   }
   const constrainedWidth = Math.min(width, 1920);
   const constrainedHeight = Math.floor(constrainedWidth * (9 / 16));

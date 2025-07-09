@@ -9,8 +9,8 @@ const BrinkbitDetailsPage = React.lazy(() => import('DesignDetailsPages/Brinkbit
 const HitchdDetailsPage = React.lazy(() => import('DesignDetailsPages/HitchdDetailsPage/HitchdDetailsPage'));
 const SparkDetailsPage = React.lazy(() => import('DesignDetailsPages/SparkDetailsPage/SparkDetailsPage'));
 const CommunityDetailsPage = React.lazy(() => import('GenerativeArtDetailsPages/CommunityDetailsPage'));
-const WatercolorSedimentDetailsPage = React.lazy(() =>
-  import('GenerativeArtDetailsPages/WatercolorSedimentDetailsPage'),
+const WatercolorSedimentDetailsPage = React.lazy(
+  () => import('GenerativeArtDetailsPages/WatercolorSedimentDetailsPage'),
 );
 const SpectrumGeneratorDetailsPage = React.lazy(() => import('GenerativeArtDetailsPages/SpectrumGeneratorDetailsPage'));
 const AncientBeastsDetailsPage = React.lazy(() => import('GenerativeArtDetailsPages/AncientBeastsDetailsPage'));

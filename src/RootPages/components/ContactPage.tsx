@@ -19,9 +19,6 @@ export const ContactPage: React.FunctionComponent = () => (
       <title>Justin Livi - Contact</title>
     </Helmet>
     <ContactList>
-      <ContactLink href="mailto:justin@brinkbit.com" noTarget={true}>
-        email
-      </ContactLink>
       <ContactLink href="https://www.linkedin.com/in/justinlivi/">linkedin</ContactLink>
       <ContactLink href="https://github.com/JustinLivi">github</ContactLink>
       <ContactLink href="https://www.npmjs.com/~justinlivi">npm</ContactLink>

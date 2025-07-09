@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${color(ColorToken.primary)};
   }
 
-  div, span, a, ul, ol, li, body, html, header, main, nav, h1, h2, h3, polygon, path, rect {
+  div, span, a, ul, ol, li, body, html, header, main, nav, h1, h2, h3, polygon, path, rect, canvas {
     ${ThemeTransitionStyle}
   }
 

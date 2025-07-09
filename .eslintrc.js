@@ -1,13 +1,9 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
   extends: [
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
     'airbnb',
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
-    'prettier',
-    'prettier/react',
   ],
   parserOptions: {
     ecmaVersion: 2018,
@@ -30,7 +26,11 @@ module.exports = {
     'no-use-before-define': [0],
     '@typescript-eslint/no-use-before-define': [1],
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error']
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'react/function-component-definition': [
+      2,
+      { unnamedComponents: 'arrow-function', namedComponents: 'arrow-function' },
+    ],
   },
   env: {
     'jest/globals': true,
@@ -43,6 +43,14 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         'dot-notation': 'off',
         'import/no-extraneous-dependencies': 'off',
+      },
+    },
+    {
+      files: ['**/*.json', '.eslintrc.js'],
+      rules: {
+        '@typescript-eslint/no-unused-expressions': 'off',
+        'no-unused-expressions': 'off',
+        '@nx/enforce-module-boundaries': 'off',
       },
     },
   ],
